@@ -1,11 +1,9 @@
-import Image from "next/image";
+import HeroSection from "@/components/hero/HeroSection";
+
 export default function Home() {
   return (
- 
-      <main className="min-h-screen ">
-        <Image src="/home/heroimage.svg" alt="heroimage" width="1728" height="966" />
-       
-      </main>
-
+    <main className="min-h-screen">
+      <HeroSection />
+    </main>
   );
 }
