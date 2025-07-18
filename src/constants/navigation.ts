@@ -3,10 +3,10 @@ import type { NavigationItem } from '@/types';
 // Navigation menu items
 export const NAVIGATION_ITEMS: NavigationItem[] = [
   { name: 'السجاد', href: '/carpets', ariaLabel: 'السجاد التقليدي والعصري' },
-  { name: 'الموكيت', href: '/moquette', ariaLabel: 'موكيت وسجاد حديث' },
   { name: 'الستائر', href: '/curtains', ariaLabel: 'ستائر ومفروشات النوافذ' },
-  { name: 'الركنيات', href: '/corners', ariaLabel: 'ركنيات وأثاث الجلوس' },
   { name: 'تنسيق الحدائق', href: '/garden', ariaLabel: 'منتجات الحديقة المنزلية' },
+  { name: 'تواصل معنا', href: '/contact', ariaLabel: 'تواصل معنا' },
+  { name: 'عن الشركة', href: '/about', ariaLabel: 'عن الشركة' },
 ];
 
 // App constants

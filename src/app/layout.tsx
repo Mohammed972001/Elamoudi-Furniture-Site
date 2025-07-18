@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
+import "../styles/fonts.css";
 import Navbar from "@/components/navbar/Navbar";
 import type { RootLayoutProps } from "@/types";
+import Footer from "@/components/ui/Footer";
 
 // Font configuration
 const cairo = Cairo({
@@ -23,7 +25,10 @@ export const metadata: Metadata = {
     title: "بيت السجاد - أفضل أنواع السجاد والموكيت",
     description: "متجر بيت السجاد للسجاد والموكيت والمفروشات المنزلية. أجود الأنواع وأفضل الأسعار",
     type: "website",
-    locale: "ar_EG",
+    locale: "ar_SA",
+  },
+  icons: {
+    icon: '/NavBar/NavbarIcone.svg',
   },
 };
 
@@ -37,6 +42,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
           <main className="relative">
             {children}
           </main>
+          <Footer/>
         </div>
       </body>
     </html>

@@ -4,7 +4,7 @@ import type { MobileMenuButtonProps } from '@/types';
 const MobileMenuButton = ({ onToggle, isOpen }: MobileMenuButtonProps) => (
   <button
     onClick={onToggle}
-    className="lg:hidden p-2 text-gray-600 hover:text-amber-800 transition-colors"
+    className="lg:hidden  p-2 text-gray-600 hover:text-amber-800 transition-colors "
     aria-label={isOpen ? 'إغلاق القائمة' : 'فتح القائمة'}
     aria-expanded={isOpen}
     type="button"
