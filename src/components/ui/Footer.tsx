@@ -102,7 +102,7 @@ const Footer = () => {
             </div>
             
             <div className="space-y-3">
-              <a href="tel:+966-437-2766" className="flex items-center justify-center text-lg">
+              <a href="tel:+966-56-774-6257" className="flex items-center justify-center text-lg">
                 <Image 
                   src="/home/phon.svg" 
                   alt="هاتف"
@@ -110,7 +110,7 @@ const Footer = () => {
                   height={20}
                   className="ml-2"
                 />
-                +966-437-2766
+                   6257 774 56 966+ 
               </a>
             </div>
           </div>
