@@ -1,0 +1,8 @@
+/* Somar Sans Font Family */
+@font-face {
+  font-family: 'Somar Sans';
+  src: url('/fonts/somar-optimized/SomarSans-Regular.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}

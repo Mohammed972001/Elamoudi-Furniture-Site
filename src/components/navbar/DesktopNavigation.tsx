@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { NAVIGATION_ITEMS } from '@/constants/navigation';
 
 const DesktopNavigation = () => (
-  <div className="hidden lg:flex items-center space-x-10 ">
+  <div className="hidden lg:flex items-center space-x-10 mr-5 ">
     <ul className="flex items-center space-x-8" role="menubar">
       {NAVIGATION_ITEMS.map((item, index) => (
         <li key={index} role="none">

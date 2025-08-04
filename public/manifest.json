@@ -1,0 +1,31 @@
+{
+  "name": "العمودي للمفروشات - أفضل أنواع السجاد والموكيت",
+  "short_name": "العمودي للمفروشات",
+  "description": "متجر العمودي للمفروشات المتخصص في السجاد والموكيت والستائر والركنيات وتنسيق الحدائق",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FCF9F3",
+  "theme_color": "#5E7B63",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/NavBar/NavbarIcone.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["shopping", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "/home/Heroimage.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "صفحة العمودي للمفروشات الرئيسية"
+    }
+  ]
+} 

@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
+import "../styles/fonts.css";
 import Navbar from "@/components/navbar/Navbar";
 import type { RootLayoutProps } from "@/types";
+import Footer from "@/components/ui/Footer";
+import FloatingButtons from "@/components/ui/FloatingButtons";
 
 // Font configuration
 const cairo = Cairo({
@@ -14,16 +17,19 @@ const cairo = Cairo({
 
 // Metadata configuration
 export const metadata: Metadata = {
-  title: "بيت السجاد - أفضل أنواع السجاد والموكيت",
-  description: "متجر بيت السجاد للسجاد والموكيت والمفروشات المنزلية. أجود الأنواع وأفضل الأسعار",
+  title: "العمودي للمفروشات - أفضل أنواع السجاد والموكيت",
+  description: "متجر العمودي للمفروشات للسجاد والموكيت والمفروشات المنزلية. أجود الأنواع وأفضل الأسعار",
   keywords: "سجاد، موكيت، مفروشات، ستائر، ركنيات، حديقة منزلية",
-  authors: [{ name: "بيت السجاد" }],
+  authors: [{ name: "العمودي للمفروشات" }],
   viewport: "width=device-width, initial-scale=1",
   openGraph: {
-    title: "بيت السجاد - أفضل أنواع السجاد والموكيت",
-    description: "متجر بيت السجاد للسجاد والموكيت والمفروشات المنزلية. أجود الأنواع وأفضل الأسعار",
+    title: "العمودي للمفروشات - أفضل أنواع السجاد والموكيت",
+    description: "متجر العمودي للمفروشات للسجاد والموكيت والمفروشات المنزلية. أجود الأنواع وأفضل الأسعار",
     type: "website",
-    locale: "ar_EG",
+    locale: "ar_SA",
+  },
+  icons: {
+    icon: '/NavBar/NavbarIcone.svg',
   },
 };
 
@@ -37,6 +43,8 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
           <main className="relative">
             {children}
           </main>
+          <Footer/>
+          <FloatingButtons />
         </div>
       </body>
     </html>
