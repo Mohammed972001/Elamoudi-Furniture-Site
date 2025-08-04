@@ -3,6 +3,7 @@ import Iconcomponanet from "@/components/hero/iconcomponanet";
 import ContainerSection from "@/components/ui/ContainerSection";
 import { containerSections } from "@/data/containers";
 import HeroContainer from "@/components/ui/HeroContainer";
+import VideoGallery from "@/components/ui/VideoGallery";
 
 export default function Home() {
   return (
@@ -48,6 +49,10 @@ export default function Home() {
   textColor="text-black"
   
 />
+
+      {/* Video Gallery Section for Kitchens */}
+      <VideoGallery />
+      
     </main>
   );
 }

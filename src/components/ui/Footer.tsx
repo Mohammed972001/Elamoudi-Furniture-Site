@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { FaSnapchat, FaTelegram } from "react-icons/fa6";
 import { NavigationSection } from '@/types';
 
 const Footer = () => {
@@ -9,7 +10,7 @@ const Footer = () => {
 
     {
       title: "معلومات",
-      description: "موكيت بيت السجاد هو وجهتك الأولى لحلول الأرضيات والمفروشات الفاخرة، حيث نقدم تشكيلة واسعة من الموكيت والسجاد بأعلى المواصفات العالمية. نحن نحرص على تلبية احتياجات جميع القطاعات بأفضل الأسعار وأعلى جودة، مع تقديم خدمات متميزة لما بعد البيع، وفريق متخصص جاهز لخدمتك وزيارتك أينما كنت",
+      description: "العمودي للمفروشات هو وجهتك الأولى لحلول الأرضيات والمفروشات الفاخرة، حيث نقدم تشكيلة واسعة من الموكيت والسجاد بأعلى المواصفات العالمية. نحن نحرص على تلبية احتياجات جميع القطاعات بأفضل الأسعار وأعلى جودة، مع تقديم خدمات متميزة لما بعد البيع، وفريق متخصص جاهز لخدمتك وزيارتك أينما كنت",
       links: []
     },
     {
@@ -52,32 +53,22 @@ const Footer = () => {
           height={20}
         />
       ), 
-      href: "#", 
+      href: "http://tiktok.com/@khaled.el.fannan", 
       name: "TikTok" 
     },
     { 
       icon: (
-        <Image 
-          src="/home/fecbook.svg" 
-          alt="Facebook"
-          width={40}
-          height={20}
-        />
+        <FaSnapchat className="w-10 h-5 text-current" style={{ width: '40px', height: '20px' }} />
       ), 
-      href: "#", 
-      name: "Facebook" 
+      href: "https://www.snapchat.com/@bwmhmdkhld27921?share_id=bTtYHG6pb1w&locale=ar-AE", 
+      name: "Snapchat" 
     },
     { 
       icon: (
-        <Image 
-          src="/home/insta.svg" 
-          alt="Facebook"
-          width={40}
-          height={20}
-        />
+        <FaTelegram className="w-10 h-5 text-current" style={{ width: '40px', height: '20px' }} />
       ), 
-      href: "#", 
-      name: "Instagram" 
+      href: "https://t.me/+966567746257", 
+      name: "Telegram" 
     },
   ];
 
@@ -91,14 +82,14 @@ const Footer = () => {
             <div className="flex items-center justify-center mb-4">
               <div className="w-12 h-12 flex items-center justify-center ml-3">
                 <Image 
-                  src="/NavBar/NavbarIcone.svg" 
-                  alt="بيت السجاد" 
+                 src="/NavBar/NavbarIcone.svg"
+                  alt="العمودي للمفروشات" 
                   width={48} 
                   height={48}
                   className="filter brightness-0 invert"
                 />
               </div>
-              <h2 className="text-2xl font-bold">بيت السجاد</h2>
+              <h2 className="text-2xl font-bold">العمودي للمفروشات</h2>
             </div>
             
             <div className="space-y-3">
@@ -150,14 +141,14 @@ const Footer = () => {
             <div className="flex items-center mb-6">
             <div className="w-10 h-12 flex items-center justify-center">
                 <Image 
-                  src="/NavBar/NavbarIcone.svg" 
-                  alt="بيت السجاد" 
+                   src="/NavBar/NavbarIcone.svg"
+                  alt="العمودي للمفروشات" 
                   width={48} 
                   height={48}
                   className=" "
                 />
               </div>
-              <h2 className="text-2xl font-bold mr-3">بيت السجاد</h2>
+              <h2 className="text-2xl font-bold mr-3">العمودي للمفروشات</h2>
               
             </div>
             
@@ -224,7 +215,7 @@ const Footer = () => {
              {/* Copyright */}
              <div className="text-center lg:text-right">
             <p className="text-gray-200 text-sm">
-              جميع الحقوق محفوظة ©   بيت السجاد  {currentYear}
+              جميع الحقوق محفوظة ©   العمودي للمفروشات  {currentYear}
             </p>
           </div>
         </div>

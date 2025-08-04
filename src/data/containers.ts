@@ -48,6 +48,12 @@ export const containerSections: ContainerSection[] = [
         href: "/products/mokite",
       },
       {
+        id: "turky-mshager",
+        name: "تركي مشجر",
+        image: "/turky mshager/WhatsApp Image 2025-08-02 at 6.36.14 PM (1).jpeg",
+        href: "/products/turky-mshager",
+      },
+      {
         id: "hospital-flooring",
         name: "ارضيات مستيشفيات",
         image: "/images/catg/hospital.jpg",

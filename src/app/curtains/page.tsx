@@ -3,11 +3,11 @@ import ContainerSection from "@/components/ui/ContainerSection";
 import { containerSections } from "@/data/containers";
 
 export const metadata: Metadata = {
-  title: "الستائر - بيت السجاد",
+  title: "الستائر - العمودي للمفروشات",
   description: "تشكيلة متنوعة من الستائر الأنيقة لجميع المساحات. ستائر معتمة، شيفون، عازلة للحرارة، وستائر ذكية بأحدث التقنيات.",
   keywords: ["ستائر", "ستائر معتمة", "ستائر شيفون", "ستائر ذكية", "ستائر عازلة", "ديكور النوافذ"],
   openGraph: {
-    title: "الستائر - بيت السجاد",
+    title: "الستائر - العمودي للمفروشات",
     description: "تشكيلة راقية من الستائر لإضافة الأناقة والخصوصية لمنزلك",
     type: "website",
   },

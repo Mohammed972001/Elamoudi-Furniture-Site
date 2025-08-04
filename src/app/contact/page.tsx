@@ -1,20 +1,20 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'اتصل بنا - بيت السجاد',
-  description: 'تواصل مع بيت السجاد للاستفسار عن منتجاتنا من الموكيت والسجاد والأرضيات. نحن في خدمتك عبر الواتساب أو زيارة معرضنا في الرياض.',
+  title: 'اتصل بنا - العمودي للمفروشات',
+  description: 'تواصل مع العمودي للمفروشات للاستفسار عن منتجاتنا من الموكيت والسجاد والأرضيات. نحن في خدمتك عبر الواتساب أو زيارة معرضنا في الرياض.',
   keywords: [
-    'اتصل ببيت السجاد',
+    'اتصل بالعمودي للمفروشات',
     'تواصل معنا',
-    'رقم بيت السجاد',
-    'عنوان بيت السجاد الرياض',
-    'واتساب بيت السجاد',
+    'رقم العمودي للمفروشات',
+    'عنوان العمودي للمفروشات الرياض',
+    'واتساب العمودي للمفروشات',
     'خدمة العملاء',
     'معرض السجاد الرياض'
   ],
   openGraph: {
-    title: 'اتصل بنا - بيت السجاد',
-    description: 'تواصل مع بيت السجاد للاستفسار عن منتجاتنا من الموكيت والسجاد والأرضيات',
+    title: 'اتصل بنا - العمودي للمفروشات',
+    description: 'تواصل مع العمودي للمفروشات للاستفسار عن منتجاتنا من الموكيت والسجاد والأرضيات',
     type: 'website',
     locale: 'ar_SA',
   },
@@ -31,7 +31,7 @@ export default function ContactPage() {
     '@type': 'ContactPage',
     mainEntity: {
       '@type': 'LocalBusiness',
-      name: 'بيت السجاد - العالمية للأرضيات والمفروشات',
+      name: 'العمودي للمفروشات -  للأرضيات والمفروشات',
       telephone: '+966567746257',
       address: {
         '@type': 'PostalAddress',
@@ -213,7 +213,7 @@ export default function ContactPage() {
 
               {/* Quick Info */}
               <div className="bg-primary text-white p-8 rounded-lg">
-                <h3 className="text-2xl font-bold mb-6">لماذا تختار بيت السجاد؟</h3>
+                <h3 className="text-2xl font-bold mb-6">لماذا تختار العمودي للمفروشات؟</h3>
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <span className="text-carpet-gold text-xl ml-3">✨</span>

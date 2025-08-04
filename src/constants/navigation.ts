@@ -4,6 +4,7 @@ import type { NavigationItem } from '@/types';
 export const NAVIGATION_ITEMS: NavigationItem[] = [
   { name: 'السجاد', href: '/carpets', ariaLabel: 'السجاد التقليدي والعصري' },
   { name: 'الستائر', href: '/curtains', ariaLabel: 'ستائر ومفروشات النوافذ' },
+  { name: 'المطابخ', href: '/kitchens', ariaLabel: 'مطابخ عالمية وأثاث مطابخ فاخر' },
   { name: 'تنسيق الحدائق', href: '/garden', ariaLabel: 'منتجات الحديقة المنزلية' },
   { name: 'تواصل معنا', href: '/contact', ariaLabel: 'تواصل معنا' },
   { name: 'عن الشركة', href: '/about', ariaLabel: 'عن الشركة' },
@@ -12,6 +13,6 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
 // App constants
 export const APP_CONFIG = {
   CART_COUNT: 3, // TODO: Connect to state management
-  SITE_NAME: 'بيت السجاد',
+  SITE_NAME: 'العمودي للمفروشات',
   SITE_TAGLINE: 'منزلك أجمل معنا',
 } as const; 

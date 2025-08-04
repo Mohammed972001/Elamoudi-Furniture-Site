@@ -3,11 +3,11 @@ import ContainerSection from "@/components/ui/ContainerSection";
 import { containerSections } from "@/data/containers";
 
 export const metadata: Metadata = {
-  title: "السجاد - بيت السجاد",
+  title: "السجاد - العمودي للمفروشات",
   description: "اكتشف مجموعتنا الواسعة من السجاد والموكيت عالي الجودة. تشكيلة متنوعة تناسب جميع الاحتياجات والمساحات.",
   keywords: ["السجاد", "موكيت", "أرضيات", "فرش منزلي", "سجاد تقليدي", "موكيت عصري"],
   openGraph: {
-    title: "السجاد - بيت السجاد",
+    title: "السجاد - العمودي للمفروشات",
     description: "مجموعة متميزة من السجاد والموكيت لجميع الاحتياجات والمساحات",
     type: "website",
   },

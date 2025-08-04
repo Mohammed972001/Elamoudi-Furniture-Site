@@ -25,7 +25,7 @@ export default function HeroSection() {
         <div className="">
           {/* Main Heading */}
           <h1 className="mb-6 text-5xl lg:text-7xl font-bold text-white leading-tight">
-            <span className="block text-primary"> بيت السجاد</span>
+            <span className="block text-primary">  العمودي للمفروشات بيت السجاد والمفروشات</span>
             <span className="block">كل لمسة تبدأ</span>
             <span className="block text-carpet-gold">من الأرض</span>
           </h1>
@@ -34,7 +34,7 @@ export default function HeroSection() {
           <p className="mb-8 max-w-2xl mx-auto text-2xl sm:text-4xl text-gray-200 leading-relaxed">
           سجاد، موكيت، ركنيات وستائر ، تنسيق حدائق
             <br />
-            تصميمات تحول بيتك لقطعة فنية.
+             مطابخ تصميمات تحول بيتك لقطعة فنية.
           </p>
 
         
