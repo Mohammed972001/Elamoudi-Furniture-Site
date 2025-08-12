@@ -1,36 +1,167 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Al-Amoudi Furniture Website
 
-## Getting Started
+## Project Overview
 
-First, run the development server:
+A comprehensive e-commerce website for Al-Amoudi Furniture, specializing in displaying and selling various types of furniture and home flooring. The website is designed with a modern and responsive approach for all devices to provide an exceptional user experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Website Features
+
+### 🏠 Homepage
+- Hero Section with high-quality images
+- Display of main product categories
+- Interactive service icons
+- Video gallery for kitchens
+
+### 🛏️ Available Products
+- **Mosque Carpets**: High-quality carpets with Islamic designs
+- **Office Flooring**: Elegant solutions for professional environments
+- **Water-Resistant Parquet**: Moisture-resistant flooring
+- **Artificial Grass**: For gardens and outdoor spaces
+- **Vinyl Roll Flooring**: Diverse and durable options
+- **Parquet Flooring**: For a classic touch
+- **General Carpets**: Wide range for homes
+
+### 🏗️ Specialized Services
+- **Kitchens**: Modern kitchen design and implementation
+- **Curtains**: Diverse range of curtains
+- **Garden Landscaping**: Outdoor space landscaping services
+- **Traditional Carpets**: Luxurious carpet collection
+
+### 📱 Contact Methods
+- **Mobile Number**: +966567746257
+- **WhatsApp**: Direct and quick communication
+- **Address**: Al-Aziziya District, Abdullah bin Saleh Street, Riyadh
+
+### ⏰ Working Hours
+- Sunday - Thursday: 9:00 AM - 10:00 PM
+- Friday: 2:00 PM - 10:00 PM
+- Saturday: 9:00 AM - 10:00 PM
+
+## Technologies Used
+
+### Frontend Framework
+- **Next.js 15.3.4**: Advanced React framework for development
+- **React 19**: JavaScript library for building user interfaces
+- **TypeScript**: For code safety and better development
+
+### Design and Styling
+- **Tailwind CSS 4**: CSS framework for rapid design
+- **Cairo Font**: Elegant Arabic font from Google Fonts
+- **Responsive Design**: Responsive design for all devices
+
+### Components and Icons
+- **Lucide React**: Modern icon library
+- **React Icons**: Comprehensive icon collection
+- **Class Variance Authority**: CSS style management
+- **clsx**: Dynamic class merging
+
+### Quality Management
+- **ESLint**: Code quality checking
+- **PostCSS**: Advanced CSS processor
+
+## Project Structure
+
+```
+src/
+├── app/                     # Application pages (App Router)
+│   ├── about/              # About us page
+│   ├── carpets/            # Carpets page
+│   ├── contact/            # Contact page
+│   ├── curtains/           # Curtains page
+│   ├── garden/             # Garden landscaping page
+│   ├── kitchens/           # Kitchens page
+│   ├── products/           # Product pages
+│   └── layout.tsx          # Main layout
+├── components/             # Reusable components
+│   ├── hero/              # Hero section components
+│   ├── navbar/            # Navigation bar components
+│   └── ui/                # UI components
+├── constants/             # Constants and settings
+├── data/                  # Product and category data
+├── styles/                # Style files
+└── types/                 # TypeScript definitions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Static Files
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+public/
+├── images/                # Product images
+├── home/                  # Homepage images
+├── NavBar/                # Navigation bar icons
+├── fonts/                 # Custom fonts
+└── videos/                # Video files
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## User Experience Features
 
-## Learn More
+### 🎨 Design
+- Authentic Arabic user interface
+- Colors consistent with brand identity
+- Responsive design for phones and tablets
 
-To learn more about Next.js, take a look at the following resources:
+### 🔍 Navigation and Search
+- Smart search bar
+- Easy-to-use navigation menu
+- Quick links to products and services
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 📞 Quick Communication
+- Floating buttons for calling and WhatsApp
+- Multiple contact forms
+- Clear contact information
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 📱 Responsiveness and Performance
+- Fast page loading
+- Optimized images for all devices
+- Seamless cross-platform experience
 
-## Deploy on Vercel
+## Development Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Running the Project Locally
+```bash
+# Run development server
+npm run dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Build for production
+npm run build
+
+# Run built version
+npm start
+
+# Check code quality
+npm run lint
+```
+
+### System Requirements
+- Node.js 18.0 or newer
+- npm or yarn for package management
+
+## Brand Identity
+
+### Primary Colors
+- Primary color: Earth tones and gold
+- Supporting colors: Gray, white, green for WhatsApp
+- Interactive colors: Blue for links, red for alerts
+
+### Fonts
+- **Cairo**: Primary font for Arabic text
+- Multiple weights: from 300 to 800
+- Full support for Arabic and Latin languages
+
+## Advanced Features
+
+### SEO and Accessibility
+- Optimized meta titles for search engines
+- Structured product and page descriptions
+- Full accessibility for users with special needs
+
+### Security and Performance
+- Safe TypeScript code
+- Image and static file optimization
+- Regular code quality checks
+
+
+
+---
+
+© 2025 Al-Amoudi Furniture. All rights reserved.
