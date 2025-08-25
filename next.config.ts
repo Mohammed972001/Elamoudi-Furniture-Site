@@ -6,12 +6,9 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     formats: ['image/webp', 'image/avif'],
   },
-  experimental: {
-    // Fix for Turbopack font loading issues
-    turbo: {
-      resolveAlias: {
-        canvas: './empty-module.js',
-      },
+  turbopack: {
+    resolveAlias: {
+      canvas: './empty-module.js',
     },
   },
   // Alternative: disable turbopack for development
