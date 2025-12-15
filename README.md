@@ -28,7 +28,7 @@ A comprehensive e-commerce website for Al-Amoudi Furniture, specializing in disp
 - **Traditional Carpets**: Luxurious carpet collection
 
 ### 📱 Contact Methods
-- **Mobile Number**: +966567746257
+- **Mobile Number**: +966575108287
 - **WhatsApp**: Direct and quick communication
 - **Address**: Al-Aziziya District, Abdullah bin Saleh Street, Riyadh
 

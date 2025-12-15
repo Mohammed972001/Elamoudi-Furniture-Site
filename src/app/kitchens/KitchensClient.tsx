@@ -123,13 +123,13 @@ export default function KitchensClient() {
                   {/* Action Buttons */}
                   <div className="flex flex-wrap gap-4 mt-6">
                     <a
-                      href="tel:+966567746257"
+                      href="tel:+966575108287"
                       className="inline-flex items-center px-6 py-3 bg-amber-600 text-white font-semibold rounded-full hover:bg-amber-700 transition-all duration-300"
                     >
                       📞 اتصل للاستفسار
                     </a>
                     <a
-                      href="https://wa.me/966567746257"
+                      href="https://wa.me/966575108287"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-all duration-300"
@@ -186,13 +186,13 @@ export default function KitchensClient() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+966567746257"
+              href="tel:+966575108287"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-amber-600 font-bold rounded-full hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg"
             >
               📞 اتصل بنا الآن
             </a>
             <a
-              href="https://wa.me/966567746257"
+              href="https://wa.me/966575108287"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 bg-green-500 text-white font-bold rounded-full hover:bg-green-600 transition-all duration-300 hover:scale-105 shadow-lg"

@@ -67,7 +67,7 @@ const Footer = () => {
       icon: (
         <FaTelegram className="w-10 h-5 text-current" style={{ width: '40px', height: '20px' }} />
       ), 
-      href: "https://t.me/+966567746257", 
+      href: "https://t.me/+966575108287", 
       name: "Telegram" 
     },
   ];

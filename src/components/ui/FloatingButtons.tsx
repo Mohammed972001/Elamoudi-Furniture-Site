@@ -5,7 +5,7 @@ import { useState } from 'react';
 const FloatingButtons = () => {
   const [isVisible] = useState(true);
 
-  const phoneNumber = "+966567746257";
+  const phoneNumber = "+966575108287";
   const whatsappMessage = "السلام عليكم، أريد الاستفسار عن منتجاتكم";
 
   const handleCall = () => {

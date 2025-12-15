@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'اتصل بنا - العمودي للمفروشات',
-  description: 'تواصل مع العمودي للمفروشات للاستفسار عن منتجاتنا من الموكيت والسجاد والأرضيات. نحن في خدمتك عبر الواتساب أو زيارة معرضنا في الرياض.',
+  title: 'اتصل بنا - العمودي للمفروشات بالرياض للسجاد والموكيت',
+  description: 'تواصل مع العمودي للمفروشات في الرياض للاستفسار عن سجاد الرياض، موكيت الرياض، موكيت مساجد وسجاد مساجد في الرياض، بالإضافة إلى جميع أنواع المفروشات والأرضيات. نحن في خدمتك عبر الواتساب أو زيارة معرضنا في الرياض.',
   keywords: [
     'اتصل بالعمودي للمفروشات',
     'تواصل معنا',
@@ -10,11 +10,20 @@ export const metadata: Metadata = {
     'عنوان العمودي للمفروشات الرياض',
     'واتساب العمودي للمفروشات',
     'خدمة العملاء',
-    'معرض السجاد الرياض'
+    'معرض السجاد الرياض',
+    'سجاد الرياض',
+    'سجاد في الرياض',
+    'موكيت الرياض',
+    'موكيت في الرياض',
+    'موكيت ومفروشات في الرياض',
+    'مفروشات الرياض',
+    'موكيت مساجد',
+    'سجاد مساجد في الرياض',
+    'سجاد مساجد الرياض'
   ],
   openGraph: {
-    title: 'اتصل بنا - العمودي للمفروشات',
-    description: 'تواصل مع العمودي للمفروشات للاستفسار عن منتجاتنا من الموكيت والسجاد والأرضيات',
+    title: 'اتصل بنا - العمودي للمفروشات بالرياض للسجاد والموكيت',
+    description: 'تواصل مع العمودي للمفروشات في الرياض للاستفسار عن السجاد والموكيت وموكيت المساجد وسجاد المساجد في الرياض وخدمات المفروشات المتكاملة.',
     type: 'website',
     locale: 'ar_SA',
   },
@@ -32,7 +41,7 @@ export default function ContactPage() {
     mainEntity: {
       '@type': 'LocalBusiness',
       name: 'العمودي للمفروشات -  للأرضيات والمفروشات',
-      telephone: '+966567746257',
+      telephone: '+966575108287',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'طريق الملك فهد',
@@ -53,7 +62,7 @@ export default function ContactPage() {
       ],
       contactPoint: {
         '@type': 'ContactPoint',
-        telephone: '+966567746257',
+        telephone: '+966575108287',
         contactType: 'customer service',
         availableLanguage: ['Arabic'],
       },
@@ -103,7 +112,7 @@ export default function ContactPage() {
                       <p className="text-gray-600 text-sm">متاح 24/7</p>
                     </div>
                     <a
-                      href="https://wa.me/966567746257?text=مرحباً، أريد الاستفسار عن منتجاتكم"
+                      href="https://wa.me/966575108287?text=مرحباً، أريد الاستفسار عن منتجاتكم"
                       className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors"
                     >
                       ابدأ المحادثة
@@ -117,7 +126,7 @@ export default function ContactPage() {
                 <h3 className="text-2xl font-bold text-gray-800 mb-6">خدماتنا</h3>
                 <div className="grid grid-cols-1 gap-4">
                   <a
-                    href="https://wa.me/966567746257?text=مرحباً، أحتاج مساعدة في خدمة العملاء"
+                    href="https://wa.me/966575108287?text=مرحباً، أحتاج مساعدة في خدمة العملاء"
                     className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center ml-4">
@@ -132,7 +141,7 @@ export default function ContactPage() {
                   </a>
 
                   <a
-                    href="https://wa.me/966567746257?text=مرحباً، أريد طلب زيارة مندوب"
+                    href="https://wa.me/966575108287?text=مرحباً، أريد طلب زيارة مندوب"
                     className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center ml-4">
@@ -147,7 +156,7 @@ export default function ContactPage() {
                   </a>
 
                   <a
-                    href="https://wa.me/966567746257?text=مرحباً، أريد الاستفسار عن الأسعار"
+                    href="https://wa.me/966575108287?text=مرحباً، أريد الاستفسار عن الأسعار"
                     className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center ml-4">
@@ -250,7 +259,7 @@ export default function ContactPage() {
             </p>
 
             <a
-              href="https://wa.me/966567746257?text=مرحباً، أريد الاستفسار عن منتجاتكم"
+              href="https://wa.me/966575108287?text=مرحباً، أريد الاستفسار عن منتجاتكم"
               className="inline-flex items-center bg-white text-carpet-gold px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
             >
               <svg className="w-6 h-6 ml-2" fill="currentColor" viewBox="0 0 24 24">
