@@ -108,7 +108,7 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
                     <div>
-                      <p className="font-semibold text-lg" dir="ltr">+966 56 774 6257</p>
+                      <p className="font-semibold text-lg" dir="ltr">+966 57 510 8287⁩</p>
                       <p className="text-gray-600 text-sm">متاح 24/7</p>
                     </div>
                     <a

@@ -93,7 +93,7 @@ const Footer = () => {
             </div>
             
             <div className="space-y-3">
-              <a href="tel:+966-56-774-6257" className="flex items-center justify-center text-lg">
+              <a href="tel:+966-57-510-8287" className="flex items-center justify-center text-lg">
                 <Image 
                   src="/home/phon.svg" 
                   alt="هاتف"
@@ -101,7 +101,7 @@ const Footer = () => {
                   height={20}
                   className="ml-2"
                 />
-                   6257 774 56 966+ 
+                   8287 510 57 966+ 
               </a>
             </div>
           </div>
@@ -153,7 +153,7 @@ const Footer = () => {
             </div>
             
             <div className="space-y-4">
-              <a href="tel:+966-56-774-6257" className="flex items-center justify-start text-lg">
+              <a href="tel:+966-57-510-8287" className="flex items-center justify-start text-lg">
               <Image 
                   src="/home/phon.svg" 
                   alt="هاتف"
@@ -161,7 +161,7 @@ const Footer = () => {
                   height={20}
                   className="ml-2"
                 />
-               6257 774 56 966+ 
+               8287 510 57 966+ 
               </a>
             </div>
           </div>
