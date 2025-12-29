@@ -35,11 +35,11 @@ export default function ProductView({ product }: ProductViewProps) {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(`مرحباً، أريد الاستفسار عن ${product.title}`);
-    window.open(`https://wa.me/966575108287?text=${message}`, '_blank');
+    window.open(`https://wa.me/966567746257?text=${message}`, '_blank');
   };
 
   const handleCall = () => {
-    window.open('tel:0575108287', '_self');
+    window.open('tel:+966567746257', '_self');
   };
 
   return (

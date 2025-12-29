@@ -1,16 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'اتصل بنا - العمودي للمفروشات بالرياض للسجاد والموكيت',
-  description: 'تواصل مع العمودي للمفروشات في الرياض للاستفسار عن سجاد الرياض، موكيت الرياض، موكيت مساجد وسجاد مساجد في الرياض، بالإضافة إلى جميع أنواع المفروشات والأرضيات. نحن في خدمتك عبر الواتساب أو زيارة معرضنا في الرياض.',
+  title: 'اتصل بنا - العمودي للمفروشات | سجاد الرياض | موكيت الرياض | موكيت مساجد',
+  description: 'تواصل مع العمودي للمفروشات في الرياض للاستفسار عن سجاد الرياض، موكيت الرياض، موكيت مساجد، سجاد مساجد في الرياض، موكيت ومفروشات في الرياض. نحن في خدمتك عبر الواتساب أو زيارة معرضنا في الرياض.',
   keywords: [
-    'اتصل بالعمودي للمفروشات',
-    'تواصل معنا',
-    'رقم العمودي للمفروشات',
-    'عنوان العمودي للمفروشات الرياض',
-    'واتساب العمودي للمفروشات',
-    'خدمة العملاء',
-    'معرض السجاد الرياض',
     'سجاد الرياض',
     'سجاد في الرياض',
     'موكيت الرياض',
@@ -18,12 +11,32 @@ export const metadata: Metadata = {
     'موكيت ومفروشات في الرياض',
     'مفروشات الرياض',
     'موكيت مساجد',
+    'سجاد مساجد',
     'سجاد مساجد في الرياض',
-    'سجاد مساجد الرياض'
+    'موكيت مساجد في الرياض',
+    'سجاد مساجد الرياض',
+    'موكيت للمساجد',
+    'سجاد للمساجد',
+    'موكيت مساجد الرياض',
+    'اتصل بالعمودي للمفروشات',
+    'تواصل معنا',
+    'رقم العمودي للمفروشات',
+    'عنوان العمودي للمفروشات الرياض',
+    'واتساب العمودي للمفروشات',
+    'خدمة العملاء',
+    'معرض السجاد الرياض',
+    'معرض الموكيت الرياض',
+    'معرض المفروشات الرياض',
+    'شركة سجاد الرياض',
+    'شركة موكيت الرياض',
+    'أفضل سجاد في الرياض',
+    'أفضل موكيت في الرياض',
+    'سجاد فاخر الرياض',
+    'موكيت فاخر الرياض'
   ],
   openGraph: {
-    title: 'اتصل بنا - العمودي للمفروشات بالرياض للسجاد والموكيت',
-    description: 'تواصل مع العمودي للمفروشات في الرياض للاستفسار عن السجاد والموكيت وموكيت المساجد وسجاد المساجد في الرياض وخدمات المفروشات المتكاملة.',
+    title: 'اتصل بنا - العمودي للمفروشات | سجاد الرياض | موكيت الرياض | موكيت مساجد',
+    description: 'تواصل مع العمودي للمفروشات في الرياض للاستفسار عن سجاد الرياض، موكيت الرياض، موكيت مساجد، سجاد مساجد في الرياض، موكيت ومفروشات في الرياض',
     type: 'website',
     locale: 'ar_SA',
   },
@@ -41,7 +54,7 @@ export default function ContactPage() {
     mainEntity: {
       '@type': 'LocalBusiness',
       name: 'العمودي للمفروشات -  للأرضيات والمفروشات',
-      telephone: '+966575108287',
+      telephone: '+966567746257',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'طريق الملك فهد',
@@ -62,7 +75,7 @@ export default function ContactPage() {
       ],
       contactPoint: {
         '@type': 'ContactPoint',
-        telephone: '+966575108287',
+        telephone: '+966567746257',
         contactType: 'customer service',
         availableLanguage: ['Arabic'],
       },
@@ -84,7 +97,7 @@ export default function ContactPage() {
               اتصل بنا
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              نحن في خدمتك! تواصل معنا للاستفسار عن منتجاتنا أو لطلب استشارة مجانية
+              نحن في خدمتك! تواصل معنا للاستفسار عن سجاد الرياض، موكيت الرياض، موكيت مساجد، سجاد مساجد في الرياض، موكيت ومفروشات في الرياض أو لطلب استشارة مجانية
             </p>
           </div>
 
@@ -108,11 +121,11 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
                     <div>
-                      <p className="font-semibold text-lg" dir="ltr">+966 57 510 8287⁩</p>
+                      <p className="font-semibold text-lg" dir="ltr">+966 56 774 6257</p>
                       <p className="text-gray-600 text-sm">متاح 24/7</p>
                     </div>
                     <a
-                      href="https://wa.me/966575108287?text=مرحباً، أريد الاستفسار عن منتجاتكم"
+                      href="https://wa.me/966567746257?text=مرحباً، أريد الاستفسار عن منتجاتكم"
                       className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors"
                     >
                       ابدأ المحادثة
@@ -126,7 +139,7 @@ export default function ContactPage() {
                 <h3 className="text-2xl font-bold text-gray-800 mb-6">خدماتنا</h3>
                 <div className="grid grid-cols-1 gap-4">
                   <a
-                    href="https://wa.me/966575108287?text=مرحباً، أحتاج مساعدة في خدمة العملاء"
+                    href="https://wa.me/966567746257?text=مرحباً، أحتاج مساعدة في خدمة العملاء"
                     className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center ml-4">
@@ -141,7 +154,7 @@ export default function ContactPage() {
                   </a>
 
                   <a
-                    href="https://wa.me/966575108287?text=مرحباً، أريد طلب زيارة مندوب"
+                    href="https://wa.me/966567746257?text=مرحباً، أريد طلب زيارة مندوب"
                     className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center ml-4">
@@ -156,7 +169,7 @@ export default function ContactPage() {
                   </a>
 
                   <a
-                    href="https://wa.me/966575108287?text=مرحباً، أريد الاستفسار عن الأسعار"
+                    href="https://wa.me/966567746257?text=مرحباً، أريد الاستفسار عن الأسعار"
                     className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center ml-4">
@@ -186,7 +199,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-800">موقع المعرض</h3>
-                    <p className="text-gray-600">زورونا في معرضنا بالرياض</p>
+                    <p className="text-gray-600">زورونا في معرضنا بالرياض - متخصصون في سجاد الرياض، موكيت الرياض، موكيت مساجد، سجاد مساجد في الرياض</p>
                   </div>
                 </div>
 
@@ -222,11 +235,11 @@ export default function ContactPage() {
 
               {/* Quick Info */}
               <div className="bg-primary text-white p-8 rounded-lg">
-                <h3 className="text-2xl font-bold mb-6">لماذا تختار العمودي للمفروشات؟</h3>
+                <h3 className="text-2xl font-bold mb-6">لماذا تختار العمودي للمفروشات في الرياض؟</h3>
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <span className="text-carpet-gold text-xl ml-3">✨</span>
-                    <span>جودة عالية وأسعار تنافسية</span>
+                    <span>جودة عالية وأسعار تنافسية لسجاد الرياض وموكيت الرياض</span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-carpet-gold text-xl ml-3">🚚</span>
@@ -234,15 +247,19 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-center">
                     <span className="text-carpet-gold text-xl ml-3">👨‍🔧</span>
-                    <span>تركيب احترافي وضمان على الخدمة</span>
+                    <span>تركيب احترافي وضمان على الخدمة - متخصصون في موكيت مساجد وسجاد مساجد في الرياض</span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-carpet-gold text-xl ml-3">💬</span>
-                    <span>استشارة مجانية من خبراء الديكور</span>
+                    <span>استشارة مجانية من خبراء الديكور لموكيت ومفروشات في الرياض</span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-carpet-gold text-xl ml-3">🔄</span>
                     <span>إمكانية الاستبدال والإرجاع</span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-carpet-gold text-xl ml-3">🕌</span>
+                    <span>خبرة واسعة في توريد وتركيب موكيت مساجد وسجاد مساجد في الرياض</span>
                   </div>
                 </div>
               </div>
@@ -255,11 +272,11 @@ export default function ContactPage() {
               نحن في انتظارك!
             </h2>
             <p className="text-xl text-white mb-6">
-              تواصل معنا الآن واحصل على أفضل العروض والخدمات
+              تواصل معنا الآن واحصل على أفضل العروض والخدمات لسجاد الرياض، موكيت الرياض، موكيت مساجد، سجاد مساجد في الرياض، موكيت ومفروشات في الرياض
             </p>
 
             <a
-              href="https://wa.me/966575108287?text=مرحباً، أريد الاستفسار عن منتجاتكم"
+              href="https://wa.me/966567746257?text=مرحباً، أريد الاستفسار عن منتجاتكم"
               className="inline-flex items-center bg-white text-carpet-gold px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
             >
               <svg className="w-6 h-6 ml-2" fill="currentColor" viewBox="0 0 24 24">

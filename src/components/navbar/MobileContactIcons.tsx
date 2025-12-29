@@ -2,7 +2,7 @@ const MobileContactIcons = () => (
   <div className="flex items-center space-x-2 space-x-reverse">
     {/* WhatsApp Icon */}
     <a
-      href="https://wa.me/966575108287"
+      href="https://wa.me/966567746257"
       target="_blank"
       rel="noopener noreferrer"
       className="p-2 text-gray-600 hover:text-green-600 transition-colors duration-200 relative group rounded-full hover:bg-green-50"
@@ -17,7 +17,7 @@ const MobileContactIcons = () => (
 
     {/* Phone Icon */}
     <a
-      href="tel:+966575108287"
+      href="tel:+966567746257"
       className="p-2 text-gray-600 hover:text-blue-600 transition-colors duration-200 relative group rounded-full hover:bg-blue-50"
       aria-label="اتصل بنا"
     >
