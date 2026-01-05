@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import "../styles/fonts.css";
 import Navbar from "@/components/navbar/Navbar";
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     locale: "ar_SA",
   },
   icons: {
-    icon: '/NavBar/NavbarIcone.svg',
+    icon: '/WhatsApp.jpeg',
   },
 };
 
@@ -37,6 +38,21 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
     <html lang="ar" dir="rtl" className={cairo.variable}>
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17506948956"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17506948956');
+          `}
+        </Script>
+      </head>
       <body className="antialiased">
         <div className="min-h-screen bg-custom-background">
           <Navbar />

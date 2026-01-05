@@ -6,7 +6,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/home/Heroimage.png"
+          src="/WhatsApp.jpeg"
           alt="سجاد وموكيت عربي تقليدي - مجموعة متنوعة من السجاجيد والستائر الشرقية"
           fill
           className="object-cover object-center"
@@ -25,7 +25,7 @@ export default function HeroSection() {
         <div className="">
           {/* Main Heading */}
           <h1 className="mb-6 text-5xl lg:text-7xl font-bold text-white leading-tight">
-            <span className="block text-primary">  العمودي للمفروشات بيت السجاد والمفروشات</span>
+            <span className="block text-primary">  العمودي للمفروشات والموكيت </span>
             <span className="block">كل لمسة تبدأ</span>
             <span className="block text-carpet-gold">من الأرض</span>
           </h1>
