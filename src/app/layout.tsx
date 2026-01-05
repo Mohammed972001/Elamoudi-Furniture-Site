@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     locale: "ar_SA",
   },
   icons: {
-    icon: '/NavBar/NavbarIcone.svg',
+    icon: '/WhatsApp.jpeg',
   },
 };
 

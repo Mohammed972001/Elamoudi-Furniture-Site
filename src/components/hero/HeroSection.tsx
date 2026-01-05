@@ -6,7 +6,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/home/Heroimage.png"
+          src="/WhatsApp.jpeg"
           alt="سجاد وموكيت عربي تقليدي - مجموعة متنوعة من السجاجيد والستائر الشرقية"
           fill
           className="object-cover object-center"
