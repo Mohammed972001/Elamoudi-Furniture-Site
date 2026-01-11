@@ -35,7 +35,7 @@ export default function AboutPage() {
       '@type': 'Organization',
       name: 'العمودي للمفروشات - للأرضيات والمفروشات',
       description: 'شركة رائدة في مجال الأرضيات والمفروشات المنزلية تقدم تشكيلة متنوعة تلبي مختلف الأذواق',
-      telephone: '+966567746257',
+      telephone: '+966558352924',
       address: {
         '@type': 'PostalAddress',
         addressCountry: 'SA',
@@ -210,7 +210,7 @@ export default function AboutPage() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://wa.me/966567746257?text=مرحباً، أريد الاستفسار عن منتجاتكم"
+                  href="https://wa.me/966558352924?text=مرحباً، أريد الاستفسار عن منتجاتكم"
                   className="bg-white text-carpet-gold px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
                 >
                   تواصل معنا عبر الواتساب

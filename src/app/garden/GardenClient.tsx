@@ -104,13 +104,13 @@ export default function GardenClient() {
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="tel:+966567746257"
+                  href="tel:+966558352924"
                   className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-all duration-300"
                 >
                   📞 اتصل للاستشارة المجانية
                 </a>
                 <a
-                  href="https://wa.me/966567746257"
+                  href="https://wa.me/966558352924"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 bg-emerald-600 text-white font-semibold rounded-full hover:bg-emerald-700 transition-all duration-300"

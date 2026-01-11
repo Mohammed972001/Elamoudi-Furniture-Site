@@ -67,7 +67,7 @@ const Footer = () => {
       icon: (
         <FaTelegram className="w-10 h-5 text-current" style={{ width: '40px', height: '20px' }} />
       ), 
-      href: "https://t.me/+966567746257", 
+      href: "https://t.me/+966558352924", 
       name: "Telegram" 
     },
   ];
@@ -93,7 +93,7 @@ const Footer = () => {
             </div>
             
             <div className="space-y-3">
-              <a href="tel:+966-56-774-6257" className="flex items-center justify-center text-lg">
+              <a href="tel:+966-55-835-2924" className="flex items-center justify-center text-lg">
                 <Image 
                   src="/home/phon.svg" 
                   alt="هاتف"
@@ -101,7 +101,7 @@ const Footer = () => {
                   height={20}
                   className="ml-2"
                 />
-                   6257 774 56 966+ 
+                   2924 835 55 966+ 
               </a>
             </div>
           </div>
@@ -153,7 +153,7 @@ const Footer = () => {
             </div>
             
             <div className="space-y-4">
-              <a href="tel:+966-56-774-6257" className="flex items-center justify-start text-lg">
+              <a href="tel:+966-55-835-2924" className="flex items-center justify-start text-lg">
               <Image 
                   src="/home/phon.svg" 
                   alt="هاتف"

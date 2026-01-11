@@ -54,7 +54,7 @@ export default function ContactPage() {
     mainEntity: {
       '@type': 'LocalBusiness',
       name: 'العمودي للمفروشات -  للأرضيات والمفروشات',
-      telephone: '+966567746257',
+      telephone: '+966558352924',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'طريق الملك فهد',
@@ -75,7 +75,7 @@ export default function ContactPage() {
       ],
       contactPoint: {
         '@type': 'ContactPoint',
-        telephone: '+966567746257',
+        telephone: '+966558352924',
         contactType: 'customer service',
         availableLanguage: ['Arabic'],
       },
@@ -121,11 +121,11 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
                     <div>
-                      <p className="font-semibold text-lg" dir="ltr">+966 56 774 6257</p>
+                      <p className="font-semibold text-lg" dir="ltr">+966 55 835 2924</p>
                       <p className="text-gray-600 text-sm">متاح 24/7</p>
                     </div>
                     <a
-                      href="https://wa.me/966567746257?text=مرحباً، أريد الاستفسار عن منتجاتكم"
+                      href="https://wa.me/966558352924?text=مرحباً، أريد الاستفسار عن منتجاتكم"
                       className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors"
                     >
                       ابدأ المحادثة
@@ -139,7 +139,7 @@ export default function ContactPage() {
                 <h3 className="text-2xl font-bold text-gray-800 mb-6">خدماتنا</h3>
                 <div className="grid grid-cols-1 gap-4">
                   <a
-                    href="https://wa.me/966567746257?text=مرحباً، أحتاج مساعدة في خدمة العملاء"
+                    href="https://wa.me/966558352924?text=مرحباً، أحتاج مساعدة في خدمة العملاء"
                     className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center ml-4">
@@ -154,7 +154,7 @@ export default function ContactPage() {
                   </a>
 
                   <a
-                    href="https://wa.me/966567746257?text=مرحباً، أريد طلب زيارة مندوب"
+                    href="https://wa.me/966558352924?text=مرحباً، أريد طلب زيارة مندوب"
                     className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center ml-4">
@@ -169,7 +169,7 @@ export default function ContactPage() {
                   </a>
 
                   <a
-                    href="https://wa.me/966567746257?text=مرحباً، أريد الاستفسار عن الأسعار"
+                    href="https://wa.me/966558352924?text=مرحباً، أريد الاستفسار عن الأسعار"
                     className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center ml-4">
