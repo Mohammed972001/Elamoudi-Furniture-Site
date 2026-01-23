@@ -1,24 +1,38 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
+
 export const metadata: Metadata = {
-  title: 'معلومات عنا - العمودي للمفروشات',
-  description: 'تعرف على العمودي للمفروشات، الشركة الرائدة في مجال الأرضيات والمفروشات المنزلية. نقدم أحدث التصاميم بأعلى معايير الجودة والأسعار التنافسية.',
+  title: 'من نحن - العمودي للمفروشات | خبرة في موكيت وسجاد الرياض',
+  description: 'تعرف على العمودي للمفروشات، الشركة الرائدة في مجال موكيت وسجاد وأرضيات الرياض. خبرة واسعة في موكيت مساجد، باركيه، فينيل. جودة عالية وأسعار تنافسية.',
   keywords: [
-    'معلومات عن العمودي للمفروشات',
-    'شركة الأرضيات والمفروشات',
-    'موكيت وسجاد فاخر',
-    'باركيه وفينيل',
-    'مفروشات منزلية',
-    'تصاميم عصرية',
-    'جودة عالية',
-    'الرياض'
+    'العمودي للمفروشات',
+    'موكيت الرياض',
+    'سجاد الرياض',
+    'مفروشات الرياض',
+    'أرضيات الرياض',
+    'موكيت مساجد',
+    'باركيه',
+    'فينيل',
+    'شركة مفروشات الرياض',
+    'معرض سجاد الرياض',
   ],
+  alternates: {
+    canonical: '/about',
+  },
   openGraph: {
-    title: 'معلومات عنا - العمودي للمفروشات',
-    description: 'تعرف على العمودي للمفروشات، الشركة الرائدة في مجال الأرضيات والمفروشات المنزلية',
+    title: 'من نحن - العمودي للمفروشات | خبرة في موكيت وسجاد الرياض',
+    description: 'الشركة الرائدة في موكيت وسجاد وأرضيات الرياض. موكيت مساجد، باركيه، فينيل بجودة عالية.',
     type: 'website',
+    url: `${baseUrl}/about`,
     locale: 'ar_SA',
+    siteName: 'العمودي للمفروشات',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'من نحن - العمودي للمفروشات',
+    description: 'خبرة واسعة في موكيت وسجاد وأرضيات الرياض',
   },
   robots: {
     index: true,
@@ -53,7 +67,7 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      
+
       <div className="min-h-screen bg-custom-background pt-20">
         <div className="max-w-4xl mx-auto px-4 py-12">
           {/* Header Section */}
@@ -61,7 +75,7 @@ export default function AboutPage() {
             <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
               معلومات عنا
             </h1>
-           
+
           </div>
 
           {/* Main Content */}
@@ -87,7 +101,7 @@ export default function AboutPage() {
               <p className="text-lg leading-relaxed text-gray-700 mb-6">
                 تضم مجموعتنا تشكيلة واسعة من المنتجات التي تناسب جميع الأنماط والاحتياجات. من بين هذه المنتجات:
               </p>
-              
+
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <div className="flex items-center mb-4">
@@ -147,7 +161,7 @@ export default function AboutPage() {
               <p className="text-lg leading-relaxed mb-6">
                 نتميز بعدة عوامل تجعلنا الخيار الأمثل لعملائنا، ومنها:
               </p>
-              
+
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="flex items-start">
                   <span className="text-carpet-gold text-xl ml-3">🔹</span>
@@ -207,7 +221,7 @@ export default function AboutPage() {
               <p className="text-xl text-white mb-6">
                 حيث يلتقي الجمال بالجودة! مفروشات الرياض
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="https://wa.me/966558352924?text=مرحباً، أريد الاستفسار عن منتجاتكم"

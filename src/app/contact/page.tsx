@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
+
 export const metadata: Metadata = {
   title: 'اتصل بنا - العمودي للمفروشات | سجاد الرياض | موكيت الرياض | موكيت مساجد',
   description: 'تواصل مع العمودي للمفروشات في الرياض للاستفسار عن سجاد الرياض، موكيت الرياض، موكيت مساجد، سجاد مساجد في الرياض، موكيت ومفروشات في الرياض. نحن في خدمتك عبر الواتساب أو زيارة معرضنا في الرياض.',
@@ -34,11 +36,21 @@ export const metadata: Metadata = {
     'سجاد فاخر الرياض',
     'موكيت فاخر الرياض'
   ],
+  alternates: {
+    canonical: '/contact',
+  },
   openGraph: {
     title: 'اتصل بنا - العمودي للمفروشات | سجاد الرياض | موكيت الرياض | موكيت مساجد',
     description: 'تواصل مع العمودي للمفروشات في الرياض للاستفسار عن سجاد الرياض، موكيت الرياض، موكيت مساجد، سجاد مساجد في الرياض، موكيت ومفروشات في الرياض',
     type: 'website',
+    url: `${baseUrl}/contact`,
     locale: 'ar_SA',
+    siteName: 'العمودي للمفروشات',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'اتصل بنا - العمودي للمفروشات',
+    description: 'تواصل معنا للاستفسار عن موكيت وسجاد الرياض',
   },
   robots: {
     index: true,

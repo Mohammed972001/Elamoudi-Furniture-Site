@@ -16,22 +16,99 @@ const cairo = Cairo({
   variable: "--font-cairo",
 });
 
-// Metadata configuration
+// Site URL for canonical and OpenGraph
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
+
+// Metadata configuration - SEO Optimized
 export const metadata: Metadata = {
-  title: "العمودي للمفروشات - أفضل أنواع السجاد والموكيت",
-  description: "متجر العمودي للمفروشات للسجاد والموكيت والمفروشات المنزلية. أجود الأنواع وأفضل الأسعار",
-  keywords: "سجاد، موكيت، مفروشات، ستائر، ركنيات، حديقة منزلية",
-  authors: [{ name: "العمودي للمفروشات" }],
-  viewport: "width=device-width, initial-scale=1",
+  // Primary Meta Tags
+  title: {
+    default: "العمودي للمفروشات | موكيت وسجاد وأرضيات في الرياض",
+    template: "%s | العمودي للمفروشات",
+  },
+  description: "العمودي للمفروشات - متخصصون في موكيت وسجاد وأرضيات وباركيه وفينيل في الرياض. موكيت مساجد، سجاد فاخر، أرضيات عالية الجودة. توصيل وتركيب مجاني.",
+  keywords: [
+    // الكلمات الرئيسية
+    "العمودي للمفروشات",
+    "موكيت",
+    "سجاد",
+    "مفروشات",
+    "أرضيات",
+    "الرياض",
+    // تركيبات الكلمات
+    "موكيت الرياض",
+    "سجاد الرياض",
+    "مفروشات الرياض",
+    "أرضيات الرياض",
+    "موكيت مساجد",
+    "سجاد مساجد",
+    "باركيه",
+    "فينيل",
+    "موكيت منازل",
+    "سجاد فاخر",
+    "أرضيات خشبية",
+    "تركيب موكيت",
+    "تركيب سجاد",
+  ],
+  authors: [{ name: "العمودي للمفروشات", url: siteUrl }],
+  creator: "العمودي للمفروشات",
+  publisher: "العمودي للمفروشات",
+
+  // Canonical URL
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: '/',
+  },
+
+  // OpenGraph for Social Sharing
   openGraph: {
-    title: "العمودي للمفروشات - أفضل أنواع السجاد والموكيت",
-    description: "متجر العمودي للمفروشات للسجاد والموكيت والمفروشات المنزلية. أجود الأنواع وأفضل الأسعار",
+    title: "العمودي للمفروشات | موكيت وسجاد وأرضيات في الرياض",
+    description: "متخصصون في موكيت وسجاد وأرضيات وباركيه في الرياض. موكيت مساجد، سجاد فاخر، توصيل وتركيب مجاني.",
     type: "website",
     locale: "ar_SA",
+    url: siteUrl,
+    siteName: "العمودي للمفروشات",
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'العمودي للمفروشات - موكيت وسجاد وأرضيات',
+      },
+    ],
   },
+
+  // Twitter Card
+  twitter: {
+    card: 'summary_large_image',
+    title: "العمودي للمفروشات | موكيت وسجاد وأرضيات في الرياض",
+    description: "متخصصون في موكيت وسجاد وأرضيات في الرياض. توصيل وتركيب مجاني.",
+    images: ['/og-image.jpg'],
+  },
+
+  // Robots
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+
+  // Icons
   icons: {
     icon: '/WhatsApp.jpeg',
+    apple: '/WhatsApp.jpeg',
   },
+
+  // Verification (add your codes)
+  // verification: {
+  //   google: 'your-google-verification-code',
+  // },
 };
 
 // Main Layout Component
@@ -59,7 +136,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
           <main className="relative">
             {children}
           </main>
-          <Footer/>
+          <Footer />
           <FloatingButtons />
         </div>
       </body>
