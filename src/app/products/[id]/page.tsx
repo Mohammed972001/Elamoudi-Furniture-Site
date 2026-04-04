@@ -1,9 +1,11 @@
 import { notFound } from "next/navigation";
 import { getProductById, productsDetails } from "@/data/products";
+import { getContainerById } from "@/data/containers";
 import { Metadata } from "next";
 import ProductView from "./ProductView";
 import { ProductSchema } from "@/components/seo/JsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import ContainerSection from "@/components/ui/ContainerSection";
 
 interface ProductPageProps {
   params: Promise<{
@@ -76,6 +78,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
     { name: product.title },
   ];
 
+  const categorysMain = getContainerById("categorys-main");
+
   return (
     <>
       {/* Product Schema with ImageObject for SEO */}
@@ -99,6 +103,17 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
       {/* Product View Component */}
       <ProductView product={product} />
+
+      {/* Categories Section */}
+      {categorysMain && (
+        <div className="py-12">
+          <ContainerSection
+            section={categorysMain}
+            className=""
+            mobileCols="grid-cols-2"
+          />
+        </div>
+      )}
     </>
   );
 } 

@@ -112,7 +112,6 @@ export function LocalBusinessSchema({
             name: 'منتجات العمودي للمفروشات',
             itemListElement: [
                 { '@type': 'OfferCatalog', name: 'موكيت' },
-                { '@type': 'OfferCatalog', name: 'سجاد' },
                 { '@type': 'OfferCatalog', name: 'أرضيات' },
                 { '@type': 'OfferCatalog', name: 'باركيه' },
                 { '@type': 'OfferCatalog', name: 'فينيل' },
@@ -165,6 +164,43 @@ export function ProductSchema({
             price: offers.price,
             priceCurrency: offers.priceCurrency || 'SAR',
             availability: offers.availability || 'https://schema.org/InStock',
+            priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+            hasMerchantReturnPolicy: {
+                '@type': 'MerchantReturnPolicy',
+                applicableCountry: 'SA',
+                returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+                merchantReturnDays: 14,
+                returnMethod: 'https://schema.org/ReturnInStore',
+                returnFees: 'https://schema.org/FreeReturn'
+            },
+            shippingDetails: {
+                '@type': 'OfferShippingDetails',
+                shippingRate: {
+                    '@type': 'MonetaryAmount',
+                    value: 0,
+                    currency: 'SAR'
+                },
+                shippingDestination: {
+                    '@type': 'DefinedRegion',
+                    addressCountry: 'SA',
+                    addressRegion: 'الرياض'
+                },
+                deliveryTime: {
+                    '@type': 'ShippingDeliveryTime',
+                    handlingTime: {
+                        '@type': 'QuantitativeValue',
+                        minValue: 0,
+                        maxValue: 1,
+                        unitCode: 'd'
+                    },
+                    transitTime: {
+                        '@type': 'QuantitativeValue',
+                        minValue: 1,
+                        maxValue: 3,
+                        unitCode: 'd'
+                    }
+                }
+            },
             seller: {
                 '@type': 'Organization',
                 name: brand,
@@ -249,7 +285,7 @@ export function WebSiteSchema() {
         '@id': `${baseUrl}/#website`,
         url: baseUrl,
         name: 'العمودي للمفروشات',
-        description: 'متجر العمودي للمفروشات - أفضل موكيت وسجاد وأرضيات في الرياض',
+        description: 'متجر العمودي للمفروشات - أفضل موكيت وأرضيات في الرياض',
         publisher: {
             '@id': `${baseUrl}/#organization`,
         },

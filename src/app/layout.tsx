@@ -7,6 +7,7 @@ import Navbar from "@/components/navbar/Navbar";
 import type { RootLayoutProps } from "@/types";
 import Footer from "@/components/ui/Footer";
 import FloatingButtons from "@/components/ui/FloatingButtons";
+import { LocalBusinessSchema, OrganizationSchema, WebSiteSchema } from "@/components/seo/JsonLd";
 
 // Font configuration
 const cairo = Cairo({
@@ -23,32 +24,27 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurnitu
 export const metadata: Metadata = {
   // Primary Meta Tags
   title: {
-    default: "العمودي للمفروشات | موكيت وسجاد وأرضيات في الرياض",
+    default: "العمودي للمفروشات | موكيت وأرضيات في الرياض",
     template: "%s | العمودي للمفروشات",
   },
-  description: "العمودي للمفروشات - متخصصون في موكيت وسجاد وأرضيات وباركيه وفينيل في الرياض. موكيت مساجد، سجاد فاخر، أرضيات عالية الجودة. توصيل وتركيب مجاني.",
+  description: "العمودي للمفروشات - متخصصون في موكيت وأرضيات وباركيه وفينيل في الرياض. موكيت مساجد، أرضيات عالية الجودة. توصيل وتركيب مجاني.",
   keywords: [
     // الكلمات الرئيسية
     "العمودي للمفروشات",
     "موكيت",
-    "سجاد",
     "مفروشات",
     "أرضيات",
     "الرياض",
     // تركيبات الكلمات
     "موكيت الرياض",
-    "سجاد الرياض",
     "مفروشات الرياض",
     "أرضيات الرياض",
     "موكيت مساجد",
-    "سجاد مساجد",
     "باركيه",
     "فينيل",
     "موكيت منازل",
-    "سجاد فاخر",
     "أرضيات خشبية",
     "تركيب موكيت",
-    "تركيب سجاد",
   ],
   authors: [{ name: "العمودي للمفروشات", url: siteUrl }],
   creator: "العمودي للمفروشات",
@@ -62,8 +58,8 @@ export const metadata: Metadata = {
 
   // OpenGraph for Social Sharing
   openGraph: {
-    title: "العمودي للمفروشات | موكيت وسجاد وأرضيات في الرياض",
-    description: "متخصصون في موكيت وسجاد وأرضيات وباركيه في الرياض. موكيت مساجد، سجاد فاخر، توصيل وتركيب مجاني.",
+    title: "العمودي للمفروشات | موكيت وأرضيات في الرياض",
+    description: "متخصصون في موكيت وأرضيات وباركيه في الرياض. موكيت مساجد، توصيل وتركيب مجاني.",
     type: "website",
     locale: "ar_SA",
     url: siteUrl,
@@ -73,7 +69,7 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'العمودي للمفروشات - موكيت وسجاد وأرضيات',
+        alt: 'العمودي للمفروشات - موكيت وأرضيات',
       },
     ],
   },
@@ -81,8 +77,8 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: 'summary_large_image',
-    title: "العمودي للمفروشات | موكيت وسجاد وأرضيات في الرياض",
-    description: "متخصصون في موكيت وسجاد وأرضيات في الرياض. توصيل وتركيب مجاني.",
+    title: "العمودي للمفروشات | موكيت وأرضيات في الرياض",
+    description: "متخصصون في موكيت وأرضيات في الرياض. توصيل وتركيب مجاني.",
     images: ['/og-image.jpg'],
   },
 
@@ -131,6 +127,45 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
         </Script>
       </head>
       <body className="antialiased">
+        <WebSiteSchema />
+        <OrganizationSchema
+          name="العمودي للمفروشات"
+          description="متخصصون في موكيت وأرضيات وباركيه وفينيل في الرياض. موكيت مساجد، أرضيات عالية الجودة."
+          url="https://www.elamoudifurniture.com"
+          logo="/WhatsApp.jpeg"
+          telephone="+966558352924"
+          address={{
+            addressLocality: "الرياض",
+            addressCountry: "SA",
+          }}
+          sameAs={[
+            "https://wa.me/966558352924",
+          ]}
+        />
+        <LocalBusinessSchema
+          name="العمودي للمفروشات"
+          description="متجر متخصص في موكيت وأرضيات وباركيه في الرياض. نوفر موكيت مساجد، أرضيات فينيل وباركيه بأعلى جودة وأفضل الأسعار."
+          telephone="+966558352924"
+          address={{
+            streetAddress: "حي العزيزية، شارع عبدالله بن صالح",
+            addressLocality: "الرياض",
+            addressRegion: "الرياض",
+            postalCode: "12345",
+            addressCountry: "SA",
+          }}
+          geo={{
+            latitude: 24.597427,
+            longitude: 46.730596,
+          }}
+          openingHours={[
+            "Mo-Th 09:00-22:00",
+            "Fr 14:00-22:00",
+            "Sa-Su 09:00-22:00",
+          ]}
+          priceRange="$$"
+          image="/WhatsApp.jpeg"
+          areaServed={["الرياض", "المملكة العربية السعودية"]}
+        />
         <div className="min-h-screen bg-custom-background">
           <Navbar />
           <main className="relative">

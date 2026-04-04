@@ -3,7 +3,7 @@ import { ContainerSection } from "@/types";
 export const containerSections: ContainerSection[] = [
   {
     id: "categorys-main",
-    title: "فئات السجاد الرئيسية",
+    title: "فئات الموكيت والمفروشات",
     items: [
       {
         id: "Mosque carpets",

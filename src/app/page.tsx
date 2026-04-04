@@ -3,8 +3,6 @@ import Iconcomponanet from "@/components/hero/iconcomponanet";
 import ContainerSection from "@/components/ui/ContainerSection";
 import { containerSections } from "@/data/containers";
 import HeroContainer from "@/components/ui/HeroContainer";
-import VideoGallery from "@/components/ui/VideoGallery";
-import { LocalBusinessSchema, OrganizationSchema, WebSiteSchema } from "@/components/seo/JsonLd";
 import FAQ from "@/components/seo/FAQ";
 import Link from "next/link";
 
@@ -34,48 +32,6 @@ const homeFaqItems = [
 
 export default function Home() {
   return (
-    <>
-      {/* JSON-LD Structured Data for SEO */}
-      <WebSiteSchema />
-      <OrganizationSchema
-        name="العمودي للمفروشات"
-        description="متخصصون في موكيت وسجاد وأرضيات وباركيه وفينيل في الرياض. موكيت مساجد، سجاد فاخر، أرضيات عالية الجودة."
-        url="https://www.elamoudifurniture.com"
-        logo="/WhatsApp.jpeg"
-        telephone="+966558352924"
-        address={{
-          addressLocality: "الرياض",
-          addressCountry: "SA",
-        }}
-        sameAs={[
-          "https://wa.me/966558352924",
-        ]}
-      />
-      <LocalBusinessSchema
-        name="العمودي للمفروشات"
-        description="متجر متخصص في موكيت وسجاد وأرضيات وباركيه في الرياض. نوفر موكيت مساجد، سجاد منازل، أرضيات فينيل وباركيه بأعلى جودة وأفضل الأسعار."
-        telephone="+966558352924"
-        address={{
-          streetAddress: "حي العزيزية، شارع عبدالله بن صالح",
-          addressLocality: "الرياض",
-          addressRegion: "الرياض",
-          postalCode: "12345",
-          addressCountry: "SA",
-        }}
-        geo={{
-          latitude: 24.597427,
-          longitude: 46.730596,
-        }}
-        openingHours={[
-          "Mo-Th 09:00-22:00",
-          "Fr 14:00-22:00",
-          "Sa-Su 09:00-22:00",
-        ]}
-        priceRange="$$"
-        image="/WhatsApp.jpeg"
-        areaServed={["الرياض", "المملكة العربية السعودية"]}
-      />
-
       <main className="min-h-screen">
         <HeroSection />
         <Iconcomponanet />
@@ -91,12 +47,12 @@ export default function Home() {
         ))}
 
         <HeroContainer
-          title="ستائر تضيف الأناقة... وتمنحك الخصوصية"
-          description="حوّل أجواء منزلك بلمسة من الفخامة مع تشكيلتنا المختارة من الستائر المصمّمة بعناية لتناسب مختلف الأذواق والمساحات."
+          title="أرضيات تضيف الأناقة... وتتحمل لسنوات"
+          description="حوّل أجواء منزلك بلمسة من الفخامة مع تشكيلتنا المختارة من الأرضيات المصمّمة بعناية لتناسب مختلف الأذواق والمساحات."
           buttonText="تسوق الآن"
           buttonHref="/products/mokite"
           image="/home/staar.png"
-          imageAlt="ستائر فاخرة من العمودي للمفروشات الرياض"
+          imageAlt="أرضيات فاخرة من العمودي للمفروشات الرياض"
           backgroundColor="bg-[#EAE4D8]"
           textColor="text-black"
         />
@@ -120,8 +76,7 @@ export default function Home() {
           textColor="text-black"
         />
 
-        {/* Video Gallery Section for Kitchens */}
-        <VideoGallery />
+
 
         {/* Internal Links Section - SEO Optimized */}
         <section className="py-12 px-4 bg-gray-50">
@@ -170,7 +125,6 @@ export default function Home() {
             <p className="text-center text-gray-600 mt-6">
               تعرف على <Link href="/about" className="text-primary hover:underline font-semibold">العمودي للمفروشات</Link> -
               خبرة واسعة في <Link href="/products/mokite" className="text-primary hover:underline">موكيت الرياض</Link> و
-              <Link href="/carpets" className="text-primary hover:underline">سجاد الرياض</Link> و
               <Link href="/products/parket" className="text-primary hover:underline">أرضيات الرياض</Link>
             </p>
           </div>
@@ -183,7 +137,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-    </>
   );
 }
 

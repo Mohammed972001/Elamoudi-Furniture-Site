@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { FaWhatsapp, FaPhone, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { ProductDetails } from "@/types";
+import SEOContent from "@/components/seo/SEOContent";
 
 interface ProductViewProps {
   product: ProductDetails;
@@ -167,16 +168,7 @@ export default function ProductView({ product }: ProductViewProps) {
             </div>
 
             {/* Detailed Description for SEO */}
-            {product.detailedDescription && (
-              <div className="bg-white p-6 rounded-lg shadow-sm border animate-fade-in-delay-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  الوصف التفصيلي
-                </h3>
-                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed whitespace-pre-line">
-                  {product.detailedDescription}
-                </div>
-              </div>
-            )}
+            <SEOContent content={product.detailedDescription} title="الوصف التفصيلي" />
           </div>
         </div>
       </div>

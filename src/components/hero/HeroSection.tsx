@@ -7,11 +7,11 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         <Image
           src="/WhatsApp.jpeg"
-          alt="سجاد وموكيت عربي تقليدي - مجموعة متنوعة من السجاجيد والستائر الشرقية"
+          alt="موكيت وباركيه وفينيل - مجموعة متنوعة من الأرضيات والمفروشات"
           fill
           className="object-cover object-center"
-          priority
-          quality={90}
+          priority={true}
+          quality={80}
           sizes="100vw"
           placeholder="blur"
           blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzhhNDUxMyIvPjwvc3ZnPg=="
@@ -32,9 +32,9 @@ export default function HeroSection() {
 
           {/* Subtitle */}
           <p className="mb-8 max-w-2xl mx-auto text-2xl sm:text-4xl text-gray-200 leading-relaxed">
-          سجاد، موكيت، ركنيات وستائر ، تنسيق حدائق
+          موكيت، باركيه، فينيل، عشب صناعي، تنسيق حدائق
             <br />
-             مطابخ تصميمات تحول بيتك لقطعة فنية.
+             تصميمات وخامات تحول بيتك لقطعة فنية.
           </p>
 
         
