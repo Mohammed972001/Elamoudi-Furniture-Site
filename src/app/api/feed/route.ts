@@ -12,20 +12,20 @@ export async function GET() {
     <description>متجر متخصص في موكيت وأرضيات وباركيه في الرياض.</description>
     ${productsDetails
       .map((product) => {
-        const productLink = \`\${baseUrl}/products/\${product.id}\`;
+        const productLink = `${baseUrl}/products/${product.id}`;
         const imageLink = product.images?.[0]
-          ? \`\${baseUrl}\${product.images[0]}\`
-          : \`\${baseUrl}/WhatsApp.jpeg\`;
+          ? `${baseUrl}${product.images[0]}`
+          : `${baseUrl}/WhatsApp.jpeg`;
         
-        return \`
+        return `
     <item>
-      <g:id>\${product.id}</g:id>
-      <g:title><![CDATA[\${product.title}]]></g:title>
-      <g:description><![CDATA[\${product.description}]]></g:description>
-      <g:link>\${productLink}</g:link>
-      <g:image_link>\${imageLink}</g:image_link>
+      <g:id>${product.id}</g:id>
+      <g:title><![CDATA[${product.title}]]></g:title>
+      <g:description><![CDATA[${product.description}]]></g:description>
+      <g:link>${productLink}</g:link>
+      <g:image_link>${imageLink}</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>\${product.price} SAR</g:price>
+      <g:price>${product.price} SAR</g:price>
       <g:brand>العمودي للمفروشات</g:brand>
       <g:condition>new</g:condition>
       <g:shipping>
@@ -33,7 +33,7 @@ export async function GET() {
         <g:service>Standard</g:service>
         <g:price>0 SAR</g:price>
       </g:shipping>
-    </item>\`;
+    </item>`;
       })
       .join('')}
   </channel>
