@@ -6,23 +6,23 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/WhatsApp.jpeg"
-          alt="موكيت وباركيه وفينيل - مجموعة متنوعة من الأرضيات والمفروشات"
+          src="/home/hero-bg.png"
+          alt="العمودي للمفروشات - موكيت وسجاد وباركيه وأرضيات فاخرة في الرياض"
           fill
           className="object-cover object-center"
           priority={true}
-          quality={80}
+          quality={100}
           sizes="100vw"
           placeholder="blur"
-          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzhhNDUxMyIvPjwvc3ZnPg=="
+          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzVFN0I2MyIvPjwvc3ZnPg=="
         />
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex min-h-screen pt-5  md:pt-0 md:items-center justify-start px-4 sm:px-6 lg:px-28">
-        <div className="">
+      <div className="relative z-10 flex min-h-screen pt-5 md:pt-0 md:items-center justify-start px-4 sm:px-6 lg:px-12">
+        <div>
           {/* Main Heading */}
           <h1 className="mb-6 text-5xl lg:text-7xl font-bold text-white leading-tight">
             <span className="block text-primary">  العمودي للمفروشات والموكيت </span>
@@ -31,7 +31,7 @@ export default function HeroSection() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mb-8 max-w-2xl mx-auto text-2xl sm:text-4xl text-gray-200 leading-relaxed">
+          <p className="mb-8 max-w-2xl text-2xl sm:text-4xl text-gray-200 leading-relaxed">
           موكيت، باركيه، فينيل، عشب صناعي، تنسيق حدائق
             <br />
              تصميمات وخامات تحول بيتك لقطعة فنية.

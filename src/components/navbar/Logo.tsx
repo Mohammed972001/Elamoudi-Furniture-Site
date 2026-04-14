@@ -11,7 +11,7 @@ const Logo = () => (
       <div className="w-8 h-8 lg:w-10 lg:h-10  flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
         <Image 
           src="/WhatsApp.jpeg" 
-          alt="logo" 
+          alt="شعار العمودي للمفروشات" 
           width="32" 
           height="32"
           style={{ width: "auto", height: "auto" }}
@@ -19,9 +19,9 @@ const Logo = () => (
         />
       </div>
       <div className="hidden sm:block">
-        <h1 className="text-lg lg:text-xl font-bold text-primary group-hover:text-amber-900 transition-colors">
+        <span className="text-lg lg:text-xl font-bold text-primary group-hover:text-amber-900 transition-colors">
           {APP_CONFIG.SITE_NAME}
-        </h1>
+        </span>
         <p className="text-xs text-gray-600 leading-tight">
           {APP_CONFIG.SITE_TAGLINE}
         </p>

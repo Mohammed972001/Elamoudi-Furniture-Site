@@ -20,12 +20,13 @@ export default function robots(): MetadataRoute.Robots {
           '/about',
           '/contact',
           '/carpets',
-          '/curtains',
+          '/decor',
           '/garden',
-          '/kitchens',
         ],
-        // Uncomment if you have admin areas to disallow
-        // disallow: ['/admin/', '/private/'],
+        disallow: [
+          '/api/',
+          '/_next/',
+        ],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

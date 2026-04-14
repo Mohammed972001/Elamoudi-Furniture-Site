@@ -11,11 +11,46 @@ const nextConfig: NextConfig = {
       canvas: './empty-module.js',
     },
   },
-  // Alternative: disable turbopack for development
-  // You can uncomment this if you continue having issues
-  // experimental: {
-  //   turbo: false,
-  // },
+
+  // Redirect non-www to www (301 permanent) to consolidate Link Equity
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'elamoudifurniture.com',
+          },
+        ],
+        destination: 'https://www.elamoudifurniture.com/:path*',
+        permanent: true, // 301 redirect — transfers Link Equity
+      },
+    ];
+  },
+
+  // Security & SEO headers
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'origin-when-cross-origin',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

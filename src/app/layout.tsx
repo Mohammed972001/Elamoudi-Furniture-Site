@@ -97,8 +97,8 @@ export const metadata: Metadata = {
 
   // Icons
   icons: {
-    icon: '/WhatsApp.jpeg',
-    apple: '/WhatsApp.jpeg',
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
   },
 
   // Verification (add your codes)
@@ -112,7 +112,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
     <html lang="ar" dir="rtl" className={cairo.variable}>
       <head>
-        {/* Google tag (gtag.js) */}
+        {/* Google tag (gtag.js) — Google Ads + GA4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17506948956"
           strategy="afterInteractive"
@@ -123,6 +123,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-17506948956');
+            ${process.env.NEXT_PUBLIC_GA4_ID ? `gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}');` : '// GA4: Set NEXT_PUBLIC_GA4_ID in .env to enable (e.g. G-XXXXXXXXXX)'}
           `}
         </Script>
       </head>
@@ -132,7 +133,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
           name="العمودي للمفروشات"
           description="متخصصون في موكيت وأرضيات وباركيه وفينيل في الرياض. موكيت مساجد، أرضيات عالية الجودة."
           url="https://www.elamoudifurniture.com"
-          logo="/WhatsApp.jpeg"
+          logo="/favicon.svg"
           telephone="+966558352924"
           address={{
             addressLocality: "الرياض",
@@ -163,7 +164,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
             "Sa-Su 09:00-22:00",
           ]}
           priceRange="$$"
-          image="/WhatsApp.jpeg"
+          image="/favicon.svg"
           areaServed={["الرياض", "المملكة العربية السعودية"]}
         />
         <div className="min-h-screen bg-custom-background">

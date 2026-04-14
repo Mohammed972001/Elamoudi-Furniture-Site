@@ -206,13 +206,6 @@ export function ProductSchema({
                 name: brand,
             },
         } : undefined,
-        aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.8',
-            reviewCount: '150',
-            bestRating: '5',
-            worstRating: '1',
-        },
     };
 
     return (

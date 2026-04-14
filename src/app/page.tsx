@@ -32,7 +32,7 @@ const homeFaqItems = [
 
 export default function Home() {
   return (
-      <main className="min-h-screen">
+      <div className="min-h-screen">
         <HeroSection />
         <Iconcomponanet />
 
@@ -136,7 +136,7 @@ export default function Home() {
             <FAQ items={homeFaqItems} title="الأسئلة الشائعة حول خدماتنا" />
           </div>
         </section>
-      </main>
+      </div>
   );
 }
 
