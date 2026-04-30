@@ -36,6 +36,20 @@ interface ProductSchemaProps {
         priceCurrency?: string;
         availability?: string;
     };
+    /**
+     * REAL aggregate rating only. Pass undefined unless populated from a verified
+     * reviews source (Google Business Profile API, on-site review collection, etc.).
+     * NEVER hardcode fabricated ratings — Google's structured data policy explicitly
+     * prohibits this and the site already saw review snippet count drop from 13 → 4
+     * in April 2026 (knowledge base §4.11). When real reviews exist, plumb them
+     * through this prop from the product data layer.
+     */
+    aggregateRating?: {
+        ratingValue: number;
+        reviewCount: number;
+        bestRating?: number;
+        worstRating?: number;
+    };
 }
 
 interface OrganizationSchemaProps {
@@ -139,6 +153,7 @@ export function ProductSchema({
     sku,
     brand = 'العمودي للمفروشات',
     offers,
+    aggregateRating,
 }: ProductSchemaProps) {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
 
@@ -206,6 +221,13 @@ export function ProductSchema({
                 name: brand,
             },
         } : undefined,
+        aggregateRating: aggregateRating ? {
+            '@type': 'AggregateRating',
+            ratingValue: aggregateRating.ratingValue,
+            reviewCount: aggregateRating.reviewCount,
+            bestRating: aggregateRating.bestRating ?? 5,
+            worstRating: aggregateRating.worstRating ?? 1,
+        } : undefined,
     };
 
     return (
@@ -266,8 +288,11 @@ export function OrganizationSchema({
 }
 
 /**
- * WebSite Schema with SearchAction
- * Enables sitelinks search box in Google
+ * WebSite Schema (basic).
+ * Identifies the site to Google. SearchAction is intentionally NOT included
+ * because the site does not yet expose a public /search?q= endpoint.
+ * To enable the sitelinks search box, build the /search route then add a
+ * potentialAction: SearchAction to this schema.
  */
 export function WebSiteSchema() {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
@@ -278,10 +303,9 @@ export function WebSiteSchema() {
         '@id': `${baseUrl}/#website`,
         url: baseUrl,
         name: 'العمودي للمفروشات',
-        description: 'متجر العمودي للمفروشات - أفضل موكيت وأرضيات في الرياض',
-        publisher: {
-            '@id': `${baseUrl}/#organization`,
-        },
+        alternateName: ['مفروشات العمودي', 'العمودي للسجاد', 'Al-Amoudi Furniture'],
+        description: 'متجر العمودي للمفروشات — أفضل موكيت وأرضيات في الرياض',
+        publisher: { '@id': `${baseUrl}/#organization` },
         inLanguage: 'ar-SA',
     };
 

@@ -1,12 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import ActionButton from "./ActionButton";
+import { useState, useEffect } from "react";
 
 interface HeroContainerProps {
   title: string;
   description: string;
   buttonText: string;
   buttonHref: string;
-  image: string;
+  image?: string;
+  images?: string[];
   imageAlt: string;
   backgroundColor?: string;
   textColor?: string;
@@ -19,11 +23,25 @@ const HeroContainer: React.FC<HeroContainerProps> = ({
   buttonText,
   buttonHref,
   image,
+  images,
   imageAlt,
   backgroundColor = "bg-green-100",
   textColor = "text-gray-800",
   className = ""
 }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (images && images.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % images.length);
+      }, 2500); // Changed to 2500ms for a more relaxed aesthetic viewing 
+      return () => clearInterval(interval);
+    }
+  }, [images]);
+
+  const displayImages = images && images.length > 0 ? images : (image ? [image] : []);
+
   return (
     <section className={`w-full ${className}`} style={{ padding: 'clamp(16px, 3vw, 32px) clamp(16px, 2vw, 16px)' }}>
       <div className="max-w-7xl mx-auto">
@@ -75,15 +93,21 @@ const HeroContainer: React.FC<HeroContainerProps> = ({
             </div>
           </div>
           {/* Image Content */}
-          <div className="flex-1 relative" style={{ minHeight: 'clamp(200px, 30vw, 400px)' }}>
-            <Image
-              src={image}
-              alt={imageAlt}
-              fill
-              className="object-cover rounded-bl-[25%]"
-              sizes="50vw"
-              priority
-            />
+          <div className="flex-1 relative overflow-hidden" style={{ minHeight: 'clamp(200px, 30vw, 400px)' }}>
+            <div className="absolute inset-0 z-10 shadow-[inset_0_0_20px_rgba(0,0,0,0.1)] rounded-bl-[25%] pointer-events-none mix-blend-overlay"></div>
+            {displayImages.map((imgSrc, index) => (
+              <Image
+                key={imgSrc}
+                src={imgSrc}
+                alt={`${imageAlt} ${index + 1}`}
+                fill
+                className={`object-cover rounded-bl-[25%] transition-all duration-[1500ms] ease-in-out ${
+                  index === currentIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
+                }`}
+                sizes="50vw"
+                priority={index === 0}
+              />
+            ))}
           </div>
         </div>
       </div>

@@ -3,11 +3,27 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { getContainerById } from "@/data/containers";
 import ContainerSection from "@/components/ui/ContainerSection";
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
+
 export const metadata: Metadata = {
-  title: "تشكيلة السجاد | العمودي للمفروشات",
-  description: "اكتشف أحدث تشكيلات السجاد الفاخر من العمودي للمفروشات. تصاميم متنوعة تناسب كل الأذواق.",
-  alternates: {
-    canonical: "/carpets",
+  title: "موكيت وسجاد الرياض — تشكيلة فاخرة بتركيب مجاني",
+  description: "اكتشف أحدث تشكيلات الموكيت والسجاد الفاخر في الرياض من العمودي للمفروشات. توصيل وتركيب مجاني، ضمان الجودة.",
+  keywords: ["موكيت", "سجاد", "موكيت الرياض", "سجاد الرياض", "موكيت مساجد", "موكيت تركي", "موكيت مشجر"],
+  alternates: { canonical: "/carpets" },
+  openGraph: {
+    title: "موكيت وسجاد الرياض — تشكيلة فاخرة | العمودي للمفروشات",
+    description: "أحدث تشكيلات الموكيت والسجاد الفاخر بأفضل الأسعار في الرياض. توصيل وتركيب مجاني.",
+    type: "website",
+    url: `${baseUrl}/carpets`,
+    locale: "ar_SA",
+    siteName: "العمودي للمفروشات",
+    images: [{ url: "/og/carpets.jpg", width: 1200, height: 630, alt: "تشكيلة الموكيت والسجاد - العمودي للمفروشات" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "موكيت وسجاد الرياض — العمودي للمفروشات",
+    description: "أحدث تشكيلات الموكيت والسجاد الفاخر بأفضل الأسعار في الرياض.",
+    images: ["/og/carpets.jpg"],
   },
 };
 

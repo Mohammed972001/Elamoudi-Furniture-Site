@@ -8,6 +8,7 @@ import type { RootLayoutProps } from "@/types";
 import Footer from "@/components/ui/Footer";
 import FloatingButtons from "@/components/ui/FloatingButtons";
 import { LocalBusinessSchema, OrganizationSchema, WebSiteSchema } from "@/components/seo/JsonLd";
+import { BUSINESS } from '@/constants/business';
 
 // Font configuration
 const cairo = Cairo({
@@ -130,42 +131,37 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
       <body className="antialiased">
         <WebSiteSchema />
         <OrganizationSchema
-          name="العمودي للمفروشات"
-          description="متخصصون في موكيت وأرضيات وباركيه وفينيل في الرياض. موكيت مساجد، أرضيات عالية الجودة."
-          url="https://www.elamoudifurniture.com"
-          logo="/favicon.svg"
-          telephone="+966558352924"
+          name={BUSINESS.name}
+          description={BUSINESS.description}
+          url={BUSINESS.url}
+          logo={BUSINESS.logo}
+          telephone={BUSINESS.phone.primary}
           address={{
-            addressLocality: "الرياض",
-            addressCountry: "SA",
+            addressLocality: BUSINESS.address.addressLocality,
+            addressCountry: BUSINESS.address.addressCountry,
           }}
           sameAs={[
-            "https://wa.me/966558352924",
+            `https://wa.me/${BUSINESS.phone.primary.replace('+', '')}`,
+            BUSINESS.social.tiktok,
+            BUSINESS.social.instagram,
           ]}
         />
         <LocalBusinessSchema
-          name="العمودي للمفروشات"
-          description="متجر متخصص في موكيت وأرضيات وباركيه في الرياض. نوفر موكيت مساجد، أرضيات فينيل وباركيه بأعلى جودة وأفضل الأسعار."
-          telephone="+966558352924"
+          name={BUSINESS.name}
+          description={BUSINESS.description}
+          telephone={BUSINESS.phone.primary}
           address={{
-            streetAddress: "حي العزيزية، شارع عبدالله بن صالح",
-            addressLocality: "الرياض",
-            addressRegion: "الرياض",
-            postalCode: "12345",
-            addressCountry: "SA",
+            streetAddress: BUSINESS.address.streetAddress,
+            addressLocality: BUSINESS.address.addressLocality,
+            addressRegion: BUSINESS.address.addressRegion,
+            postalCode: BUSINESS.address.postalCode,
+            addressCountry: BUSINESS.address.addressCountry,
           }}
-          geo={{
-            latitude: 24.597427,
-            longitude: 46.730596,
-          }}
-          openingHours={[
-            "Mo-Th 09:00-22:00",
-            "Fr 14:00-22:00",
-            "Sa-Su 09:00-22:00",
-          ]}
-          priceRange="$$"
-          image="/favicon.svg"
-          areaServed={["الرياض", "المملكة العربية السعودية"]}
+          geo={{ latitude: BUSINESS.geo.latitude, longitude: BUSINESS.geo.longitude }}
+          openingHours={[...BUSINESS.hours.schemaOrg]}
+          priceRange={BUSINESS.priceRange}
+          image={BUSINESS.logo}
+          areaServed={[...BUSINESS.areaServed]}
         />
         <div className="min-h-screen bg-custom-background">
           <Navbar />

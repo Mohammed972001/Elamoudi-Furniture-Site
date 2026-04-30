@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from 'react';
+import { BUSINESS } from '@/constants/business';
 
 const FloatingButtons = () => {
   const [isVisible] = useState(true);
 
-  const phoneNumber = "+966558352924";
+  const phoneNumber = BUSINESS.phone.primary;
   const whatsappMessage = "السلام عليكم، أريد الاستفسار عن منتجاتكم";
 
   const handleCall = () => {

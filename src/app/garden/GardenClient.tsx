@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from "react";
 import ContainerSection from "@/components/ui/ContainerSection";
 import { containerSections } from "@/data/containers";
+import { BUSINESS } from '@/constants/business';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
 export default function GardenClient() {
   const [isInView, setIsInView] = useState(false);
@@ -41,8 +43,16 @@ export default function GardenClient() {
     );
   }
 
+  const breadcrumbItems = [
+    { name: 'الرئيسية', href: '/' },
+    { name: 'تنسيق الحدائق' },
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50 pt-20">
+      <div className="max-w-7xl mx-auto px-4 pt-4">
+        <Breadcrumbs items={breadcrumbItems} />
+      </div>
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-green-600/10 to-emerald-600/10"></div>
@@ -104,13 +114,13 @@ export default function GardenClient() {
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="tel:+966558352924"
+                  href={BUSINESS.phone.telLink}
                   className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-all duration-300"
                 >
                   📞 اتصل للاستشارة المجانية
                 </a>
                 <a
-                  href="https://wa.me/966558352924"
+                  href={BUSINESS.phone.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 bg-emerald-600 text-white font-semibold rounded-full hover:bg-emerald-700 transition-all duration-300"
@@ -192,13 +202,13 @@ export default function GardenClient() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+966567746257"
+              href={BUSINESS.phone.telLink}
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-green-600 font-bold rounded-full hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg"
             >
               📞 اتصل بنا الآن
             </a>
             <a
-              href="https://wa.me/966567746257"
+              href={BUSINESS.phone.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 bg-emerald-500 text-white font-bold rounded-full hover:bg-emerald-600 transition-all duration-300 hover:scale-105 shadow-lg"

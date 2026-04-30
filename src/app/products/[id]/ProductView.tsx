@@ -5,6 +5,7 @@ import { useState } from "react";
 import { FaWhatsapp, FaPhone, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { ProductDetails } from "@/types";
 import SEOContent from "@/components/seo/SEOContent";
+import { BUSINESS } from "@/constants/business";
 
 interface ProductViewProps {
   product: ProductDetails;
@@ -36,11 +37,11 @@ export default function ProductView({ product }: ProductViewProps) {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(`مرحباً، أريد الاستفسار عن ${product.title}`);
-    window.open(`https://wa.me/966558352924?text=${message}`, '_blank');
+    window.open(`https://wa.me/${BUSINESS.phone.primary.replace('+', '')}?text=${message}`, '_blank');
   };
 
   const handleCall = () => {
-    window.open('tel:+966558352924', '_self');
+    window.open(BUSINESS.phone.telLink, '_self');
   };
 
   return (

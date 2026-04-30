@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Organization JSON-LD contract — Al-Amoudi Furniture",
+  "description": "Emitted globally from src/app/layout.tsx via OrganizationSchema. Sets brand identity. NAP sourced from src/constants/business.ts.",
+  "type": "object",
+  "required": ["@context", "@type", "@id", "name", "description", "url", "telephone", "address", "contactPoint"],
+  "properties": {
+    "@context": { "const": "https://schema.org" },
+    "@type": { "const": "Organization" },
+    "@id": { "const": "https://www.elamoudifurniture.com/#organization" },
+    "name": { "const": "العمودي للمفروشات" },
+    "description": { "type": "string", "minLength": 80 },
+    "url": { "const": "https://www.elamoudifurniture.com" },
+    "logo": {
+      "type": "object",
+      "required": ["@type", "url"],
+      "properties": {
+        "@type": { "const": "ImageObject" },
+        "url": { "const": "https://www.elamoudifurniture.com/favicon.svg" }
+      }
+    },
+    "telephone": { "const": "+966558352924" },
+    "address": {
+      "type": "object",
+      "required": ["@type", "addressLocality", "addressCountry"],
+      "properties": {
+        "@type": { "const": "PostalAddress" },
+        "addressLocality": { "const": "الرياض" },
+        "addressCountry": { "const": "SA" }
+      }
+    },
+    "sameAs": {
+      "type": "array",
+      "minItems": 1,
+      "description": "URLs of the brand's social profiles. Exact set depends on which profiles are claimed at deploy time. MUST start with the WhatsApp link constructed from BUSINESS.phone.primary.",
+      "items": { "type": "string", "format": "uri" }
+    },
+    "contactPoint": {
+      "type": "object",
+      "required": ["@type", "telephone", "contactType", "availableLanguage"],
+      "properties": {
+        "@type": { "const": "ContactPoint" },
+        "telephone": { "const": "+966558352924" },
+        "contactType": { "const": "customer service" },
+        "availableLanguage": { "const": ["Arabic"] }
+      }
+    }
+  }
+}

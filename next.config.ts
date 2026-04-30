@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
   },
 
   // Redirect non-www to www (301 permanent) to consolidate Link Equity
+  // Also redirect legacy URLs to new URLs
   async redirects() {
     return [
       {
@@ -25,6 +26,16 @@ const nextConfig: NextConfig = {
         ],
         destination: 'https://www.elamoudifurniture.com/:path*',
         permanent: true, // 301 redirect — transfers Link Equity
+      },
+      {
+        source: '/products/sajad',
+        destination: '/products',
+        permanent: true,
+      },
+      {
+        source: '/products/moqet',
+        destination: '/products/mokite',
+        permanent: true,
       },
     ];
   },

@@ -1,60 +1,12 @@
 import type { Metadata } from 'next';
+import { BUSINESS } from '@/constants/business';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
 
 export const metadata: Metadata = {
-  title: 'اتصل بنا - العمودي للمفروشات | سجاد الرياض | موكيت الرياض | موكيت مساجد',
-  description: 'تواصل مع العمودي للمفروشات في الرياض للاستفسار عن سجاد الرياض، موكيت الرياض، موكيت مساجد، سجاد مساجد في الرياض، موكيت ومفروشات في الرياض. نحن في خدمتك عبر الواتساب أو زيارة معرضنا في الرياض.',
-  keywords: [
-    'سجاد الرياض',
-    'سجاد في الرياض',
-    'موكيت الرياض',
-    'موكيت في الرياض',
-    'موكيت ومفروشات في الرياض',
-    'مفروشات الرياض',
-    'موكيت مساجد',
-    'سجاد مساجد',
-    'سجاد مساجد في الرياض',
-    'موكيت مساجد في الرياض',
-    'سجاد مساجد الرياض',
-    'موكيت للمساجد',
-    'سجاد للمساجد',
-    'موكيت مساجد الرياض',
-    'اتصل بالعمودي للمفروشات',
-    'تواصل معنا',
-    'رقم العمودي للمفروشات',
-    'عنوان العمودي للمفروشات الرياض',
-    'واتساب العمودي للمفروشات',
-    'خدمة العملاء',
-    'معرض السجاد الرياض',
-    'معرض الموكيت الرياض',
-    'معرض المفروشات الرياض',
-    'شركة سجاد الرياض',
-    'شركة موكيت الرياض',
-    'أفضل سجاد في الرياض',
-    'أفضل موكيت في الرياض',
-    'سجاد فاخر الرياض',
-    'موكيت فاخر الرياض'
-  ],
+  title: 'اتصل بنا — موكيت وسجاد الرياض',
   alternates: {
     canonical: '/contact',
-  },
-  openGraph: {
-    title: 'اتصل بنا - العمودي للمفروشات | سجاد الرياض | موكيت الرياض | موكيت مساجد',
-    description: 'تواصل مع العمودي للمفروشات في الرياض للاستفسار عن سجاد الرياض، موكيت الرياض، موكيت مساجد، سجاد مساجد في الرياض، موكيت ومفروشات في الرياض',
-    type: 'website',
-    url: `${baseUrl}/contact`,
-    locale: 'ar_SA',
-    siteName: 'العمودي للمفروشات',
-  },
-  twitter: {
-    card: 'summary',
-    title: 'اتصل بنا - العمودي للمفروشات',
-    description: 'تواصل معنا للاستفسار عن موكيت وسجاد الرياض',
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 };
 
@@ -65,29 +17,26 @@ export default function ContactPage() {
     '@type': 'ContactPage',
     mainEntity: {
       '@type': 'LocalBusiness',
-      name: 'العمودي للمفروشات -  للأرضيات والمفروشات',
-      telephone: '+966558352924',
+      '@id': `${BUSINESS.url}/#business`,
+      name: BUSINESS.name,
+      telephone: BUSINESS.phone.primary,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'طريق الملك فهد',
-        addressLocality: 'الرياض',
-        addressRegion: 'الرياض',
-        postalCode: '12345',
-        addressCountry: 'SA',
+        streetAddress: BUSINESS.address.streetAddress,
+        addressLocality: BUSINESS.address.addressLocality,
+        addressRegion: BUSINESS.address.addressRegion,
+        postalCode: BUSINESS.address.postalCode,
+        addressCountry: BUSINESS.address.addressCountry,
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: 24.597427,
-        longitude: 46.730596,
+        latitude: BUSINESS.geo.latitude,
+        longitude: BUSINESS.geo.longitude,
       },
-      openingHours: [
-        'Mo-Th 09:00-22:00',
-        'Fr 14:00-22:00',
-        'Sa-Su 09:00-22:00'
-      ],
+      openingHours: BUSINESS.hours.schemaOrg,
       contactPoint: {
         '@type': 'ContactPoint',
-        telephone: '+966558352924',
+        telephone: BUSINESS.phone.primary,
         contactType: 'customer service',
         availableLanguage: ['Arabic'],
       },
@@ -133,11 +82,11 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
                     <div>
-                      <p className="font-semibold text-lg" dir="ltr">+966 55 835 2924</p>
+                      <p className="font-semibold text-lg" dir="ltr">{BUSINESS.phone.displayIntl}</p>
                       <p className="text-gray-600 text-sm">متاح 24/7</p>
                     </div>
                     <a
-                      href="https://wa.me/966558352924?text=مرحباً، أريد الاستفسار عن منتجاتكم"
+                      href={BUSINESS.phone.whatsappLink}
                       className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors"
                     >
                       ابدأ المحادثة
@@ -151,7 +100,7 @@ export default function ContactPage() {
                 <h3 className="text-2xl font-bold text-gray-800 mb-6">خدماتنا</h3>
                 <div className="grid grid-cols-1 gap-4">
                   <a
-                    href="https://wa.me/966558352924?text=مرحباً، أحتاج مساعدة في خدمة العملاء"
+                    href={`https://wa.me/${BUSINESS.phone.primary.replace('+', '')}?text=مرحباً، أحتاج مساعدة في خدمة العملاء`}
                     className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center ml-4">
@@ -166,7 +115,7 @@ export default function ContactPage() {
                   </a>
 
                   <a
-                    href="https://wa.me/966558352924?text=مرحباً، أريد طلب زيارة مندوب"
+                    href={`https://wa.me/${BUSINESS.phone.primary.replace('+', '')}?text=مرحباً، أريد طلب زيارة مندوب`}
                     className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center ml-4">
@@ -181,7 +130,7 @@ export default function ContactPage() {
                   </a>
 
                   <a
-                    href="https://wa.me/966558352924?text=مرحباً، أريد الاستفسار عن الأسعار"
+                    href={`https://wa.me/${BUSINESS.phone.primary.replace('+', '')}?text=مرحباً، أريد الاستفسار عن الأسعار`}
                     className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center ml-4">
@@ -219,7 +168,7 @@ export default function ContactPage() {
                   <div className="p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-gray-800 mb-2">العنوان</h4>
                     <p className="text-gray-700">
-                      حي العزيزية، شارع عبدالله بن صالح، الرياض، المملكة العربية السعودية
+                      {BUSINESS.address.full}
                     </p>
 
                   </div>
@@ -227,14 +176,14 @@ export default function ContactPage() {
                   <div className="p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-gray-800 mb-2">ساعات العمل</h4>
                     <div className="space-y-1 text-gray-700">
-                      <p>الأحد - الخميس: 9:00 ص - 10:00 م</p>
-                      <p>الجمعة: 2:00 م - 10:00 م</p>
-                      <p>السبت: 9:00 ص - 10:00 م</p>
+                      <p>{BUSINESS.hours.display.sunThu}</p>
+                      <p>{BUSINESS.hours.display.friday}</p>
+                      <p>{BUSINESS.hours.display.saturday}</p>
                     </div>
                   </div>
 
                   <a
-                    href="https://maps.google.com/?q=24.597427,46.730596"
+                    href={BUSINESS.geo.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-500 hover:underline"
@@ -288,7 +237,7 @@ export default function ContactPage() {
             </p>
 
             <a
-              href="https://wa.me/966567746257?text=مرحباً، أريد الاستفسار عن منتجاتكم"
+              href={BUSINESS.phone.whatsappLink}
               className="inline-flex items-center bg-white text-carpet-gold px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
             >
               <svg className="w-6 h-6 ml-2" fill="currentColor" viewBox="0 0 24 24">

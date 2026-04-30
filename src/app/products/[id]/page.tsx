@@ -34,31 +34,18 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   }
 
   return {
-    title: `${product.title} | العمودي للمفروشات`,
+    title: product.title,
     description: product.metaDescription,
-    keywords: product.keywords?.join(", "),
     alternates: {
       canonical: `/products/${id}`,
     },
     openGraph: {
-      title: `${product.title} | العمودي للمفروشات`,
-      description: product.metaDescription,
-      type: 'website',
-      url: `${baseUrl}/products/${id}`,
       images: product.images.slice(0, 4).map((img, index) => ({
         url: img,
         width: 800,
         height: 600,
         alt: `${product.title} - صورة ${index + 1}`,
       })),
-      locale: 'ar_SA',
-      siteName: 'العمودي للمفروشات',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: product.title,
-      description: product.metaDescription,
-      images: [product.images[0]],
     },
   };
 }

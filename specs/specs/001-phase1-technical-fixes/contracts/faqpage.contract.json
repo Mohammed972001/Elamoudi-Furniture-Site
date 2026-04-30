@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FAQPage JSON-LD contract — Al-Amoudi Furniture",
+  "description": "Emitted by src/components/seo/FAQ.tsx. In Phase 1 this contract applies to /products and /decor (US-4) — exactly 5 entities each. The homepage already emits one FAQPage; do not add a second one to /.",
+  "type": "object",
+  "required": ["@context", "@type", "mainEntity"],
+  "properties": {
+    "@context": { "const": "https://schema.org" },
+    "@type": { "const": "FAQPage" },
+    "mainEntity": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["@type", "name", "acceptedAnswer"],
+        "properties": {
+          "@type": { "const": "Question" },
+          "name": { "type": "string", "minLength": 8, "description": "Arabic question text. SHOULD end with '؟'." },
+          "acceptedAnswer": {
+            "type": "object",
+            "required": ["@type", "text"],
+            "properties": {
+              "@type": { "const": "Answer" },
+              "text": { "type": "string", "minLength": 40, "description": "Arabic answer body, 2–4 sentences." }
+            }
+          }
+        }
+      }
+    }
+  },
+  "forbidden": [
+    "Two FAQPage entities on the same URL (Constitution VII — Structured Data Integrity).",
+    "Empty or one-word answer text — Google rejects thin Q&A as a rich-result candidate."
+  ]
+}

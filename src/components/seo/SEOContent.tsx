@@ -11,33 +11,33 @@ export default function SEOContent({ content, title }: SEOContentProps) {
   // Parses basic markdown-like structures into semantic SEO-friendly HTML
   const formatContent = (text: string) => {
     // Split by double newlines to separate paragraphs and blocks
-    return text.split('\\n\\n').map((paragraph, index) => {
+    return text.split('\n\n').map((paragraph, index) => {
       
       // H2 Headers: Wrapped in ** but on a single line
       if (paragraph.startsWith('**') && paragraph.endsWith('**') && !paragraph.slice(2, -2).includes('**')) {
         return (
           <h2 key={index} className="text-2xl md:text-3xl font-bold text-gray-900 mt-8 mb-4">
-            {paragraph.replace(/\\*\\*/g, '')}
+            {paragraph.replace(/\*\*/g, '')}
           </h2>
         );
       }
       
-      // H3 Headers: Numbered lists like "1. Title\\nDescription"
-      if (paragraph.match(/^\\d+\\./)) {
-        const lines = paragraph.split('\\n');
+      // H3 Headers: Numbered lists like "1. Title\nDescription"
+      if (paragraph.match(/^\d+\./)) {
+        const lines = paragraph.split('\n');
         const heading = lines[0];
         const bodyParts = lines.slice(1);
         
         return (
           <div key={index} className="mb-6">
             <h3 className="text-xl font-semibold text-primary mb-2">
-              {heading.replace(/\\*\\*/g, '')}
+              {heading.replace(/\*\*/g, '')}
             </h3>
             {bodyParts.length > 0 && (
               <p 
                 className="text-gray-700 leading-relaxed" 
                 dangerouslySetInnerHTML={{ 
-                  __html: bodyParts.join('<br />').replace(/\\*\\*([^\\*]+)\\*\\*/g, '<strong>$1</strong>') 
+                  __html: bodyParts.join('<br />').replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>') 
                 }} 
               />
             )}
@@ -49,7 +49,7 @@ export default function SEOContent({ content, title }: SEOContentProps) {
       return (
         <p key={index} className="mb-5 text-lg text-gray-700 leading-relaxed" 
            dangerouslySetInnerHTML={{ 
-             __html: paragraph.replace(/\\*\\*([^\\*]+)\\*\\*/g, '<strong>$1</strong>') 
+             __html: paragraph.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>') 
            }} 
         />
       );

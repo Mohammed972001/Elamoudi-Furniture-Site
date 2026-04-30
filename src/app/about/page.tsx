@@ -1,42 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { BUSINESS } from '@/constants/business';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
 
 export const metadata: Metadata = {
-  title: 'من نحن - العمودي للمفروشات | خبرة في موكيت وسجاد الرياض',
-  description: 'تعرف على العمودي للمفروشات، الشركة الرائدة في مجال موكيت وسجاد وأرضيات الرياض. خبرة واسعة في موكيت مساجد، باركيه، فينيل. جودة عالية وأسعار تنافسية.',
-  keywords: [
-    'العمودي للمفروشات',
-    'موكيت الرياض',
-    'سجاد الرياض',
-    'مفروشات الرياض',
-    'أرضيات الرياض',
-    'موكيت مساجد',
-    'باركيه',
-    'فينيل',
-    'شركة مفروشات الرياض',
-    'معرض سجاد الرياض',
-  ],
+  title: 'من نحن — خبرتنا في موكيت وسجاد الرياض',
   alternates: {
     canonical: '/about',
-  },
-  openGraph: {
-    title: 'من نحن - العمودي للمفروشات | خبرة في موكيت وسجاد الرياض',
-    description: 'الشركة الرائدة في موكيت وسجاد وأرضيات الرياض. موكيت مساجد، باركيه، فينيل بجودة عالية.',
-    type: 'website',
-    url: `${baseUrl}/about`,
-    locale: 'ar_SA',
-    siteName: 'العمودي للمفروشات',
-  },
-  twitter: {
-    card: 'summary',
-    title: 'من نحن - العمودي للمفروشات',
-    description: 'خبرة واسعة في موكيت وسجاد وأرضيات الرياض',
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 };
 
@@ -49,7 +20,7 @@ export default function AboutPage() {
       '@type': 'Organization',
       name: 'العمودي للمفروشات - للأرضيات والمفروشات',
       description: 'شركة رائدة في مجال الأرضيات والمفروشات المنزلية تقدم تشكيلة متنوعة تلبي مختلف الأذواق',
-      telephone: '+966558352924',
+      telephone: BUSINESS.phone.primary,
       address: {
         '@type': 'PostalAddress',
         addressCountry: 'SA',
@@ -224,7 +195,7 @@ export default function AboutPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://wa.me/966558352924?text=مرحباً، أريد الاستفسار عن منتجاتكم"
+                  href={BUSINESS.phone.whatsappLink}
                   className="bg-white text-carpet-gold px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
                 >
                   تواصل معنا عبر الواتساب

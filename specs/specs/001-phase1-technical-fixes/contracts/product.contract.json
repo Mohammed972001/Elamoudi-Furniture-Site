@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Product JSON-LD contract — Al-Amoudi Furniture",
+  "description": "Emitted by src/app/products/[id]/page.tsx via ProductSchema. CRITICAL: aggregateRating MUST NOT appear unless populated from a verified reviews pipeline (Constitution III).",
+  "type": "object",
+  "required": ["@context", "@type", "name", "description", "sku", "brand", "image"],
+  "properties": {
+    "@context": { "const": "https://schema.org" },
+    "@type": { "const": "Product" },
+    "name": { "type": "string" },
+    "description": { "type": "string", "minLength": 50 },
+    "sku": { "type": "string", "description": "Equal to product.id" },
+    "brand": {
+      "type": "object",
+      "required": ["@type", "name"],
+      "properties": {
+        "@type": { "const": "Brand" },
+        "name": { "const": "العمودي للمفروشات" }
+      }
+    },
+    "image": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["@type", "@id", "url", "contentUrl", "caption"],
+        "properties": {
+          "@type": { "const": "ImageObject" },
+          "@id": { "type": "string", "format": "uri" },
+          "url": { "type": "string", "format": "uri" },
+          "contentUrl": { "type": "string", "format": "uri" },
+          "caption": { "type": "string" }
+        }
+      }
+    },
+    "offers": {
+      "type": "object",
+      "description": "Present only when product.price is defined. Contains shipping + return policy with current logic in JsonLd.tsx unchanged.",
+      "required": ["@type", "price", "priceCurrency", "availability"]
+    },
+    "aggregateRating": {
+      "type": "object",
+      "description": "FORBIDDEN unless real, verified reviews exist. JSON.stringify drops undefined keys, so when the prop is omitted, this field MUST NOT appear in the rendered JSON-LD.",
+      "required": ["@type", "ratingValue", "reviewCount"],
+      "properties": {
+        "@type": { "const": "AggregateRating" },
+        "ratingValue": { "type": "number", "minimum": 1, "maximum": 5 },
+        "reviewCount": { "type": "integer", "minimum": 1 },
+        "bestRating": { "type": "number", "default": 5 },
+        "worstRating": { "type": "number", "default": 1 }
+      }
+    }
+  },
+  "forbidden": [
+    "Any aggregateRating object whose ratingValue/reviewCount is hardcoded in component source.",
+    "Any review[] entries that are not sourced from a verified reviews pipeline."
+  ],
+  "constitutional_references": [
+    "Constitution Principle III — No Black-Hat / No Fake Signals.",
+    "GSC review-snippet drop 13 → 4 between 2026-04-15 and 2026-04-25 (SEO-KNOWLEDGE-BASE.md §4.11)."
+  ]
+}

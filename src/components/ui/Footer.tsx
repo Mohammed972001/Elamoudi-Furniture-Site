@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FaSnapchat, FaTelegram } from "react-icons/fa6";
 import { NavigationSection } from '@/types';
+import { BUSINESS } from '@/constants/business';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -67,7 +68,7 @@ const Footer = () => {
       icon: (
         <FaTelegram className="w-10 h-5 text-current" style={{ width: '40px', height: '20px' }} />
       ), 
-      href: "https://t.me/+966558352924", 
+      href: `https://t.me/${BUSINESS.phone.primary}`, 
       name: "Telegram" 
     },
   ];
@@ -93,7 +94,7 @@ const Footer = () => {
             </div>
             
             <div className="space-y-3">
-              <a href="tel:+966-55-835-2924" className="flex items-center justify-center text-lg">
+              <a href={BUSINESS.phone.telLink} className="flex items-center justify-center text-lg" dir="ltr">
                 <Image 
                   src="/home/phon.svg" 
                   alt="هاتف"
@@ -101,7 +102,7 @@ const Footer = () => {
                   height={20}
                   className="ml-2"
                 />
-                   2924 835 55 966+ 
+                   {BUSINESS.phone.displayIntl}
               </a>
             </div>
           </div>
@@ -153,7 +154,7 @@ const Footer = () => {
             </div>
             
             <div className="space-y-4">
-              <a href="tel:+966-55-835-2924" className="flex items-center justify-start text-lg">
+              <a href={BUSINESS.phone.telLink} className="flex items-center justify-start text-lg" dir="ltr">
               <Image 
                   src="/home/phon.svg" 
                   alt="هاتف"
@@ -161,7 +162,7 @@ const Footer = () => {
                   height={20}
                   className="ml-2"
                 />
-               6257 774 56 966+ 
+               {BUSINESS.phone.displayIntl}
               </a>
             </div>
           </div>

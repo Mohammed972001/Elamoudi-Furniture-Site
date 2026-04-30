@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BreadcrumbList JSON-LD contract — Al-Amoudi Furniture",
+  "description": "Emitted by src/components/seo/Breadcrumbs.tsx. In Phase 1 the only NEW location is /garden (US-8). Existing locations (carpets, products, decor, contact, product detail) keep their breadcrumbs unchanged.",
+  "type": "object",
+  "required": ["@context", "@type", "itemListElement"],
+  "properties": {
+    "@context": { "const": "https://schema.org" },
+    "@type": { "const": "BreadcrumbList" },
+    "itemListElement": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["@type", "position", "name"],
+        "properties": {
+          "@type": { "const": "ListItem" },
+          "position": { "type": "integer", "minimum": 1 },
+          "name": { "type": "string", "description": "Arabic breadcrumb label." },
+          "item": {
+            "type": "string",
+            "format": "uri",
+            "description": "Absolute URL. Required for non-leaf breadcrumb items; leaf item omits this field."
+          }
+        }
+      }
+    }
+  },
+  "examples": {
+    "garden": {
+      "itemListElement": [
+        { "position": 1, "name": "الرئيسية", "item": "https://www.elamoudifurniture.com/" },
+        { "position": 2, "name": "تنسيق الحدائق" }
+      ]
+    },
+    "products_listing": {
+      "itemListElement": [
+        { "position": 1, "name": "الرئيسية", "item": "https://www.elamoudifurniture.com/" },
+        { "position": 2, "name": "المنتجات" }
+      ]
+    }
+  }
+}

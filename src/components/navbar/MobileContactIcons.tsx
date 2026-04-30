@@ -1,8 +1,10 @@
+import { BUSINESS } from '@/constants/business';
+
 const MobileContactIcons = () => (
   <div className="flex items-center space-x-2 space-x-reverse">
     {/* WhatsApp Icon */}
     <a
-      href="https://wa.me/966558352924"
+      href={BUSINESS.phone.whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
       className="p-2 text-gray-600 hover:text-green-600 transition-colors duration-200 relative group rounded-full hover:bg-green-50"
@@ -17,7 +19,7 @@ const MobileContactIcons = () => (
 
     {/* Phone Icon */}
     <a
-      href="tel:+966558352924"
+      href={BUSINESS.phone.telLink}
       className="p-2 text-gray-600 hover:text-blue-600 transition-colors duration-200 relative group rounded-full hover:bg-blue-50"
       aria-label="اتصل بنا"
     >

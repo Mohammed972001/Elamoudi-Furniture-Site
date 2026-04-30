@@ -5,6 +5,18 @@ import { containerSections } from "@/data/containers";
 import HeroContainer from "@/components/ui/HeroContainer";
 import FAQ from "@/components/seo/FAQ";
 import Link from "next/link";
+import SEOContent from "@/components/seo/SEOContent";
+
+const homeSeoContent = `
+**العمودي للمفروشات - خيارك الأول في الرياض**
+نحن في العمودي للمفروشات نفخر بتقديم أفضل تشكيلة من الموكيت والسجاد وأرضيات الباركيه والفينيل في الرياض. منذ تأسيسنا، التزمنا بتوفير منتجات تجمع بين الفخامة، المتانة، والأسعار التنافسية. 
+
+1. تفصيل موكيت مساجد
+نحن متخصصون في فرش المساجد بأجود أنواع الموكيت التركي والوطني، مع توفير خدمات القياس والتركيب الاحترافي لضمان راحة المصلين.
+
+2. أرضيات باركيه وفينيل
+نقدم خيارات واسعة من الأرضيات الخشبية (الباركيه) وأرضيات الفينيل التي تناسب المنازل والمكاتب، وتتميز بمقاومتها العالية للرطوبة وسهولة التنظيف.
+`;
 
 // FAQ Items for Homepage
 const homeFaqItems = [
@@ -51,7 +63,13 @@ export default function Home() {
           description="حوّل أجواء منزلك بلمسة من الفخامة مع تشكيلتنا المختارة من الأرضيات المصمّمة بعناية لتناسب مختلف الأذواق والمساحات."
           buttonText="تسوق الآن"
           buttonHref="/products/mokite"
-          image="/home/staar.png"
+          images={[
+            "/home/Ardiat1 (1).jpeg",
+            "/home/Ardiat1 (2).jpeg",
+            "/home/Ardiat1 (3).jpeg",
+            "/home/Ardiat1 (4).jpeg",
+            "/home/Ardiat1 (5).jpeg"
+          ]}
           imageAlt="أرضيات فاخرة من العمودي للمفروشات الرياض"
           backgroundColor="bg-[#EAE4D8]"
           textColor="text-black"
@@ -127,6 +145,13 @@ export default function Home() {
               خبرة واسعة في <Link href="/products/mokite" className="text-primary hover:underline">موكيت الرياض</Link> و
               <Link href="/products/parket" className="text-primary hover:underline">أرضيات الرياض</Link>
             </p>
+          </div>
+        </section>
+
+        {/* SEO Content Section */}
+        <section className="px-4">
+          <div className="max-w-4xl mx-auto">
+            <SEOContent content={homeSeoContent} />
           </div>
         </section>
 

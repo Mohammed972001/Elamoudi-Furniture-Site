@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WebSite JSON-LD contract — Al-Amoudi Furniture",
+  "description": "Emitted globally from src/app/layout.tsx via WebSiteSchema. After US-10 the schema gains alternateName; potentialAction.SearchAction is FORBIDDEN until /search?q= exists.",
+  "type": "object",
+  "required": ["@context", "@type", "@id", "url", "name", "description", "publisher", "inLanguage"],
+  "properties": {
+    "@context": { "const": "https://schema.org" },
+    "@type": { "const": "WebSite" },
+    "@id": { "const": "https://www.elamoudifurniture.com/#website" },
+    "url": { "const": "https://www.elamoudifurniture.com" },
+    "name": { "const": "العمودي للمفروشات" },
+    "alternateName": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "type": "string" },
+      "description": "Brand variants used as queries in GSC §4.2. Required after US-10. Reference list: ['مفروشات العمودي', 'العمودي للسجاد', 'Al-Amoudi Furniture']. The canonical 'العمودي للمفروشات' lives in `name` (do not duplicate)."
+    },
+    "description": { "type": "string", "minLength": 30 },
+    "publisher": {
+      "type": "object",
+      "required": ["@id"],
+      "properties": {
+        "@id": { "const": "https://www.elamoudifurniture.com/#organization" }
+      }
+    },
+    "inLanguage": { "const": "ar-SA" }
+  },
+  "forbidden": [
+    "potentialAction with @type 'SearchAction' — FORBIDDEN until a real /search?q= endpoint exists. Adding it without an endpoint is a structured-data lie (Constitution III + VII)."
+  ]
+}

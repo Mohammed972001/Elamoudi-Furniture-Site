@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LocalBusiness JSON-LD contract — Al-Amoudi Furniture",
+  "description": "Emitted globally from src/app/layout.tsx and rebuilt with identical NAP from src/app/contact/page.tsx. All NAP fields MUST source from src/constants/business.ts (Constitution IV).",
+  "type": "object",
+  "required": [
+    "@context",
+    "@type",
+    "@id",
+    "name",
+    "description",
+    "url",
+    "telephone",
+    "address",
+    "geo",
+    "openingHoursSpecification",
+    "areaServed",
+    "priceRange"
+  ],
+  "properties": {
+    "@context": { "const": "https://schema.org" },
+    "@type": { "const": "HomeAndConstructionBusiness" },
+    "@id": { "const": "https://www.elamoudifurniture.com/#business", "description": "Shared across pages — every LocalBusiness reference uses this @id." },
+    "name": { "const": "العمودي للمفروشات" },
+    "description": { "type": "string", "minLength": 80 },
+    "url": { "const": "https://www.elamoudifurniture.com" },
+    "telephone": { "const": "+966558352924" },
+    "image": { "type": "string", "pattern": "^https://www\\.elamoudifurniture\\.com" },
+    "priceRange": { "const": "$$" },
+    "address": {
+      "type": "object",
+      "required": ["@type", "streetAddress", "addressLocality", "addressRegion", "postalCode", "addressCountry"],
+      "properties": {
+        "@type": { "const": "PostalAddress" },
+        "streetAddress": { "const": "حي العزيزية، شارع عبدالله بن صالح" },
+        "addressLocality": { "const": "الرياض" },
+        "addressRegion": { "const": "منطقة الرياض" },
+        "postalCode": { "const": "12345" },
+        "addressCountry": { "const": "SA" }
+      }
+    },
+    "geo": {
+      "type": "object",
+      "required": ["@type", "latitude", "longitude"],
+      "properties": {
+        "@type": { "const": "GeoCoordinates" },
+        "latitude": { "const": 24.597427 },
+        "longitude": { "const": 46.730596 }
+      }
+    },
+    "openingHoursSpecification": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "type": "object", "required": ["@type", "dayOfWeek", "opens", "closes"] }
+    },
+    "areaServed": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "object", "required": ["@type", "name"], "properties": { "@type": { "const": "City" } } }
+    },
+    "hasOfferCatalog": {
+      "type": "object",
+      "required": ["@type", "name", "itemListElement"]
+    }
+  },
+  "forbidden": [
+    "aggregateRating — until a verified reviews pipeline exists (Constitution III)",
+    "review — same as above",
+    "Any address whose streetAddress contains 'طريق الملك فهد'",
+    "Any telephone whose value is +966567746257"
+  ]
+}
