@@ -11,6 +11,6 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
 // App constants
 export const APP_CONFIG = {
   CART_COUNT: 3, // TODO: Connect to state management
-  SITE_NAME: 'العمودي للمفروشات',
-  SITE_TAGLINE: 'منزلك أجمل معنا',
+  SITE_NAME: 'لمسة ابداع',
+  SITE_TAGLINE: 'مفروشات الرياض',
 } as const; 

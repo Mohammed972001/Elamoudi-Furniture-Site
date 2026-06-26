@@ -196,7 +196,7 @@ export default function ContactPage() {
 
               {/* Quick Info */}
               <div className="bg-primary text-white p-8 rounded-lg">
-                <h3 className="text-2xl font-bold mb-6">لماذا تختار العمودي للمفروشات في الرياض؟</h3>
+                <h3 className="text-2xl font-bold mb-6">لماذا تختار لمسة ابداع لمفروشات الرياض؟</h3>
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <span className="text-carpet-gold text-xl ml-3">✨</span>

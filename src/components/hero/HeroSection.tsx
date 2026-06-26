@@ -6,12 +6,12 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/home/hero-bg.png"
-          alt="العمودي للمفروشات - موكيت وسجاد وباركيه وأرضيات فاخرة في الرياض"
+          src="/home/hero-lamset.webp"
+          alt="لمسة ابداع لمفروشات الرياض - موكيت وسجاد وباركيه وأرضيات فاخرة في الرياض"
           fill
           className="object-cover object-center"
           priority={true}
-          quality={100}
+          quality={75}
           sizes="100vw"
           placeholder="blur"
           blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzVFN0I2MyIvPjwvc3ZnPg=="
@@ -25,7 +25,7 @@ export default function HeroSection() {
         <div>
           {/* Main Heading */}
           <h1 className="mb-6 text-5xl lg:text-7xl font-bold text-white leading-tight">
-            <span className="block text-primary">  العمودي للمفروشات والموكيت </span>
+            <span className="block text-primary">  لمسة ابداع لمفروشات الرياض </span>
             <span className="block">كل لمسة تبدأ</span>
             <span className="block text-carpet-gold">من الأرض</span>
           </h1>

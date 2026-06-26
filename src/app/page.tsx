@@ -8,8 +8,8 @@ import Link from "next/link";
 import SEOContent from "@/components/seo/SEOContent";
 
 const homeSeoContent = `
-**العمودي للمفروشات - خيارك الأول في الرياض**
-نحن في العمودي للمفروشات نفخر بتقديم أفضل تشكيلة من الموكيت والسجاد وأرضيات الباركيه والفينيل في الرياض. منذ تأسيسنا، التزمنا بتوفير منتجات تجمع بين الفخامة، المتانة، والأسعار التنافسية. 
+**لمسة ابداع - خيارك الأول لمفروشات الرياض**
+نحن في لمسة ابداع لمفروشات الرياض نفخر بتقديم أفضل تشكيلة من الموكيت والسجاد وأرضيات الباركيه والفينيل في الرياض. منذ تأسيسنا، التزمنا بتوفير منتجات تجمع بين الفخامة، المتانة، والأسعار التنافسية. 
 
 1. تفصيل موكيت مساجد
 نحن متخصصون في فرش المساجد بأجود أنواع الموكيت التركي والوطني، مع توفير خدمات القياس والتركيب الاحترافي لضمان راحة المصلين.
@@ -141,7 +141,7 @@ export default function Home() {
               </Link>
             </div>
             <p className="text-center text-gray-600 mt-6">
-              تعرف على <Link href="/about" className="text-primary hover:underline font-semibold">العمودي للمفروشات</Link> -
+              تعرف على <Link href="/about" className="text-primary hover:underline font-semibold">لمسة ابداع لمفروشات الرياض</Link> -
               خبرة واسعة في <Link href="/products/mokite" className="text-primary hover:underline">موكيت الرياض</Link> و
               <Link href="/products/parket" className="text-primary hover:underline">أرضيات الرياض</Link>
             </p>
