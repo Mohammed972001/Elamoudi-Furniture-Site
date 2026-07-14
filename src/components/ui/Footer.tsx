@@ -42,8 +42,8 @@ const Footer = () => {
           height={20}
         />
       ), 
-      href: "#", 
-      name: "X (Twitter)" 
+      href: "https://x.com/Khaled1985357",
+      name: "X (Twitter)"
     },
     { 
       icon: (
@@ -206,6 +206,8 @@ const Footer = () => {
               <a 
                 key={index}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-14 h-10  bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all text-white"
                 aria-label={social.name}
               >
