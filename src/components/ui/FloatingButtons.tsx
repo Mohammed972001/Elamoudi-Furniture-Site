@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { BUSINESS } from '@/constants/business';
+import { reportContact } from '@/constants/conversions';
 
 const FloatingButtons = () => {
   const [isVisible] = useState(true);
@@ -10,10 +11,12 @@ const FloatingButtons = () => {
   const whatsappMessage = "السلام عليكم، أريد الاستفسار عن منتجاتكم";
 
   const handleCall = () => {
+    reportContact('call');
     window.open(`tel:${phoneNumber}`, '_self');
   };
 
   const handleWhatsApp = () => {
+    reportContact('whatsapp');
     const encodedMessage = encodeURIComponent(whatsappMessage);
     window.open(`https://wa.me/${phoneNumber.replace('+', '')}?text=${encodedMessage}`, '_blank');
   };

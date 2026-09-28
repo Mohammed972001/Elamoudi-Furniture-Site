@@ -9,6 +9,8 @@ import Footer from "@/components/ui/Footer";
 import FloatingButtons from "@/components/ui/FloatingButtons";
 import { LocalBusinessSchema, OrganizationSchema, WebSiteSchema } from "@/components/seo/JsonLd";
 import { BUSINESS } from '@/constants/business';
+import { ADS_ID } from '@/constants/conversions';
+import ContactTracker from '@/components/ui/ContactTracker';
 
 // Font configuration
 const cairo = Cairo({
@@ -123,7 +125,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
       <head>
         {/* Google tag (gtag.js) — Google Ads + GA4 */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17506948956"
+          src={`https://www.googletagmanager.com/gtag/js?id=${ADS_ID}`}
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -131,6 +133,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+            gtag('config', '${ADS_ID}');
             gtag('config', 'AW-17506948956');
             ${process.env.NEXT_PUBLIC_GA4_ID ? `gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}');` : '// GA4: Set NEXT_PUBLIC_GA4_ID in .env to enable (e.g. G-XXXXXXXXXX)'}
           `}
@@ -179,6 +182,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
           <Footer />
           <FloatingButtons />
         </div>
+        <ContactTracker />
       </body>
     </html>
   );

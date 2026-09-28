@@ -6,6 +6,7 @@ import { FaWhatsapp, FaPhone, FaChevronLeft, FaChevronRight } from 'react-icons/
 import { ProductDetails } from "@/types";
 import SEOContent from "@/components/seo/SEOContent";
 import { BUSINESS } from "@/constants/business";
+import { reportContact } from "@/constants/conversions";
 
 interface ProductViewProps {
   product: ProductDetails;
@@ -36,11 +37,13 @@ export default function ProductView({ product }: ProductViewProps) {
   };
 
   const handleWhatsApp = () => {
+    reportContact('whatsapp');
     const message = encodeURIComponent(`مرحباً، أريد الاستفسار عن ${product.title}`);
     window.open(`https://wa.me/${BUSINESS.phone.primary.replace('+', '')}?text=${message}`, '_blank');
   };
 
   const handleCall = () => {
+    reportContact('call');
     window.open(BUSINESS.phone.telLink, '_self');
   };
 
