@@ -6,6 +6,10 @@ import HeroContainer from "@/components/ui/HeroContainer";
 import FAQ from "@/components/seo/FAQ";
 import Link from "next/link";
 import SEOContent from "@/components/seo/SEOContent";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
+
+// Re-render every 5 minutes so newly submitted reviews reach the homepage.
+export const revalidate = 300;
 
 const homeSeoContent = `
 **لمسة ابداع - خيارك الأول لمفروشات الرياض**
@@ -154,6 +158,8 @@ export default function Home() {
             <SEOContent content={homeSeoContent} />
           </div>
         </section>
+
+        <TestimonialsSection />
 
         {/* FAQ Section */}
         <section className="py-12 px-4">

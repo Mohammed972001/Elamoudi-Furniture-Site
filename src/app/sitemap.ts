@@ -64,6 +64,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/reviews`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.6,
+    },
   ]
 
   // Generate product pages dynamically from the products data

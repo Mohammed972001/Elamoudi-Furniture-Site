@@ -19,6 +19,7 @@ const Footer = () => {
       links: [
         { name: "من نحن", href: "/about" },
         { name: "اتصل بنا", href: "/contact" },
+        { name: "آراء العملاء", href: "/reviews" },
       ]
     },
     {
