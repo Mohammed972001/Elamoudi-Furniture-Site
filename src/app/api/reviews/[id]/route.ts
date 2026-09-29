@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { deleteReview, setReviewHidden, isReviewsConfigured } from '@/lib/reviews';
+import { deleteReview, setReviewHidden, setReviewVerified, isReviewsConfigured } from '@/lib/reviews';
 
 export const runtime = 'nodejs';
 
@@ -48,7 +48,8 @@ export async function PATCH(request: Request, ctx: { params: Promise<{ id: strin
     return NextResponse.json({ error: 'bad id' }, { status: 400 });
   }
 
-  const { hidden } = await request.json();
-  await setReviewHidden(id, Boolean(hidden));
+  const { hidden, verified } = await request.json();
+  if (typeof hidden === 'boolean') await setReviewHidden(id, hidden);
+  if (typeof verified === 'boolean') await setReviewVerified(id, verified);
   return NextResponse.json({ ok: true });
 }

@@ -7,8 +7,13 @@ export interface Review {
   service: string;
   rating: number;
   body: string;
+  /** Set by the owner after confirming the reviewer is a real customer. */
+  verified: boolean;
   createdAt: string;
 }
+
+/** Admin-only view of a review: the reviewer's email is never shown publicly. */
+export type AdminReview = Review & { hidden: boolean; email: string | null };
 
 /** Product/service options a reviewer can pick — kept in sync with the catalogue. */
 export const REVIEW_SERVICES = [
@@ -58,6 +63,9 @@ async function ensureTable() {
       created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
     )
   `;
+  // Added after launch — ADD COLUMN IF NOT EXISTS keeps existing tables working.
+  await db`ALTER TABLE reviews ADD COLUMN IF NOT EXISTS email TEXT`;
+  await db`ALTER TABLE reviews ADD COLUMN IF NOT EXISTS verified BOOLEAN NOT NULL DEFAULT FALSE`;
   ensured = true;
 }
 
@@ -68,6 +76,7 @@ type Row = {
   service: string;
   rating: number;
   body: string;
+  verified: boolean;
   created_at: string | Date;
 };
 
@@ -78,6 +87,7 @@ const toReview = (r: Row): Review => ({
   service: r.service,
   rating: r.rating,
   body: r.body,
+  verified: r.verified,
   createdAt: new Date(r.created_at).toISOString(),
 });
 
@@ -88,7 +98,7 @@ export async function listReviews(limit = 24): Promise<Review[]> {
     await ensureTable();
     const db = sql();
     const rows = (await db`
-      SELECT id, name, location, service, rating, body, created_at
+      SELECT id, name, location, service, rating, body, verified, created_at
       FROM reviews
       WHERE hidden = FALSE
       ORDER BY created_at DESC
@@ -102,15 +112,15 @@ export async function listReviews(limit = 24): Promise<Review[]> {
 }
 
 /** Everything, including hidden — for the admin view. */
-export async function listAllReviews(): Promise<(Review & { hidden: boolean })[]> {
+export async function listAllReviews(): Promise<AdminReview[]> {
   await ensureTable();
   const db = sql();
   const rows = (await db`
-    SELECT id, name, location, service, rating, body, hidden, created_at
+    SELECT id, name, location, service, rating, body, verified, hidden, email, created_at
     FROM reviews
     ORDER BY created_at DESC
-  `) as (Row & { hidden: boolean })[];
-  return rows.map((r) => ({ ...toReview(r), hidden: r.hidden }));
+  `) as (Row & { hidden: boolean; email: string | null })[];
+  return rows.map((r) => ({ ...toReview(r), hidden: r.hidden, email: r.email }));
 }
 
 export async function createReview(input: {
@@ -119,13 +129,14 @@ export async function createReview(input: {
   service: string;
   rating: number;
   body: string;
+  email?: string;
   ipHash?: string;
 }) {
   await ensureTable();
   const db = sql();
   await db`
-    INSERT INTO reviews (name, location, service, rating, body, ip_hash)
-    VALUES (${input.name}, ${input.location}, ${input.service}, ${input.rating}, ${input.body}, ${input.ipHash ?? null})
+    INSERT INTO reviews (name, location, service, rating, body, email, ip_hash)
+    VALUES (${input.name}, ${input.location}, ${input.service}, ${input.rating}, ${input.body}, ${input.email || null}, ${input.ipHash ?? null})
   `;
 }
 
@@ -140,6 +151,20 @@ export async function setReviewHidden(id: number, hidden: boolean) {
   const db = sql();
   await db`UPDATE reviews SET hidden = ${hidden} WHERE id = ${id}`;
 }
+
+export async function setReviewVerified(id: number, verified: boolean) {
+  await ensureTable();
+  const db = sql();
+  await db`UPDATE reviews SET verified = ${verified} WHERE id = ${id}`;
+}
+
+/** Review date for display, e.g. «٢٩ سبتمبر ٢٠٢٦». */
+export const formatReviewDate = (iso: string) =>
+  new Date(iso).toLocaleDateString('ar-SA-u-ca-gregory', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
 /** How many reviews the same submitter left in the last hour. */
 export async function recentCountByIp(ipHash: string): Promise<number> {

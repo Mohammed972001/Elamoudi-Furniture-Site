@@ -9,6 +9,7 @@ const field =
 export default function ReviewForm() {
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
+  const [email, setEmail] = useState('');
   const [service, setService] = useState<string>(REVIEW_SERVICES[0]);
   const [rating, setRating] = useState(5);
   const [body, setBody] = useState('');
@@ -25,7 +26,7 @@ export default function ReviewForm() {
       const res = await fetch('/api/reviews', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, location, service, rating, body, website }),
+        body: JSON.stringify({ name, location, email, service, rating, body, website }),
       });
       const data = await res.json();
 
@@ -62,6 +63,25 @@ export default function ReviewForm() {
       <div>
         <label htmlFor="rv-location" className="block text-sm font-semibold text-gray-900 mb-2">الحي / المدينة</label>
         <input id="rv-location" className={field} value={location} onChange={(e) => setLocation(e.target.value)} maxLength={60} placeholder="مثال: حي النرجس" required />
+      </div>
+
+      <div className="sm:col-span-2">
+        <label htmlFor="rv-email" className="block text-sm font-semibold text-gray-900 mb-2">
+          البريد الإلكتروني <span className="font-normal text-gray-500">(اختياري — لا يُنشر)</span>
+        </label>
+        <input
+          id="rv-email"
+          type="email"
+          dir="ltr"
+          autoComplete="email"
+          className={field}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          maxLength={120}
+        />
+        <p className="text-xs text-gray-500 mt-1.5">
+          نستخدمه فقط للتحقق من أنك عميل لدينا، وبعد التحقق تظهر على تقييمك علامة «عميل موثّق».
+        </p>
       </div>
 
       <div>

@@ -44,7 +44,7 @@ export default async function AdminReviewsPage({
   return (
     <Shell>
       <p className="text-gray-600 mb-6">
-        {reviews.length} تقييم. الحذف نهائي؛ الإخفاء يبقيه محفوظاً لكن لا يظهر للزوار.
+        {reviews.length} تقييم. «توثيق» يضع علامة «عميل موثّق» بعد تأكدك أن صاحبه عميل فعلي (من البريد أو الطلب). الإخفاء يبقيه محفوظاً لكن لا يظهر للزوار، والحذف نهائي.
       </p>
       <AdminReviewsClient initial={reviews} token={token} />
     </Shell>

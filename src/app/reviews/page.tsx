@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import ReviewForm from '@/components/sections/ReviewForm';
-import { listReviews, aggregate } from '@/lib/reviews';
+import { listReviews, aggregate, formatReviewDate } from '@/lib/reviews';
 
 export const dynamic = 'force-dynamic';
 
@@ -89,9 +89,14 @@ export default async function ReviewsPage() {
                   </span>
                   <blockquote className="text-gray-700 leading-relaxed flex-1 mb-4">{r.body}</blockquote>
                   <figcaption className="pt-3 border-t border-gray-200">
-                    <span className="block font-bold text-gray-900">{r.name}</span>
+                    <span className="block font-bold text-gray-900">
+                      {r.name}
+                      {r.verified && (
+                        <span className="mr-2 align-middle text-xs font-semibold text-primary">✓ عميل موثّق</span>
+                      )}
+                    </span>
                     <span className="block text-sm text-gray-500 mt-0.5">
-                      {r.location} · {r.service}
+                      {r.location} · {r.service} · <time dateTime={r.createdAt}>{formatReviewDate(r.createdAt)}</time>
                     </span>
                   </figcaption>
                 </figure>

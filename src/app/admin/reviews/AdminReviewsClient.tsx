@@ -1,33 +1,33 @@
 'use client';
 
 import { useState } from 'react';
-import type { Review } from '@/lib/reviews';
+import type { AdminReview } from '@/lib/reviews';
 
-type Item = Review & { hidden: boolean };
+type Patch = { hidden?: boolean; verified?: boolean };
 
 export default function AdminReviewsClient({
   initial,
   token,
 }: {
-  initial: Item[];
+  initial: AdminReview[];
   token: string;
 }) {
   const [items, setItems] = useState(initial);
   const [busy, setBusy] = useState<number | null>(null);
 
-  const act = async (id: number, method: 'DELETE' | 'PATCH', hidden?: boolean) => {
+  const request = async (id: number, method: 'DELETE' | 'PATCH', patch?: Patch) => {
     setBusy(id);
     try {
       const res = await fetch(`/api/reviews/${id}`, {
         method,
         headers: { 'Content-Type': 'application/json', 'x-admin-token': token },
-        body: method === 'PATCH' ? JSON.stringify({ hidden }) : undefined,
+        body: patch ? JSON.stringify(patch) : undefined,
       });
       if (!res.ok) throw new Error();
       setItems((list) =>
         method === 'DELETE'
           ? list.filter((r) => r.id !== id)
-          : list.map((r) => (r.id === id ? { ...r, hidden: Boolean(hidden) } : r))
+          : list.map((r) => (r.id === id ? { ...r, ...patch } : r))
       );
     } catch {
       alert('تعذّر تنفيذ العملية.');
@@ -50,14 +50,27 @@ export default function AdminReviewsClient({
           <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
             <div>
               <span className="font-bold text-gray-900">{r.name}</span>
-              <span className="text-sm text-gray-500 mr-2">
+              {r.verified && (
+                <span className="mr-2 text-xs font-semibold text-primary">✓ عميل موثّق</span>
+              )}
+              <span className="block text-sm text-gray-500">
                 {r.location} · {r.service}
+              </span>
+              <span className="block text-sm text-gray-500" dir="ltr">
+                {r.email ?? 'بدون بريد'}
               </span>
               <span className="block text-carpet-gold mt-1">{'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}</span>
             </div>
-            <div className="flex gap-2 shrink-0">
+            <div className="flex flex-wrap gap-2 shrink-0">
               <button
-                onClick={() => act(r.id, 'PATCH', !r.hidden)}
+                onClick={() => request(r.id, 'PATCH', { verified: !r.verified })}
+                disabled={busy === r.id}
+                className="text-sm font-semibold px-3 py-1.5 rounded-lg border border-gray-200 hover:bg-gray-50 disabled:opacity-50"
+              >
+                {r.verified ? 'إلغاء التوثيق' : 'توثيق'}
+              </button>
+              <button
+                onClick={() => request(r.id, 'PATCH', { hidden: !r.hidden })}
                 disabled={busy === r.id}
                 className="text-sm font-semibold px-3 py-1.5 rounded-lg border border-gray-200 hover:bg-gray-50 disabled:opacity-50"
               >
@@ -65,7 +78,7 @@ export default function AdminReviewsClient({
               </button>
               <button
                 onClick={() => {
-                  if (confirm(`حذف تقييم ${r.name} نهائياً؟`)) act(r.id, 'DELETE');
+                  if (confirm(`حذف تقييم ${r.name} نهائياً؟`)) request(r.id, 'DELETE');
                 }}
                 disabled={busy === r.id}
                 className="text-sm font-semibold px-3 py-1.5 rounded-lg bg-red-700 text-white hover:opacity-90 disabled:opacity-50"

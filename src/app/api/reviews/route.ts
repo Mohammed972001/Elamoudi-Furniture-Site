@@ -9,7 +9,8 @@ import {
 
 export const runtime = 'nodejs';
 
-const LIMITS = { name: 60, location: 60, body: 900 };
+const LIMITS = { name: 60, location: 60, body: 900, email: 120 };
+const EMAIL = /^[^s@]+@[^s@]+.[^s@]{2,}$/;
 const MIN_BODY = 15;
 /** Reviews publish immediately, so this cap is the main brake on a flood. */
 const MAX_PER_HOUR = 2;
@@ -43,6 +44,7 @@ export async function POST(request: Request) {
   const location = clean(payload.location, LIMITS.location);
   const service = clean(payload.service, 60);
   const body = clean(payload.body, LIMITS.body);
+  const email = clean(payload.email, LIMITS.email).toLowerCase();
   const rating = Number(payload.rating);
 
   if (name.length < 2) {
@@ -56,6 +58,9 @@ export async function POST(request: Request) {
   }
   if (!Number.isInteger(rating) || rating < 1 || rating > 5) {
     return NextResponse.json({ error: 'من فضلك اختر تقييماً من 1 إلى 5.' }, { status: 400 });
+  }
+  if (email && !EMAIL.test(email)) {
+    return NextResponse.json({ error: 'البريد الإلكتروني غير صحيح.' }, { status: 400 });
   }
   if (body.length < MIN_BODY) {
     return NextResponse.json(
@@ -84,7 +89,7 @@ export async function POST(request: Request) {
       );
     }
 
-    await createReview({ name, location, service, rating, body, ipHash });
+    await createReview({ name, location, service, rating, body, email, ipHash });
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json(
