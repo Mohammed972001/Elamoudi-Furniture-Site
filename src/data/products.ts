@@ -257,8 +257,7 @@ export const productsDetails: ProductDetails[] = [
     keywords: ["فينيل رول", "أرضيات فينيل", "أرضيات تجارية", "فلورنج رول", "أرضيات مرنة"],
     images: [
       "/images/catg/vinyl-roll.jpg",
-      "/images/products/vinyl-1.jpg",
-      "/images/products/vinyl-2.jpg"
+      "/braqiee/WhatsApp Image 2025-08-02 at 6.34.33 PM.jpeg"
     ],
     availableColors: [
       { name: "أزرق كلاسيكي", value: "#1976D2" },
@@ -388,8 +387,8 @@ export const productsDetails: ProductDetails[] = [
   },
   {
     id: "hospital-flooring",
-    title: "أرضيات مستشفيات - معايير طبية عالية",
-    description: "أرضيات طبية متخصصة للمستشفيات والعيادات. تلبي أعلى معايير النظافة والسلامة الطبية مع سهولة التطهير والتعقيم.",
+    title: "فينيل طبي وأرضيات مستشفيات - معايير طبية عالية",
+    description: "فينيل طبي وأرضيات متخصصة للمستشفيات والعيادات. تلبي أعلى معايير النظافة والسلامة الطبية مع سهولة التطهير والتعقيم.",
     detailedDescription: `أرضيات مستشفيات – الاختيار الأمثل للمؤسسات الطبية من لمسة ابداع لمفروشات الرياض
 
 في البيئة الطبية، تلعب الأرضيات دوراً حاسماً في ضمان النظافة والسلامة والوقاية من العدوى. لهذا السبب، يقدم لكم لمسة ابداع لمفروشات الرياض مجموعة متخصصة من **أرضيات مستشفيات** عالية الجودة التي تلبي أعلى المعايير الطبية العالمية وتضمن بيئة آمنة وصحية للمرضى والطاقم الطبي.
@@ -420,8 +419,7 @@ export const productsDetails: ProductDetails[] = [
     keywords: ["أرضيات مستشفيات", "فلورنج طبي", "أرضيات عيادات", "أرضيات مضادة للبكتيريا", "فينيل طبي"],
     images: [
       "/images/catg/hospital.jpg",
-      "/images/products/hospital-1.jpg",
-      "/images/products/hospital-2.jpg"
+      "/images/catg/vinylmsagd.webp"
     ],
     availableColors: [
       { name: "أبيض طبي", value: "#FFFFFF" },
@@ -470,9 +468,7 @@ export const productsDetails: ProductDetails[] = [
     metaDescription: "فينيل مساجد عالي الجودة بتصميمات إسلامية جميلة. سهل التنظيف، مقاوم للاهتراء، مناسب للاستخدام الديني.",
     keywords: ["فينيل مساجد", "أرضيات مساجد", "فلورنج إسلامي", "أرضيات دينية", "فينيل ديني"],
     images: [
-      "/images/catg/vinylmsagd.webp",
-      "/images/products/vinyl-mosque-1.jpg",
-      "/images/products/vinyl-mosque-2.jpg"
+      "/images/catg/vinylmsagd.webp"
     ],
     availableColors: [
       { name: "أخضر مسجدي", value: "#2E7D32" },
