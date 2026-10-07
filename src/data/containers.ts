@@ -90,7 +90,31 @@ export const containerSections: ContainerSection[] = [
         image: "/images/catg/planets.png",
         href: "/products/planets",
       },
-      
+
+    ]
+  },
+  {
+    id: "rubber-flooring",
+    title: "أرضيات مطاطية (ربل)",
+    items: [
+      {
+        id: "gym-rubber",
+        name: "ربل جيم وصالات رياضية",
+        image: "/rubber/gym-1.jpg",
+        href: "/products/gym-rubber",
+      },
+      {
+        id: "horse-rubber",
+        name: "ربل خيل وإسطبلات",
+        image: "/rubber/horse-1.jpg",
+        href: "/products/horse-rubber",
+      },
+      {
+        id: "bathroom-rubber",
+        name: "ربل حمامات مانع للانزلاق",
+        image: "/rubber/bath-1.jpg",
+        href: "/products/bathroom-rubber",
+      },
     ]
   },
   {
