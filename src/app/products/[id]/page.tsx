@@ -84,7 +84,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
       />
 
       {/* Breadcrumbs with Schema */}
-      <div className="pt-20 px-4 max-w-7xl mx-auto">
+      {/* The navbar is fixed only from md up; on phones it is in the flow,
+          so the 80px clearance there was just an empty band. */}
+      <div className="pt-2 md:pt-20 px-4 max-w-7xl mx-auto">
         <Breadcrumbs items={breadcrumbItems} />
       </div>
 

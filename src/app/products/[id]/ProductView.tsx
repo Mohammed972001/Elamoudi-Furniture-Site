@@ -48,11 +48,59 @@ export default function ProductView({ product }: ProductViewProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    // No top padding here: the page wrapper already clears the fixed navbar,
+    // and a second pt-20 left a blank band across the first phone screen.
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 pt-2 pb-10 lg:py-8">
+        {/* Three blocks placed explicitly. On phones they stack in source
+            order — summary first — so a visitor from an ad sees the headline,
+            the ad's promises and both contact buttons on the first screen
+            instead of after the photo and a wall of thumbnails. On desktop
+            the gallery keeps its column and the text sits beside it. */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 lg:items-start">
+          {/* Summary */}
+          <div className="space-y-4 lg:col-start-2 lg:row-start-1">
+            <div>
+              <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2 lg:mb-4">
+                {product.title}
+              </h1>
+              <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
+                {product.description}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-x-4 gap-y-1.5 rounded-xl border border-green-200 bg-green-50 px-4 py-3">
+              {['معاينة وقياس مجاناً', 'توصيل مجاني داخل الرياض', 'عرض سعر على الواتساب'].map((item) => (
+                <span key={item} className="flex items-center gap-1.5 text-sm text-gray-800">
+                  <span className="text-green-600">✓</span>
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            {/* Action Buttons — no entrance animation: they used to fade in
+                a full second after load, right when ad visitors decide. */}
+            <div className="space-y-3">
+              <button
+                onClick={handleWhatsApp}
+                className="w-full bg-green-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg"
+              >
+                <FaWhatsapp className="w-5 h-5" />
+                اطلب عرض سعر على الواتساب
+              </button>
+
+              <button
+                onClick={handleCall}
+                className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg"
+              >
+                <FaPhone className="w-5 h-5" />
+                اتصال الآن
+              </button>
+            </div>
+          </div>
+
           {/* Images Section */}
-          <div className="space-y-4">
+          <div className="space-y-3 lg:col-start-1 lg:row-start-1 lg:row-span-2">
             {/* Main Image with Zoom */}
             <div className="relative aspect-square bg-white rounded-lg overflow-hidden shadow-md group">
               <div 
@@ -65,6 +113,7 @@ export default function ProductView({ product }: ProductViewProps) {
                   src={product.images[selectedImageIndex]}
                   alt={product.title}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className={`object-cover transition-transform duration-300 ${
                     isZoomed ? 'scale-150' : 'scale-100'
                   }`}
@@ -99,45 +148,39 @@ export default function ProductView({ product }: ProductViewProps) {
               </div>
             </div>
             
-            {/* Thumbnail Images */}
-            <div className="grid grid-cols-4 md:grid-cols-6 gap-2 max-h overflow-y-auto">
-              {product.images.map((image, index) => (
-                <div 
-                  key={index} 
-                  className={`relative aspect-square bg-white rounded-lg overflow-hidden shadow-sm cursor-pointer transition-all duration-300 ${
-                    selectedImageIndex === index 
-                      ? 'ring-2 ring-blue-500 scale-105' 
-                      : 'hover:scale-105 hover:shadow-md'
-                  }`}
-                  onClick={() => setSelectedImageIndex(index)}
-                >
-                  <Image
-                    src={image}
-                    alt={`${product.title} - صورة ${index + 1}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
+            {/* Thumbnails: one horizontal strip. The old 4-per-row grid
+                stacked up to four rows (13 photos on the carpet page) above
+                everything else on a phone. */}
+            {product.images.length > 1 && (
+              <div className="flex gap-2 overflow-x-auto pb-1">
+                {product.images.map((image, index) => (
+                  <button
+                    type="button"
+                    key={index}
+                    aria-label={`عرض الصورة ${index + 1}`}
+                    className={`relative w-16 h-16 lg:w-20 lg:h-20 shrink-0 bg-white rounded-lg overflow-hidden shadow-sm ${
+                      selectedImageIndex === index ? 'ring-2 ring-blue-500' : ''
+                    }`}
+                    onClick={() => setSelectedImageIndex(index)}
+                  >
+                    <Image
+                      src={image}
+                      alt={`${product.title} - صورة ${index + 1}`}
+                      fill
+                      sizes="80px"
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Product Details */}
-          <div className="space-y-6">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-4 animate-fade-in">
-                {product.title}
-              </h1>
-              <p className="text-lg text-gray-600 leading-relaxed animate-fade-in-delay">
-                {product.description}
-              </p>
-            </div>
-
-        
-
+          {/* Details */}
+          <div className="space-y-6 lg:col-start-2 lg:row-start-2">
             {/* Features */}
             {product.features && (
-              <div className="animate-fade-in-delay-4">
+              <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   المواصفات والمميزات
                 </h3>
@@ -151,25 +194,6 @@ export default function ProductView({ product }: ProductViewProps) {
                 </ul>
               </div>
             )}
-
-            {/* Action Buttons */}
-            <div className="space-y-3 pt-6 animate-fade-in-delay-5">
-              <button
-                onClick={handleWhatsApp}
-                className="w-full bg-green-500 text-white py-4 px-6 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
-              >
-                <FaWhatsapp className="w-5 h-5" />
-                طلب عبر الواتساب
-              </button>
-              
-              <button
-                onClick={handleCall}
-                className="w-full bg-blue-500 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
-              >
-                <FaPhone className="w-5 h-5" />
-                اتصال الآن
-              </button>
-            </div>
 
             {/* Detailed Description for SEO */}
             <SEOContent content={product.detailedDescription} title="الوصف التفصيلي" />
