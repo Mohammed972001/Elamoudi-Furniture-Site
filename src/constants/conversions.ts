@@ -18,8 +18,17 @@ declare global {
   }
 }
 
+// GA4 gets the same tap as its own event, so Ads' conversion count can be
+// checked against Analytics (page, city, device). The buttons open WhatsApp
+// and the dialer from JS, which GA4's automatic outbound-click tracking
+// never sees.
+const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
+
 export function reportContact(kind: ContactKind) {
   window.gtag?.('event', 'conversion', { send_to: SEND_TO[kind] });
+  if (GA4_ID) {
+    window.gtag?.('event', 'contact_click', { send_to: GA4_ID, method: kind });
+  }
 }
 
 export function contactKindOf(href: string): ContactKind | null {
