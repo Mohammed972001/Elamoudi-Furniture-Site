@@ -25,8 +25,10 @@ const Footer = () => {
     {
       title: "الأقسام الشائعة", 
       links: [
-        { name: "الشحن والتوصيل", href: "/shipping" },
-        { name: "سياسة الاسترجاع", href: "/returns" },
+        { name: "الموكيت والسجاد", href: "/carpets" },
+        { name: "الديكور والإكسسوارات", href: "/decor" },
+        { name: "تنسيق الحدائق", href: "/garden" },
+        { name: "جميع المنتجات", href: "/products" },
       ]
     },
   
