@@ -12,7 +12,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ item, className = "" }) => {
   const [isActive, setIsActive] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(!item.image);
   const cardRef = useRef<HTMLAnchorElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -93,21 +93,26 @@ const Card: React.FC<CardProps> = ({ item, className = "" }) => {
             <div className="w-8 h-8 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
           </div>
         )}
-        
-        <Image
-          src={item.image}
-          alt={item.name}
-          fill
-          className={`transition-all duration-300 ${
-            isActive 
-              ? 'scale-110' 
-              : 'group-hover:scale-105'
-          } ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-          onLoad={handleImageLoad}
-          priority={false}
-        />
-        
+
+        {/* A card without a photo is a plain tile carrying only its name. */}
+        {item.image ? (
+          <Image
+            src={item.image}
+            alt={item.name}
+            fill
+            className={`transition-all duration-300 ${
+              isActive
+                ? 'scale-110'
+                : 'group-hover:scale-105'
+            } ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            onLoad={handleImageLoad}
+            priority={false}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900" />
+        )}
+
         {/* Title Overlay */}
         <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-center justify-center text-center pointer-events-none transition-opacity duration-300 ${
           imageLoaded ? 'opacity-100' : 'opacity-0'

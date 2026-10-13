@@ -100,19 +100,19 @@ export const containerSections: ContainerSection[] = [
       {
         id: "gym-rubber",
         name: "ربل جيم وصالات رياضية",
-        image: "/rubber/gym-1.jpg",
+        image: "",
         href: "/products/gym-rubber",
       },
       {
         id: "horse-rubber",
         name: "ربل خيل وإسطبلات",
-        image: "/rubber/horse-1.jpg",
+        image: "",
         href: "/products/horse-rubber",
       },
       {
         id: "bathroom-rubber",
         name: "ربل حمامات مانع للانزلاق",
-        image: "/rubber/bath-1.jpg",
+        image: "",
         href: "/products/bathroom-rubber",
       },
     ]

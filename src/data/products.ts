@@ -731,14 +731,7 @@ export const productsDetails: ProductDetails[] = [
 نوفّر ربل الجيم للأندية والصالات والمدارس وغرف الرياضة المنزلية داخل الرياض، ونرتّب التوريد لباقي المناطق حسب الكمية.`,
     metaDescription: "ربل جيم وأرضيات مطاطية للأندية والصالات الرياضية وغرف الرياضة المنزلية بالرياض: بلاطات ورولات مطاط تمتص الصدمات وتخفف الضوضاء، توريد وتركيب.",
     keywords: ["ربل جيم", "ارضيات مطاطية", "بلاط مطاط", "ارضيات جيم", "مطاط جيم", "ارضيات صالات رياضية", "ارضيات نادي رياضي"],
-    images: [
-      "/rubber/gym-1.jpg",
-      "/rubber/gym-2.jpg",
-      "/rubber/gym-3.jpg",
-      "/rubber/gym-4.jpg",
-      "/rubber/gym-5.jpg",
-      "/rubber/gym-6.jpg"
-    ],
+    images: [],
     availableColors: [
       { name: "أسود منقط", value: "#263238" },
       { name: "رمادي", value: "#757575" },
@@ -784,15 +777,7 @@ export const productsDetails: ProductDetails[] = [
 نخدم الإسطبلات في الرياض وما حولها، ونرتّب التوريد لباقي المناطق حسب الكمية.`,
     metaDescription: "ربل خيل ومطاط أرضيات الإسطبلات: ألواح مطاط مانعة للانزلاق لغرف الخيل والممرات وأماكن الغسيل، توريد وتركيب داخل الإسطبل.",
     keywords: ["ربل خيل", "مطاط خيل", "ارضيات اسطبلات", "ربل اسطبل", "فرش اسطبل", "ارضيات اسطبل خيل"],
-    images: [
-      "/rubber/horse-1.jpg",
-      "/rubber/horse-2.jpg",
-      "/rubber/horse-3.jpg",
-      "/rubber/horse-4.jpg",
-      "/rubber/horse-5.jpg",
-      "/rubber/horse-6.jpg",
-      "/rubber/horse-7.jpg"
-    ],
+    images: [],
     availableColors: [
       { name: "أسود", value: "#212121" }
     ],
@@ -833,14 +818,7 @@ export const productsDetails: ProductDetails[] = [
 3. التوريد والقص والتركيب على المقاس.`,
     metaDescription: "ربل حمامات ومطاط مانع للانزلاق لدورات المياه وأماكن الوضوء والمدارس والمطابخ والمسابح: سطح يصرّف الماء ويقلل خطر السقوط، توريد وتركيب.",
     keywords: ["ربل حمام", "ارضيات مانعة للانزلاق", "ربل مانع للانزلاق", "مطاط مانع للانزلاق", "ارضية حمام مانعة للانزلاق", "ربل دورات مياه"],
-    images: [
-      "/rubber/bath-1.jpg",
-      "/rubber/bath-2.jpg",
-      "/rubber/bath-3.jpg",
-      "/rubber/bath-4.jpg",
-      "/rubber/bath-5.jpg",
-      "/rubber/bath-6.jpg"
-    ],
+    images: [],
     availableColors: [
       { name: "أسود", value: "#212121" },
       { name: "رمادي", value: "#757575" },

@@ -39,14 +39,17 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     alternates: {
       canonical: `/products/${id}`,
     },
-    openGraph: {
-      images: product.images.slice(0, 4).map((img, index) => ({
-        url: img,
-        width: 800,
-        height: 600,
-        alt: `${product.title} - صورة ${index + 1}`,
-      })),
-    },
+    // A product without photos keeps the site-wide share image.
+    ...(product.images.length > 0 && {
+      openGraph: {
+        images: product.images.slice(0, 4).map((img, index) => ({
+          url: img,
+          width: 800,
+          height: 600,
+          alt: `${product.title} - صورة ${index + 1}`,
+        })),
+      },
+    }),
   };
 }
 

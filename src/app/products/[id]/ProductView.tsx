@@ -16,6 +16,7 @@ export default function ProductView({ product }: ProductViewProps) {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
+  const hasImages = product.images.length > 0;
 
   const handleImageHover = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -57,9 +58,9 @@ export default function ProductView({ product }: ProductViewProps) {
             the ad's promises and both contact buttons on the first screen
             instead of after the photo and a wall of thumbnails. On desktop
             the gallery keeps its column and the text sits beside it. */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 lg:items-start">
+        <div className={`grid grid-cols-1 gap-6 lg:gap-8 lg:items-start ${hasImages ? 'lg:grid-cols-2' : 'max-w-3xl mx-auto'}`}>
           {/* Summary */}
-          <div className="space-y-4 lg:col-start-2 lg:row-start-1">
+          <div className={`space-y-4 ${hasImages ? 'lg:col-start-2 lg:row-start-1' : ''}`}>
             <div>
               <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2 lg:mb-4">
                 {product.title}
@@ -99,7 +100,9 @@ export default function ProductView({ product }: ProductViewProps) {
             </div>
           </div>
 
-          {/* Images Section */}
+          {/* Images Section — skipped for products that have no photos of
+              their own yet (the rubber pages). */}
+          {hasImages && (
           <div className="space-y-3 lg:col-start-1 lg:row-start-1 lg:row-span-2">
             {/* Main Image with Zoom */}
             <div className="relative aspect-square bg-white rounded-lg overflow-hidden shadow-md group">
@@ -175,9 +178,10 @@ export default function ProductView({ product }: ProductViewProps) {
               </div>
             )}
           </div>
+          )}
 
           {/* Details */}
-          <div className="space-y-6 lg:col-start-2 lg:row-start-2">
+          <div className={`space-y-6 ${hasImages ? 'lg:col-start-2 lg:row-start-2' : ''}`}>
             {/* Features */}
             {product.features && (
               <div>

@@ -167,13 +167,13 @@ export function ProductSchema({
             '@type': 'Brand',
             name: brand,
         },
-        image: image.map((img, index) => ({
+        image: image.length > 0 ? image.map((img, index) => ({
             '@type': 'ImageObject',
             '@id': `${baseUrl}${img}#image${index}`,
             url: `${baseUrl}${img}`,
             contentUrl: `${baseUrl}${img}`,
             caption: `${name} - صورة ${index + 1}`,
-        })),
+        })) : undefined,
         offers: offers ? {
             '@type': 'Offer',
             price: offers.price,
