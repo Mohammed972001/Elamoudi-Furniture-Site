@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { BUSINESS } from '@/constants/business';
 import { reportContact } from '@/constants/conversions';
+import { withAdSource } from '@/constants/adSource';
 
 const FloatingButtons = () => {
   const [isVisible] = useState(true);
@@ -17,7 +18,7 @@ const FloatingButtons = () => {
 
   const handleWhatsApp = () => {
     reportContact('whatsapp');
-    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const encodedMessage = encodeURIComponent(withAdSource(whatsappMessage));
     window.open(`https://wa.me/${phoneNumber.replace('+', '')}?text=${encodedMessage}`, '_blank');
   };
 

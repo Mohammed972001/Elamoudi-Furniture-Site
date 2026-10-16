@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { FaWhatsapp, FaPhone, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaWhatsapp, FaPhone, FaChevronLeft, FaChevronRight, FaMapMarkerAlt } from 'react-icons/fa';
 import { ProductDetails } from "@/types";
 import SEOContent from "@/components/seo/SEOContent";
 import { BUSINESS } from "@/constants/business";
 import { reportContact } from "@/constants/conversions";
+import { withAdSource } from "@/constants/adSource";
 
 interface ProductViewProps {
   product: ProductDetails;
@@ -39,7 +40,9 @@ export default function ProductView({ product }: ProductViewProps) {
 
   const handleWhatsApp = () => {
     reportContact('whatsapp');
-    const message = encodeURIComponent(`مرحباً، أريد الاستفسار عن ${product.title}`);
+    // The product name only: titles carry an SEO tail after " | ".
+    const name = product.title.split('|')[0].trim();
+    const message = encodeURIComponent(withAdSource(`مرحباً، أريد الاستفسار عن ${name}`));
     window.open(`https://wa.me/${BUSINESS.phone.primary.replace('+', '')}?text=${message}`, '_blank');
   };
 
@@ -97,6 +100,18 @@ export default function ProductView({ product }: ProductViewProps) {
                 <FaPhone className="w-5 h-5" />
                 اتصال الآن
               </button>
+
+              {/* Where the shop is: an ad visitor sees a real showroom
+                  before deciding to call. */}
+              <a
+                href={BUSINESS.geo.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-1.5 text-sm text-gray-600 hover:text-primary"
+              >
+                <FaMapMarkerAlt className="w-4 h-4 shrink-0 text-red-600" />
+                المعرض: {BUSINESS.address.streetAddress}، {BUSINESS.address.addressLocality} · يومياً 9 ص – 10 م
+              </a>
             </div>
           </div>
 

@@ -7,7 +7,7 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         <Image
           src="/home/hero-lamset.webp"
-          alt="لمسة ابداع لمفروشات الرياض - موكيت وسجاد وباركيه وأرضيات فاخرة في الرياض"
+          alt="العمودي للمفروشات - موكيت وسجاد وباركيه وأرضيات فاخرة في الرياض"
           fill
           className="object-cover object-center"
           priority={true}
@@ -25,7 +25,7 @@ export default function HeroSection() {
         <div>
           {/* Main Heading */}
           <h1 className="mb-6 text-5xl lg:text-7xl font-bold text-white leading-tight">
-            <span className="block text-primary">  لمسة ابداع لمفروشات الرياض </span>
+            <span className="block text-primary">  العمودي للمفروشات </span>
             <span className="block">كل لمسة تبدأ</span>
             <span className="block text-carpet-gold">من الأرض</span>
           </h1>

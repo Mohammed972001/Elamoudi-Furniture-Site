@@ -48,14 +48,6 @@ export const metadata: Metadata = {
     "موكيت منازل",
     "أرضيات خشبية",
     "تركيب موكيت",
-    // العلامة التجارية الجديدة (الاسم الظاهر)
-    "لمسة ابداع",
-    "لمسة ابداع لمفروشات الرياض",
-    "لمسة ابداع للمفروشات",
-    // كلمات مستهدفة إضافية
-    "مفروشات السريع",
-    "السريع للأرضيات",
-    "السريع للمفروشات",
   ],
   authors: [{ name: "العمودي للمفروشات", url: siteUrl }],
   creator: "العمودي للمفروشات",
@@ -134,8 +126,21 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${ADS_ID}');
-            gtag('config', 'AW-17506948956');
-            ${process.env.NEXT_PUBLIC_GA4_ID ? `gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}');` : '// GA4: Set NEXT_PUBLIC_GA4_ID in .env to enable (e.g. G-XXXXXXXXXX)'}
+            ${process.env.NEXT_PUBLIC_GA4_ID ? `
+            // GA4 pulls in its own ~190 KB library. It waits for the first
+            // touch or scroll, or 4 s after load, so it stays off a phone's
+            // first seconds; a contact tap loads it at once (reportContact).
+            window.loadGa4 = function () {
+              if (window.ga4Loaded) return;
+              window.ga4Loaded = true;
+              gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}');
+            };
+            ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function (t) {
+              addEventListener(t, window.loadGa4, { once: true, passive: true });
+            });
+            if (document.readyState === 'complete') setTimeout(window.loadGa4, 4000);
+            else addEventListener('load', function () { setTimeout(window.loadGa4, 4000); });
+            ` : '// GA4: Set NEXT_PUBLIC_GA4_ID in .env to enable (e.g. G-XXXXXXXXXX)'}
           `}
         </Script>
       </head>

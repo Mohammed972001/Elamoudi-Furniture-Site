@@ -15,6 +15,7 @@ export type ContactKind = keyof typeof SEND_TO;
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
+    loadGa4?: () => void;
   }
 }
 
@@ -27,6 +28,7 @@ const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
 export function reportContact(kind: ContactKind) {
   window.gtag?.('event', 'conversion', { send_to: SEND_TO[kind] });
   if (GA4_ID) {
+    window.loadGa4?.();
     window.gtag?.('event', 'contact_click', { send_to: GA4_ID, method: kind });
   }
 }
