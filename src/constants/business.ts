@@ -9,7 +9,8 @@ export const BUSINESS = {
   description:
     'متجر متخصص في موكيت وأرضيات وباركيه وفينيل في الرياض. موكيت مساجد وأرضيات عالية الجودة بتوصيل وتركيب مجاني.',
   url: 'https://www.elamoudifurniture.com',
-  logo: '/favicon.svg',
+  /** Square PNG of the header mark (public/NavBar/NavbarIcone.svg), 512x512: the logo Google shows. */
+  logo: '/images/logo.png',
 
   // ONE phone number across the site. The 0567... line was deprecated.
   phone: {

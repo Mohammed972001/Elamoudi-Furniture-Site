@@ -261,8 +261,8 @@ export function OrganizationSchema({
         logo: logo ? {
             '@type': 'ImageObject',
             url: `${url}${logo}`,
-            width: '200',
-            height: '200',
+            width: '512',
+            height: '512',
         } : undefined,
         telephone,
         address: address ? {

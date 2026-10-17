@@ -12,13 +12,21 @@
   "dir": "rtl",
   "icons": [
     {
-      "src": "/NavBar/NavbarIcone.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
   ],
-  "categories": ["shopping", "lifestyle"],
+  "categories": [
+    "shopping",
+    "lifestyle"
+  ],
   "screenshots": [
     {
       "src": "/home/Heroimage.png",
@@ -28,4 +36,4 @@
       "label": "صفحة العمودي للمفروشات الرئيسية"
     }
   ]
-} 
+}

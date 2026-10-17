@@ -98,11 +98,8 @@ export const metadata: Metadata = {
     },
   },
 
-  // Icons
-  icons: {
-    icon: '/favicon.svg',
-    apple: '/favicon.svg',
-  },
+  // Tab, Apple and Google icons come from src/app/favicon.ico, icon.png and apple-icon.png
+  // (the header mark as square PNGs); an SVG is not accepted as an Apple touch icon.
 
   // Verification (add your codes)
   // verification: {
