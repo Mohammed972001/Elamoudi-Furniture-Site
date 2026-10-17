@@ -122,46 +122,12 @@ export const containerSections: ContainerSection[] = [
     title: "ستائر أنيقة لجميع المساحات",
     items: [
       {
-        id: "blackout-curtains",
-        name: "ستائر معتمة للخصوصية",
-        image: "/images/catg/blackout-curtains.jpg",
+        // One real photo for the whole range: the shop has no photo per curtain type yet.
+        id: "curtains",
+        name: "ستائر للبيوت والمكاتب",
+        image: "/home/staar.png",
         href: "/contact",
-        description: "ستائر معتمة عالية الجودة لحجب الضوء والحصول على الخصوصية التامة"
-      },
-      {
-        id: "sheer-curtains",
-        name: "ستائر شيفون شفافة",
-        image: "/images/catg/sheer-curtains.jpg", 
-        href: "/contact",
-        description: "ستائر شيفون أنيقة تسمح بمرور الضوء الطبيعي مع الحفاظ على الخصوصية"
-      },
-      {
-        id: "thermal-curtains",
-        name: "ستائر عازلة للحرارة",
-        image: "/images/catg/thermal-curtains.jpg",
-        href: "/contact", 
-        description: "ستائر متطورة تعزل الحرارة وتوفر في فاتورة التكييف"
-      },
-      {
-        id: "decorative-curtains",
-        name: "ستائر ديكورية فاخرة",
-        image: "/images/catg/decorative-curtains.jpg",
-        href: "/contact",
-        description: "ستائر بتصميمات فاخرة وزخارف جميلة لإضافة لمسة أناقة"
-      },
-      {
-        id: "motorized-curtains",
-        name: "ستائر ذكية بموتور",
-        image: "/images/catg/motorized-curtains.jpg",
-        href: "/contact",
-        description: "ستائر ذكية تعمل بالريموت كنترول أو الهاتف الذكي"
-      },
-      {
-        id: "office-curtains",
-        name: "ستائر مكتبية احترافية",
-        image: "/images/catg/office-curtains.jpg",
-        href: "/contact",
-        description: "ستائر أنيقة مناسبة لبيئة العمل والمكاتب الاحترافية"
+        description: "تواصل معنا لمعرفة أنواع الستائر وألوانها المتاحة، وأرسل مقاسات النوافذ على الواتساب."
       }
     ]
   }
