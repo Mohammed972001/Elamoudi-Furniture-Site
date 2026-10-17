@@ -16,6 +16,12 @@
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["DOQueueHandler"] }],
   // next/image resizing through Cloudflare Images (replaces Vercel image optimization).
   "images": { "binding": "IMAGES" },
+  // Chat assistant (src/lib/chat): Workers AI is the fallback when Gemini fails; the limiter
+  // caps each visitor at 15 questions a minute. GEMINI_API_KEY is a Worker secret.
+  "ai": { "binding": "AI" },
+  "ratelimits": [
+    { "name": "CHAT_LIMITER", "namespace_id": "1006", "simple": { "limit": 15, "period": 60 } }
+  ],
   "observability": { "enabled": true },
   "routes": [
     { "pattern": "www.elamoudifurniture.com", "custom_domain": true },

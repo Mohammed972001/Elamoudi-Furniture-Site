@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import ChatWidget from './ChatWidget';
 import { BUSINESS } from '@/constants/business';
 import { reportContact } from '@/constants/conversions';
 import { withAdSource } from '@/constants/adSource';
@@ -53,6 +54,15 @@ const FloatingButtons = () => {
           <div className="absolute left-full top-1/2 transform -translate-y-1/2 border-4 border-transparent border-l-black"></div>
         </div>
       </div>
+
+      {/* Chat assistant - above WhatsApp */}
+
+      <div className="fixed left-4 bottom-40 z-50">
+
+        <ChatWidget panelPosition="bottom-56 left-4" />
+
+      </div>
+
 
       {/* WhatsApp Button - Left Side */}
       <div className="fixed left-4 bottom-20 z-50">
