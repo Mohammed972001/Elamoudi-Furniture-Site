@@ -84,21 +84,23 @@ export default function ProductView({ product }: ProductViewProps) {
 
             {/* Action Buttons — no entrance animation: they used to fade in
                 a full second after load, right when ad visitors decide. */}
+            {/* Call first: the owner reports that calls close orders while
+                WhatsApp chats mostly take a price and go quiet. */}
             <div className="space-y-3">
-              <button
-                onClick={handleWhatsApp}
-                className="w-full bg-green-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg"
-              >
-                <FaWhatsapp className="w-5 h-5" />
-                اطلب عرض سعر على الواتساب
-              </button>
-
               <button
                 onClick={handleCall}
                 className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg"
               >
                 <FaPhone className="w-5 h-5" />
                 اتصال الآن
+              </button>
+
+              <button
+                onClick={handleWhatsApp}
+                className="w-full bg-green-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg"
+              >
+                <FaWhatsapp className="w-5 h-5" />
+                اطلب عرض سعر على الواتساب
               </button>
 
               {/* Where the shop is: an ad visitor sees a real showroom
