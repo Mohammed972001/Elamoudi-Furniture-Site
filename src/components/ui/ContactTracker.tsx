@@ -13,7 +13,8 @@ export default function ContactTracker() {
   useEffect(() => {
     rememberAdSource();
     const onClick = (e: MouseEvent) => {
-      const link = (e.target as Element | null)?.closest?.('a[href]');
+      // Skips the agency credit in the footer: a chat with the agency is not a lead.
+      const link = (e.target as Element | null)?.closest?.('a[href]:not([data-credit])');
       const kind = link && contactKindOf(link.getAttribute('href') ?? '');
       if (kind) reportContact(kind);
       // Runs in the capture phase, before the browser follows the link.

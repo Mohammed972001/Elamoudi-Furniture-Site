@@ -223,6 +223,17 @@ const Footer = () => {
             <p className="text-gray-200 text-sm">
               جميع الحقوق محفوظة ©   العمودي للمفروشات  {currentYear}
             </p>
+            {/* Agency credit. data-credit keeps the contact tracker off it: this chat is not a lead. */}
+            <a
+              href="https://wa.me/201003736539"
+              target="_blank"
+              rel="nofollow noopener"
+              dir="ltr"
+              data-credit
+              className="mt-1 inline-block text-gray-300 text-sm transition-colors hover:text-white"
+            >
+              Powered by Digitalizing Tech
+            </a>
           </div>
         </div>
       </div>
