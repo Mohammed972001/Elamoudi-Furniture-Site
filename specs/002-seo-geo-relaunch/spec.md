@@ -2,7 +2,7 @@
 
 **Feature Branch**: `002-seo-geo-relaunch`
 **Created**: 2026-10-27
-**Status**: Draft, waiting for the user's two decisions (see «Open decisions»)
+**Status**: Approved 2026-10-27 (Q1 = C, Q2 = A; see «Decisions»). Week 1 (R0) started 2026-10-27.
 **Input**: User: «حطلي خطة وبلان لأعادة تحسين وهيكلة السيو والجيو using spec kit الخاصين بموقع العمودي، خطة كاملة لرفع الموقع زي ما تم رفع وتحسين مفروشات السريع».
 
 ## Why now: the evidence
@@ -253,26 +253,29 @@ rankings by itself.
 
 ## Success Criteria *(mandatory)*
 
-Baselines are from Search Console for 27 Sep–25 Oct 2026 unless stated. The targets are for the
+Baselines are from the R0 report (`seo-report-elamoudi.mjs`, Search Console 28 Sep–25 Oct 2026)
+unless stated, so later reports measure the same way. The targets are for the
 **12 weeks to 2027-01-24**.
 
-- **SC-001**: Clicks to non-homepage pages rise from about 70 per 28 days to **140 or more**.
-- **SC-002**: Total impressions per 28 days rise from about 5,300 to **8,000 or more**.
+- **SC-001**: Clicks to non-homepage pages rise from 60 per 28 days to **140 or more**.
+- **SC-002**: Total impressions per 28 days rise from 5,134 to **8,000 or more**.
 - **SC-003**: The average position of parquet, vinyl roll and Turkish patterned carpet is
-  **better than 12**. Today it is 24.3, 15.6 and 13.9.
+  **better than 12**. Today it is 24.7, 15.8 and 13.9.
 - **SC-004**: **100% of sitemap URLs are indexed**, or each has a recorded decision. Every new
   article is indexed within 14 days of publishing.
 - **SC-005**: Of the 10 fixed AI questions, the shop is correctly named or cited in **at least 3**
-  across the 4 assistants. The day-1 baseline is expected to be close to 0.
+  across the 4 assistants. Baseline on 27 Oct (Google AI Mode only): 2 of 10, and 3 answers mixed
+  the shop up with other businesses named «العمودي».
 - **SC-006**: Organic call and WhatsApp taps per 28 days are **1.5× the week-1 baseline**. Calls are
-  reported separately, because calls close.
+  reported separately, because calls close. Baseline: 5 Organic Search taps (GA4 has recorded
+  contact taps only since 5 Oct), plus 2 from AI assistants.
 - **SC-007**: **Every page is under 30%** similarity to the sister sites.
 - **SC-008**: **No page changes its title or description more than once in 21 days.** The release
   log has one entry per week at most.
 
 ## Assumptions
 
-- **Lanes:** the angle defaults to option A of decision Q2. This site covers parquet and vinyl from
+- **Lanes:** option A of decision Q2 (the user, 27 Oct). This site covers parquet and vinyl from
   the *home-room* angle; the spec and price catalogue stays with mafrushat-alsurye.
 - **Owner inputs:** the owner supplies real photos, confirmations of claims, and answers to FAQ
   questions. Prices are optional; without them no price is shown.
@@ -284,17 +287,20 @@ Baselines are from Search Console for 27 Sep–25 Oct 2026 unless stated. The ta
 - **Earlier specs:** the April plans in `specs/SEO-SPEC-*.md` are input only. Their blog topics are
   re-checked against the sister sites before reuse.
 
-## Open decisions (for the user)
+## Decisions (answered by the user on 2026-10-27)
 
-**Q1: is garden landscaping still sold?**
-- **Context:** /garden has 354 impressions at position 84, and the Ads landscaping campaign was
-  stopped on the owner's instruction on 13 Oct.
-- **A:** yes, as a full service. Rebuild the page with real projects and photos, and write a garden
-  article.
-- **B:** only artificial grass, fountains and plants are supplied. Re-angle the page around these.
-- **C:** no. Redirect /garden to the artificial-grass page and drop the article.
+**Q1: is garden landscaping still sold? → C, no.**
+- /garden and the landscaping product page /products/garden-flooring get a 301 to
+  /products/artificial-grass and leave the sitemap. Artificial grass stays.
+- There is no garden article. Article 6 becomes majlis decor (plan.md, content map).
+- Still open with the owner: are fountains (/products/shlal) and plants (/products/planets) sold?
 
-**Q2: who covers parquet and vinyl content between this site and mafrushat-alsurye?**
-- **A (recommended):** the home-room angle here; specs, prices and comparisons there.
-- **B:** this site leads, and the sister site steps back from these topics.
-- **C:** this site avoids parquet and vinyl articles entirely.
+**Q2: who covers parquet and vinyl content between this site and mafrushat-alsurye? → A.**
+- This site takes the home-room angle. Specs, prices and comparisons stay with the sister site.
+
+**Owner facts confirmed through the user on 2026-10-27**
+- **Installation is not free.** Every «تركيب مجاني» on the site and in the ads is false and goes.
+- **There is a warranty.** Its length and what it covers (product, installation or both) are still
+  needed before any page states details such as «ضمان شامل» or «ضمان طويل المدى».
+- Still unconfirmed: free delivery, «1-3 أيام عمل», wholesale prices, and the 14-day exchange
+  policy on /decor.

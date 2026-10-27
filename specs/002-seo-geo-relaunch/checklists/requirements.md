@@ -13,7 +13,7 @@
 
 ## Requirement Completeness
 
-- [x] No [NEEDS CLARIFICATION] markers remain. The two open decisions have defaults and are listed under «Open decisions».
+- [x] No [NEEDS CLARIFICATION] markers remain. The two decisions were answered on 2026-10-27 (Q1 = C, Q2 = A) and are listed under «Decisions».
 - [x] Requirements are testable and unambiguous
 - [x] Success criteria are measurable
 - [x] Success criteria are technology-agnostic
@@ -31,4 +31,4 @@
 
 ## Notes
 
-- Q1 (garden) and Q2 (lane with mafrushat-alsurye) must be confirmed by the user before Phase 3 starts. Phases 0–2 do not depend on them.
+- Q1 (garden) = C and Q2 (lane with mafrushat-alsurye) = A, answered by the user on 2026-10-27.

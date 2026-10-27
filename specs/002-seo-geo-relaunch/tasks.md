@@ -22,12 +22,12 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 
 **Purpose**: record the starting point and collect owner inputs. Nothing on the site changes.
 
-- [ ] T001 Create `C:/Users/mohammed/.claude/scripts/seo-report-elamoudi.mjs`. It pulls Search Console data for the last 28 days and the 28 days before: totals; clicks per page and per query with brand and non-brand split by the regex `العمودي|عمودي|العامودي`; and positions of parket, vinyl-roll and turky-mshager. It also pulls GA4 `contact_click` by session source and URL Inspection for every sitemap URL. Output is markdown, using the key from `google-sa.mjs`. Never put the script in the repo.
-- [ ] T002 Run T001 and paste the baseline into `C:/Users/mohammed/.claude/scripts/seo-log/elamoudi.md` under «2026-10-28 R0 baseline», with the figures behind each spec success criterion (SC-001…SC-008).
+- [x] T001 Create `C:/Users/mohammed/.claude/scripts/seo-report-elamoudi.mjs`. It pulls Search Console data for the last 28 days and the 28 days before: totals; clicks per page and per query with brand and non-brand split by the regex `العمودي|عمودي|العامودي`; and positions of parket, vinyl-roll and turky-mshager. It also pulls GA4 `contact_click` by session source and URL Inspection for every sitemap URL. Output is markdown, using the key from `google-sa.mjs`. Never put the script in the repo.
+- [x] T002 Run T001 and paste the baseline into `C:/Users/mohammed/.claude/scripts/seo-log/elamoudi.md` under «2026-10-28 R0 baseline», with the figures behind each spec success criterion (SC-001…SC-008).
 - [ ] T003 [P] Record mobile PageSpeed (LCP, CLS, INP) for /, /products/parket, /products/vinyl-roll, /products/turky-mshager, /products/hospital-flooring and /carpets in `seo-log/elamoudi.md`.
-- [ ] T004 [P] Ask the 10 fixed questions (research.md R5) in ChatGPT, Gemini, Perplexity and a Google search with AI Overview. Log one row per answer (data-model «AI check») in `seo-log/elamoudi.md`.
-- [ ] T005 [P] Write the owner request in Egyptian Arabic for the user to forward (plan.md, «Owner inputs», items 1–5) to `specs/002-seo-geo-relaunch/owner-request.md`.
-- [ ] T006 Record the user's answers to Q1 (garden) and Q2 (lane) in spec.md under «Open decisions». Update article 6 in plan.md's content map to match.
+- [ ] T004 [P] Ask the 10 fixed questions (research.md R5) in ChatGPT, Gemini, Perplexity and a Google search with AI Overview. Log one row per answer (data-model «AI check») in `seo-log/elamoudi.md`. *Google AI Mode done on 27 Oct (2 of 10); ChatGPT, Gemini and Perplexity need a signed-in browser.*
+- [x] T005 [P] Write the owner request in Egyptian Arabic for the user to forward (plan.md, «Owner inputs», items 1–5) to `specs/002-seo-geo-relaunch/owner-request.md`.
+- [x] T006 Record the user's answers to Q1 (garden) and Q2 (lane) in spec.md under «Decisions». Update article 6 in plan.md's content map to match. *Q1 = C, Q2 = A, 27 Oct.*
 
 **Checkpoint**: the baseline is logged, owner inputs are requested, and Q1 and Q2 are answered.
 
@@ -108,12 +108,12 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 **Independent test**: articles 2 and 6 gain impressions on queries no sister site ranks for, and every page stays under 30% in dupcheck.
 
 - [ ] T031 [US3] Write article 2, «أرضيات البيت غرفة غرفة…», in `src/data/articles/home-room-by-room.ts`, linking parket, vinyl-roll, turky-mshager and mokite. Ships in R4.
-- [ ] T032 [US3] Act on decision Q1 (T006) for `/garden` (`src/app/garden/`):
+- [ ] T032 [US3] Act on decision Q1 = C (moved to R1): 301 `/garden` and `/products/garden-flooring` to `/products/artificial-grass` in `next.config.ts`, drop both from `src/app/sitemap.ts`, and fix any internal links to them. Decide `/products/shlal` and `/products/planets` once the owner answers. The original options were:
   - **A**: rebuild it with real projects and photos (Owner).
   - **B**: re-angle it around supplied artificial grass, fountains and plants.
   - **C**: 301 to `/products/artificial-grass` in `next.config.ts` and remove it from the sitemap.
-  Ships in R4.
-- [ ] T033 [US3] Write article 6 per Q1 in `src/data/articles/` (garden-as-one-project, or majlis decor if Q1 = C). Ships in R8.
+  Ships in R1.
+- [ ] T033 [US3] Write article 6, majlis decor (Q1 = C), in `src/data/articles/majlis-decor.ts`, only if the owner confirms a decor range. Ships in R8.
 - [ ] T034 [US3] Fix `/decor` (`src/app/decor/`). Either add real decor content from the owner's range, with links to carpets and articles, or remove it from the sitemap if the owner has no decor range. Ships in R4.
 - [ ] T035 [US3] Decide /products/mokite using W1 and W3 data. Either rebuild it around home carpet by room, or 301 it into `/carpets` and update the links in `src/data/products.ts`. Ships in R3.
 
@@ -163,8 +163,8 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 - **US3** needs T020 and T006 (Q1). **US4** needs T016–T017, because it reuses the product fields
   and rendering.
 - **US5** needs T001 and runs all through the 12 weeks.
-- **Release order:** R1 = Phase 2; R2 = T016–T019; R3 = T020, T021, T035, T036, T037;
-  R4 = T031, T032, T034; R5 = T038; R6 = T022; R7 = T023; R8 = T033; R9–R10 = Phase 8.
+- **Release order:** R1 = Phase 2 + T032; R2 = T016–T019; R3 = T020, T021, T035, T036, T037;
+  R4 = T031, T034; R5 = T038; R6 = T022; R7 = T023; R8 = T033; R9–R10 = Phase 8.
 
 ## Parallel opportunities
 

@@ -99,12 +99,12 @@ public/<indexnow-key>.txt         # NEW: IndexNow key file
 
 | Week | Dates | Release | Content |
 |---|---|---|---|
-| W1 | 28 Oct–3 Nov | **R0: baseline only** | GSC and GA4 baseline, index report, mobile speed, AI-visibility baseline (10 questions × 4 assistants). Collect owner inputs. **No site change.** |
-| W2 | 4–10 Nov | **R1: foundation** | Index fixes; sitemap with real dates; entity data (one `@id`, `sameAs`, about facts); llms.txt; claims clean-up; photo and alt audit; Bing Webmaster and IndexNow. |
+| W1 | 27 Oct–3 Nov | **R0: baseline only** | GSC and GA4 baseline, index report, mobile speed, AI-visibility baseline (10 questions × 4 assistants). Collect owner inputs. **No site change.** Started 27 Oct. |
+| W2 | 4–10 Nov | **R1: foundation** | Index fixes; sitemap with real dates; entity data (one `@id`, `sameAs`, about facts); llms.txt; claims clean-up (every «تركيب مجاني» goes: the owner denied it); /garden and /products/garden-flooring 301 to artificial grass (Q1 = C); photo and alt audit; Bing Webmaster and IndexNow. Off-site: Business Profile text handed to the owner (moved up from W6, see the GEO workstream). |
 | W3 | 11–17 Nov | **R2: closing lines A** | Parquet (lock ended 7 Nov), vinyl roll, hospital/medical. Each gets an answer-first opening, a room section, 4–6 FAQ with schema, and a photo-to-WhatsApp prompt. |
 | W4 | 18–24 Nov | **R3: closing lines B + articles base** | Turkish patterned carpet (snippet and content), water-resistant carpet, mokite rebuild or merge. Articles index and article 1. |
-| W5 | 25 Nov–1 Dec | R4 | Article 2. Apply the garden decision Q1 (/garden rebuilt or redirected). /decor fix. |
-| W6 | 2–8 Dec | R5 | Article 3. Off-site: Business Profile text and photos (owner), Bing Places, the first 5 directories. |
+| W5 | 25 Nov–1 Dec | R4 | Article 2. /decor fix. |
+| W6 | 2–8 Dec | R5 | Article 3. Off-site: Business Profile photos (owner), Bing Places, the first 5 directories. |
 | W7 | 9–15 Dec | R6 | Article 4. Ask for real reviews (link sent to recent customers). |
 | W8 | 16–22 Dec | R7 + **checkpoint** | Article 5. Mid-way report against every success criterion; adjust the remaining weeks. |
 | W9 | 23–29 Dec | R8 | Article 6. Internal-link pass (products ↔ articles). |
@@ -123,7 +123,7 @@ any landing page changes, so the ads results stay readable.
 | 3 | الموكيت التركي المشجر: تختار اللون والنقشة إزاي لكل غرفة | موكيت تركي (102 @8.6), موكيت مشجر (92 @8.0), الوان موكيت مشجر | turky-mshager, mokite, /carpets | alsurye «اختيار سجاد المجلس» covers loose rugs; this one covers wall-to-wall patterned carpet. |
 | 4 | أنواع الفينيل للبيت: رول، بلجيكي، طبي، وأيهم لأي غرفة | افضل انواع الفينيل (10 @4.0), اشكال الفينيل, فينيل بديل الباركيه (Ads terms) | vinyl-roll, hospital-flooring, parket | alsurye «دليل الفينيل رول» covers roll specs; this one is a home-room chooser. **Highest overlap risk**: dupcheck before publishing. |
 | 5 | تركيب الباركيه والفينيل فوق السيراميك: إمتى ينفع؟ | تركيب الباركيه فوق السيراميك (Ads search term 27 Oct), تركيب باركيه | parket, vinyl-roll | alsurye «كيف يتم تركيب الأرضيات» is the general process; this one is the renovation case. |
-| 6 | Q1 = A/B: تنسيق حديقة البيت في الرياض كمشروع واحد. Q1 = C: ديكور المجلس، تنسيق الأرضية مع الستائر والإكسسوارات | تنسيق حدائق (354 impressions on /garden @84), العشب الصناعي (42 @8.1) | garden or decor, artificial-grass, shlal, planets | No sister garden article is live. |
+| 6 | ديكور المجلس: تنسيق الأرضية مع الستائر والإكسسوارات (Q1 = C, so no garden article) | ديكور مجالس, موكيت مجالس, موكيت تركي (102 @8.6) | /decor, turky-mshager, /carpets | Depends on the owner confirming a decor range; if he has none, the W8 checkpoint picks another topic. Check against alsurye «اختيار سجاد المجلس». |
 
 The **second wave** is chosen in W10 from whichever of these gain impressions. It is not written in
 advance.
@@ -138,7 +138,8 @@ advance.
 | /products/turky-mshager | 544 @13.9, 5 clicks | Snippet (no lock); colours and patterns by room; FAQ 5 | R3 |
 | /products/water-resistant-carpet | 200 @9.4 | Answer-first; FAQ 4. No lock here; the 12 Oct lock is on the sister site's page of the same name | R3 |
 | /products/mokite | 300 @32.0 | Rebuild around home carpet by room, or merge into /carpets (decided with the W1 data) | R3 |
-| /garden | 354 @84.4 | Decision Q1 | R4 |
+| /garden, /products/garden-flooring | 350 @84.0 | Q1 = C: 301 to /products/artificial-grass, out of the sitemap | R1 |
+| /products/shlal, /products/planets | 137 @20.8, 12 @10.4 | Keep or redirect once the owner says whether he sells fountains and plants | R1 or R4 |
 | /decor | not indexed | Real content from the owner's decor range, or remove from the sitemap | R4 |
 | rubber ×3 | not indexed on 16 Oct | Check the index reason. No new content; that is mokeet-elsuarye's lane | R1 |
 
@@ -157,14 +158,20 @@ advance.
 5. **Bing Webmaster Tools** (import from Search Console) plus **IndexNow**, pinged after each release.
 6. **Off-site consistency.** The Business Profile, Bing Places and 5–10 Saudi directories carry the
    identical name, phone and address. Real reviews are requested after jobs.
-7. **Monthly AI-visibility check**: 10 fixed questions (research.md) in ChatGPT, Gemini,
-   Perplexity and Google's AI Overview, logged in `seo-log/elamoudi.md`.
+   - **The Business Profile moved up to W2.** The R0 check on 27 Oct showed that Google's AI Mode
+     builds every «where do I buy X in Riyadh» answer from Maps listings with ratings. It also mixed
+     this shop up with 3 other «العمودي» listings (أسواق الخليج، المنفوحة، طريق الملك سلمان). Without a
+     correct listing of its own, the shop can't be named in those answers.
+7. **Monthly AI-visibility check**: 10 fixed questions (research.md) in Google AI Mode, ChatGPT,
+   Gemini and Perplexity, logged in `seo-log/elamoudi.md`. The last three need a signed-in browser.
 
 ## Owner inputs (requested in W1, through the user)
 
-1. Confirm or deny: «تركيب مجاني», «التوصيل مجاني», «1-3 أيام عمل», «أسعار جملة», «ضمان».
+1. Confirm or deny: «التوصيل مجاني», «1-3 أيام عمل», «أسعار جملة», and the warranty terms (length;
+   product, installation or both). Answered on 27 Oct: installation is **not** free; a warranty
+   exists.
 2. Real photos: parquet and vinyl jobs in homes (bathrooms and kitchens if any), Turkish carpet in
-   rooms, decor, and the garden if Q1 = A or B.
+   rooms, and decor.
 3. Answers for the FAQ drafts. The questions come from search terms and the owner answers them.
 4. The Business Profile link and access; any social profiles; the showroom address as on the profile.
 5. Optional: price ranges per square metre he is willing to publish.

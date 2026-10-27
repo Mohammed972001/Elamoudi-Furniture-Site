@@ -66,7 +66,10 @@
   7. أرضيات فينيل طبي للبيت في الرياض
   8. مين يركب باركيه فوق السيراميك في الرياض؟
   9. محلات مفروشات وأرضيات في الرياض تجي تقيس البيت
-  10. تنسيق حدائق منزلية في الرياض (or, if Q1 = C, ديكور مجالس وأرضيات في الرياض)
+  10. ديكور مجالس وأرضيات في الرياض (Q1 = C, so not the garden question)
+- **Where they are asked:** Google AI Mode (`google.com/search?udm=50&hl=ar&gl=sa`) works without
+  signing in. ChatGPT and Perplexity ask for an account, so they are run in a browser the user is
+  already signed in to, with his go. Gemini is the same.
 
 ## R6. Baseline numbers (27 Sep–25 Oct 2026)
 
