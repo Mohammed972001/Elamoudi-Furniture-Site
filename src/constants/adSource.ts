@@ -12,6 +12,7 @@ const CAMPAIGN_LABEL: Record<string, string> = {
   medical_vinyl: 'الفينيل الطبي',
   office_carpet: 'موكيت المكاتب',
   rubber: 'الربل',
+  foam: 'الفوم',
 };
 
 /** Call once per page load; keeps the ad campaign of the landing URL. */
