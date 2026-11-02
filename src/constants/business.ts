@@ -34,7 +34,6 @@ export const BUSINESS = {
     streetAddress: 'حي العزيزية، شارع عبدالله بن صالح',
     addressLocality: 'الرياض',
     addressRegion: 'منطقة الرياض',
-    postalCode: '12345',
     addressCountry: 'SA',
     addressCountryName: 'المملكة العربية السعودية',
     full: 'حي العزيزية، شارع عبدالله بن صالح، الرياض، المملكة العربية السعودية',

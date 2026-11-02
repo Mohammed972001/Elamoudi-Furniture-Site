@@ -12,7 +12,6 @@ interface LocalBusinessSchemaProps {
         streetAddress: string;
         addressLocality: string;
         addressRegion: string;
-        postalCode: string;
         addressCountry: string;
     };
     geo: {

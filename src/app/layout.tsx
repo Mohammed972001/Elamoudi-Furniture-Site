@@ -167,7 +167,6 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
             streetAddress: BUSINESS.address.streetAddress,
             addressLocality: BUSINESS.address.addressLocality,
             addressRegion: BUSINESS.address.addressRegion,
-            postalCode: BUSINESS.address.postalCode,
             addressCountry: BUSINESS.address.addressCountry,
           }}
           geo={{ latitude: BUSINESS.geo.latitude, longitude: BUSINESS.geo.longitude }}
