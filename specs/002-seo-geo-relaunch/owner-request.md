@@ -10,7 +10,7 @@ Already answered through the user:
 
 Still open: questions 1, 2 (conditions), 4, 6, 7, 9, 10, 11, 12, the photos, the customer questions,
 and the optional prices. Question 21 matters more now: the merchant feed at /api/feed still carries
-13 prices nobody confirmed.
+12 prices nobody confirmed, and «undefined SAR» on the 4 rubber and foam items.
 
 ---
 
