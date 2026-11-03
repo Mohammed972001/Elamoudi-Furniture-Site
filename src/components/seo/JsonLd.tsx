@@ -10,7 +10,6 @@ interface ProductSchemaProps {
     name: string;
     description: string;
     image: string[];
-    sku: string;
     /**
      * REAL aggregate rating only. Pass undefined unless populated from a verified
      * reviews source (Google Business Profile API, on-site review collection, etc.).
@@ -99,29 +98,25 @@ export function LocalBusinessSchema() {
 }
 
 /**
- * Product Schema with ImageObject
- * Helps products appear in Google Shopping and image search
+ * Product page schema with ImageObject.
+ * A Service, not a Product: Google marks a Product with no offer, review or rating as
+ * invalid, and the owner has confirmed no prices. Go back to Product with an Offer only
+ * when he gives real ones.
  */
 export function ProductSchema({
     name,
     description,
     image,
-    sku,
     aggregateRating,
 }: ProductSchemaProps) {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
 
     const schema = {
         '@context': 'https://schema.org',
-        '@type': 'Product',
+        '@type': 'Service',
         name,
         description,
-        sku,
-        brand: {
-            '@type': 'Organization',
-            '@id': BUSINESS.id,
-            name: BUSINESS.name,
-        },
+        provider: { '@id': BUSINESS.id },
         image: image.length > 0 ? image.map((img, index) => ({
             '@type': 'ImageObject',
             '@id': `${baseUrl}${img}#image${index}`,

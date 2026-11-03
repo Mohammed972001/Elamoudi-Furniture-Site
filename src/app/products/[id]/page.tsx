@@ -77,7 +77,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
         name={product.title}
         description={product.metaDescription}
         image={product.images}
-        sku={product.id}
       />
 
       {/* Breadcrumbs with Schema */}
