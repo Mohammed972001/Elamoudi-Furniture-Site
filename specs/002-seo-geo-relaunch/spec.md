@@ -305,12 +305,16 @@ unless stated, so later reports measure the same way. The targets are for the
 
 **Owner facts confirmed through the user on 2026-11-03**
 - **«تركيب» stays, «مجاني» goes.** The site and the ads may offer installation; they may not call it free.
-- **Returns: none after 14 days.** The site says returns are available within 14 days. Conditions are
-  still unknown.
+- **Returns:** first read as a 14-day window. Corrected on 4 Nov: there are no 14-day returns, so the
+  site says nothing about returns.
 - **Shipping is not free.** Delivery takes 1 to 3 days.
 - **No Google Maps listing.** The Business Profile is created from scratch (gbp-and-directories.md).
 - **Free inspection, samples and consultation are unconfirmed** (owner-request.md, question 4), so the
   word «مجاني» left those too. It comes back if the owner confirms.
+- **Answers of 4 Nov:** installation is charged per metre; he sells wholesale; none of the 4 other
+  «العمودي» Maps listings is his; the social profiles are Khaled Al-Fannan's (X, TikTok, Snapchat), now
+  in `sameAs`; curtains, decor and sofas are sold and return to the site later, when his photos arrive.
+  Fountains and plants stay open.
 - **The ads review was dropped.** The ads are stopped for payment, so there is nothing to read, and
   the user told R1 to start on 3 Nov.
 - Still unconfirmed: free delivery, «1-3 أيام عمل», wholesale prices, and the 14-day exchange

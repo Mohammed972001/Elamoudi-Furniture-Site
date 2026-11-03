@@ -169,11 +169,11 @@ advance.
 
 1. Confirm or deny: «أسعار جملة», free inspection, and the warranty terms (length; product,
    installation or both). Answered: installation is **not** free and a warranty exists (27 Oct); no free
-   shipping, delivery in 1–3 days, no returns after 14 days (3 Nov).
+   shipping, delivery in 1–3 days (3 Nov); installation per metre, wholesale yes, no 14-day returns (4 Nov).
 2. Real photos: parquet and vinyl jobs in homes (bathrooms and kitchens if any), Turkish carpet in
    rooms, and decor.
 3. Answers for the FAQ drafts. The questions come from search terms and the owner answers them.
-4. Any social profiles. The user said on 3 Nov that there is no Maps listing: the owner creates the
+4. Social profiles: done on 4 Nov. The user said on 3 Nov that there is no Maps listing: the owner creates the
    profile from gbp-and-directories.md.
 5. Optional: price ranges per square metre he is willing to publish.
 

@@ -5,11 +5,13 @@ Written on 2026-10-27 for the user to forward to the owner. Answers go back into
 
 Already answered through the user:
 - 27 Oct: installation is **not** free; there **is** a warranty.
-- 3 Nov: no free shipping (question 3); delivery in 1–3 days (question 5); no returns after 14 days
-  (question 2, conditions still open); no Google Maps link (question 8).
+- 3 Nov: no free shipping (question 3); delivery in 1–3 days (question 5); no Google Maps link (question 8).
+- 4 Nov: no 14-day returns (question 2); installation per metre (question 6); wholesale yes (question 7);
+  none of the 4 listings is his (question 9); social profiles are in the footer (question 10); curtains,
+  decor and sofas are sold, later on the site (question 12).
 
-Still open: questions 1, 2 (conditions), 4, 6, 7, 9, 10, 11, 12, the photos, the customer questions,
-and the optional prices. Question 21 matters more now: the merchant feed at /api/feed still carries
+Still open: question 1 (warranty), 4 (is inspection free), 11 (fountains and plants), the photos (coming
+later), the customer questions, and the optional prices. Question 21 matters more now: the merchant feed at /api/feed still carries
 12 prices nobody confirmed, and «undefined SAR» on the 4 rubber and foam items.
 
 ---

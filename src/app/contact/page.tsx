@@ -189,10 +189,6 @@ export default function ContactPage() {
                     <span>استشارة من خبراء الديكور لموكيت ومفروشات في الرياض</span>
                   </div>
                   <div className="flex items-center">
-                    <span className="text-carpet-gold text-xl ml-3">🔄</span>
-                    <span>الإرجاع متاح خلال 14 يومًا</span>
-                  </div>
-                  <div className="flex items-center">
                     <span className="text-carpet-gold text-xl ml-3">🕌</span>
                     <span>خبرة واسعة في توريد وتركيب موكيت مساجد وسجاد مساجد في الرياض</span>
                   </div>
