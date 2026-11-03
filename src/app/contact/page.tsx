@@ -25,7 +25,6 @@ export default function ContactPage() {
         streetAddress: BUSINESS.address.streetAddress,
         addressLocality: BUSINESS.address.addressLocality,
         addressRegion: BUSINESS.address.addressRegion,
-        postalCode: BUSINESS.address.postalCode,
         addressCountry: BUSINESS.address.addressCountry,
       },
       geo: {

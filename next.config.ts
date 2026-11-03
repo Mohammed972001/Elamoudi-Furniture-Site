@@ -17,6 +17,14 @@ const nextConfig: NextConfig = {
   // Also redirect legacy URLs to new URLs
   async redirects() {
     return [
+      // Plain http answered 200 on Cloudflare (no "Always Use HTTPS"): send it to
+      // the one https host. Cloudflare passes the visitor's scheme in x-forwarded-proto.
+      {
+        source: '/:path*',
+        has: [{ type: 'header', key: 'x-forwarded-proto', value: '^http$' }],
+        destination: 'https://www.elamoudifurniture.com/:path*',
+        permanent: true,
+      },
       {
         source: '/:path*',
         has: [
