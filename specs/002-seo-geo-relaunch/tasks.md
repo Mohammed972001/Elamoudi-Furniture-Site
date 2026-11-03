@@ -91,7 +91,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 **Goal**: the shop is one clear, consistent entity that assistants can cite.
 **Independent test**: the monthly AI check (T004 questions) shows the shop named or cited correctly in 3 or more of the 10 questions by W12.
 
-- [ ] T025 [US2] Rewrite the entity part of `src/app/about/page.tsx` with Owner-confirmed facts only: who the shop is, the city, what it sells, how to order. Name it as «العمودي للمفروشات — الرياض». Include no statement about other businesses.
+- [x] T025 [US2] Rewrite the entity part of `src/app/about/page.tsx` with Owner-confirmed facts only: who the shop is, the city, what it sells, how to order. Name it as «العمودي للمفروشات — الرياض». Include no statement about other businesses. *Done 4 Nov with the facts in business.ts. Fountains and plants wait for the owner; curtains, decor and sofas return with his photos. Title locked until 2026-11-25.*
 - [x] T026 [P] [US2] Prepare the exact Business Profile text in Arabic in `specs/002-seo-geo-relaunch/gbp-and-directories.md`: name, categories, description, products list, hours, phone and photo list. The user or owner applies it in W6. *Moved to R1 and done 3 Nov as a new profile, because the shop has no Maps link. Applying it needs the owner.*
 - [ ] T027 [P] [US2] In the same file, list 5–10 Saudi directories and Bing Places, with identical name, phone and address and the site URL. The user submits them; the file records each URL once it is live.
 - [ ] T028 [US2] Once the Business Profile URL exists, add it to `business.sameAs` in `src/constants/business.ts` (ships in the next release).

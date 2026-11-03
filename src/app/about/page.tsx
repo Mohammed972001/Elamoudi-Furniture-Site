@@ -4,11 +4,49 @@ import { BUSINESS } from '@/constants/business';
 
 
 export const metadata: Metadata = {
-  title: 'من نحن — خبرتنا في موكيت وسجاد الرياض',
+  title: 'من نحن — محل موكيت وأرضيات في حي العزيزية بالرياض',
+  description:
+    'العمودي للمفروشات محل موكيت وأرضيات في حي العزيزية بالرياض: موكيت وباركيه وفينيل وعشب صناعي وربل وفوم. تعرّف على العنوان والمواعيد وطريقة الطلب.',
   alternates: {
     canonical: '/about',
   },
 };
+
+/** Fountains and plants wait for the owner's answer; curtains, decor and sofas return with his photos. */
+const PRODUCT_GROUPS = [
+  {
+    label: 'للبيوت',
+    items: [
+      { name: 'موكيت منازل', href: '/products/mokite' },
+      { name: 'موكيت تركي مشجر', href: '/products/turky-mshager' },
+      { name: 'باركيه', href: '/products/parket' },
+      { name: 'باركيه ضد الماء', href: '/products/water-resistant-carpet' },
+      { name: 'فينيل رول', href: '/products/vinyl-roll' },
+      { name: 'ربل حمامات', href: '/products/bathroom-rubber' },
+      { name: 'أرضيات فوم بازل', href: '/products/foam-flooring' },
+    ],
+  },
+  {
+    label: 'للمساجد والمكاتب',
+    items: [
+      { name: 'موكيت مساجد', href: '/products/mosque-carpets' },
+      { name: 'فينيل مساجد', href: '/products/vinyl-mosque' },
+      { name: 'موكيت وأرضيات مكاتب', href: '/products/office-flooring' },
+    ],
+  },
+  {
+    label: 'للمستشفيات وصالات الرياضة والإسطبلات',
+    items: [
+      { name: 'فينيل طبي', href: '/products/hospital-flooring' },
+      { name: 'ربل جيم', href: '/products/gym-rubber' },
+      { name: 'ربل خيل', href: '/products/horse-rubber' },
+    ],
+  },
+  {
+    label: 'للحدائق والأسطح',
+    items: [{ name: 'عشب صناعي', href: '/products/artificial-grass' }],
+  },
+];
 
 export default function AboutPage() {
   // Structured Data for About Page
@@ -27,171 +65,92 @@ export default function AboutPage() {
 
       <div className="min-h-screen bg-custom-background pt-20">
         <div className="max-w-4xl mx-auto px-4 py-12">
-          {/* Header Section */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              معلومات عنا
+              العمودي للمفروشات — الرياض
             </h1>
-
           </div>
 
-          {/* Main Content */}
           <div className="prose prose-lg max-w-none text-right" dir="rtl">
-            {/* About Section */}
             <section className="mb-12">
               <p className="text-lg leading-relaxed text-gray-700 mb-6">
-                يعد العمودي للمفروشات من الشركات الرائدة في مجال الأرضيات والمفروشات المنزلية، حيث توفر تشكيلة متنوعة تلبي مختلف الأذواق. منذ تأسيسها، حرصت على تقديم أحدث التصاميم بأعلى معايير الجودة، مما جعلها الخيار الأول للكثير من العملاء. من خلال الابتكار المستمر، تسعى الشركة إلى توفير حلول عملية تضفي لمسة من الأناقة والراحة على جميع المساحات.
+                العمودي للمفروشات محل موكيت وأرضيات في الرياض، ومعرضه في حي العزيزية على شارع عبدالله بن صالح. نبيع الموكيت والسجاد والباركيه والفينيل والعشب الصناعي والربل وأرضيات الفوم، ونوفّر التوصيل والتركيب. وإذا كنت تجهّز بيتًا كاملًا، يمكنك اختيار أرضية كل غرفة من مكان واحد.
               </p>
             </section>
 
-            {/* Vision & Mission */}
+            <section className="mb-12">
+              <h2 className="text-3xl font-bold text-primary mb-6">ماذا نبيع؟</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {PRODUCT_GROUPS.map((group) => (
+                  <div key={group.label} className="bg-white p-6 rounded-lg shadow-md">
+                    <h3 className="text-xl font-semibold text-gray-800 mb-3">{group.label}</h3>
+                    <ul className="space-y-2">
+                      {group.items.map((item) => (
+                        <li key={item.href}>
+                          <Link href={item.href} className="text-primary hover:underline">
+                            {item.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+
             <section className="mb-12 bg-gray-50 p-8 rounded-lg">
-              <h2 className="text-3xl font-bold text-primary mb-6">رؤيتنا ورسالتنا</h2>
-              <p className="text-lg leading-relaxed text-gray-700">
-                في العمودي للمفروشات، نؤمن بأن اختيار الأرضيات والمفروشات المناسبة يُحدث فرقًا كبيرًا في جمال وأناقة أي مكان. لذلك، نلتزم بتقديم منتجات ذات جودة عالية بأسعار تنافسية. علاوة على ذلك، نهدف إلى تحسين تجربة عملائنا من خلال تقديم خدمات استشارية تساعدهم في اتخاذ أفضل القرارات وفقًا لاحتياجاتهم.
-              </p>
+              <h2 className="text-3xl font-bold text-primary mb-6">كيف تطلب؟</h2>
+              <ol className="list-decimal pr-6 space-y-3 text-lg text-gray-700">
+                <li>اتصل بنا أو راسلنا على واتساب على الرقم {BUSINESS.phone.displayLocal}.</li>
+                <li>أرسل مساحة المكان وصورته، ونرد عليك بعرض سعر.</li>
+                <li>يمكنك أيضًا زيارة المعرض لرؤية الخامات بنفسك قبل الشراء.</li>
+              </ol>
             </section>
 
-            {/* Products Section */}
             <section className="mb-12">
-              <h2 className="text-3xl font-bold text-primary mb-6">منتجاتنا</h2>
-              <p className="text-lg leading-relaxed text-gray-700 mb-6">
-                تضم مجموعتنا تشكيلة واسعة من المنتجات التي تناسب جميع الأنماط والاحتياجات. من بين هذه المنتجات:
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                  <div className="flex items-center mb-4">
-                    <span className="text-green-600 text-xl ml-3">✅</span>
-                    <h3 className="text-xl font-semibold text-gray-800">الموكيت العصري</h3>
-                  </div>
-                  <p className="text-gray-600">
-                    يتوفر بتصاميم عصرية وألوان تناسب مختلف الديكورات.
-                  </p>
-                </div>
-
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                  <div className="flex items-center mb-4">
-                    <span className="text-green-600 text-xl ml-3">✅</span>
-                    <h3 className="text-xl font-semibold text-gray-800">السجاد الفاخر</h3>
-                  </div>
-                  <p className="text-gray-600">
-                    يضفي لمسة من الفخامة على أي مساحة.
-                  </p>
-                </div>
-
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                  <div className="flex items-center mb-4">
-                    <span className="text-green-600 text-xl ml-3">✅</span>
-                    <h3 className="text-xl font-semibold text-gray-800">الأرضيات الخشبية (الباركيه)</h3>
-                  </div>
-                  <p className="text-gray-600">
-                    تمنح شعورًا بالدفء والأناقة.
-                  </p>
-                </div>
-
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                  <div className="flex items-center mb-4">
-                    <span className="text-green-600 text-xl ml-3">✅</span>
-                    <h3 className="text-xl font-semibold text-gray-800">أرضيات الفينيل</h3>
-                  </div>
-                  <p className="text-gray-600">
-                    معروفة بمتانتها وسهولة صيانتها، مما يجعلها خيارًا عمليًا.
-                  </p>
-                </div>
-
-                <div className="bg-white p-6 rounded-lg shadow-md md:col-span-2">
-                  <div className="flex items-center mb-4">
-                    <span className="text-green-600 text-xl ml-3">✅</span>
-                    <h3 className="text-xl font-semibold text-gray-800">المفروشات المنزلية</h3>
-                  </div>
-                  <p className="text-gray-600">
-                    تأتي بألوان وأقمشة متنوعة تناسب مختلف الأذواق.
-                  </p>
-                </div>
-              </div>
+              <h2 className="text-3xl font-bold text-primary mb-6">قبل أن تطلب</h2>
+              <ul className="list-disc pr-6 space-y-3 text-lg text-gray-700">
+                <li>التسليم خلال 1 إلى 3 أيام.</li>
+                <li>التوصيل والتركيب متاحان، والتركيب خدمة منفصلة تُحسب بالمتر. اسألنا عن التكلفة عند طلب عرض السعر.</li>
+                <li>يوجد ضمان، ومدته وتفاصيله نوضّحها عند الطلب.</li>
+                <li>نبيع بالجملة أيضًا للمساجد والشركات.</li>
+              </ul>
             </section>
 
-            {/* Why Choose Us */}
-            <section className="mb-12 bg-primary text-white p-8 rounded-lg">
-              <h2 className="text-3xl font-bold mb-6">لماذا تختارنا؟</h2>
-              <p className="text-lg leading-relaxed mb-6">
-                نتميز بعدة عوامل تجعلنا الخيار الأمثل لعملائنا، ومنها:
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="flex items-start">
-                  <span className="text-carpet-gold text-xl ml-3">🔹</span>
-                  <div>
-                    <h3 className="font-semibold mb-2">الجودة العالية</h3>
-                    <p>نحرص على اختيار أفضل الخامات لضمان المتانة والراحة.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <span className="text-carpet-gold text-xl ml-3">🔹</span>
-                  <div>
-                    <h3 className="font-semibold mb-2">الأسعار التنافسية</h3>
-                    <p>تجعل منتجاتنا في متناول الجميع دون المساس بالجودة.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <span className="text-carpet-gold text-xl ml-3">🔹</span>
-                  <div>
-                    <h3 className="font-semibold mb-2">تنوع التصاميم</h3>
-                    <p>لتناسب مختلف الديكورات، سواء الكلاسيكية أو العصرية.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <span className="text-carpet-gold text-xl ml-3">🔹</span>
-                  <div>
-                    <h3 className="font-semibold mb-2">الخدمة الممتازة</h3>
-                    <p>يقدمها فريقنا المتخصص لمساعدة العملاء في اختيار الأنسب لهم.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start md:col-span-2">
-                  <span className="text-carpet-gold text-xl ml-3">🔹</span>
-                  <div>
-                    <h3 className="font-semibold mb-2">التركيب الاحترافي</h3>
-                    <p>لضمان تنفيذ دقيق يحقق أفضل النتائج.</p>
-                  </div>
-                </div>
-              </div>
+            <section className="mb-12 bg-gray-50 p-8 rounded-lg">
+              <h2 className="text-3xl font-bold text-primary mb-6">العنوان والمواعيد</h2>
+              <p className="text-lg text-gray-700 mb-4">{BUSINESS.address.full}</p>
+              <ul className="space-y-2 text-lg text-gray-700 mb-4">
+                <li>{BUSINESS.hours.display.sunThu}</li>
+                <li>{BUSINESS.hours.display.friday}</li>
+                <li>{BUSINESS.hours.display.saturday}</li>
+              </ul>
+              <a
+                href={BUSINESS.geo.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-semibold"
+              >
+                عرض على خرائط Google
+              </a>
             </section>
 
-            {/* Our Commitment */}
-            <section className="mb-12">
-              <h2 className="text-3xl font-bold text-primary mb-6">التزامنا تجاه العملاء</h2>
-              <p className="text-lg leading-relaxed text-gray-700 mb-6">
-                نضع رضا العملاء في مقدمة أولوياتنا، لذا نحرص على تقديم تجربة تسوق سلسة ومريحة. بالإضافة إلى ذلك، نقوم بتحديث تشكيلتنا باستمرار لمواكبة أحدث الاتجاهات في عالم الديكور، مما يمنح عملاءنا خيارات متعددة تناسب جميع الأذواق والميزانيات.
-              </p>
-            </section>
-
-            {/* Call to Action */}
             <section className="text-center bg-carpet-gold p-8 rounded-lg">
-              <h2 className="text-3xl font-bold text-white mb-4">
-                📍 زورونا اليوم واكتشفوا التميز مع العمودي للمفروشات
-              </h2>
-              <p className="text-xl text-white mb-6">
-                حيث يلتقي الجمال بالجودة! مفروشات الرياض
-              </p>
+              <h2 className="text-3xl font-bold text-white mb-6">تواصل مع المحل</h2>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href={BUSINESS.phone.telLink}
+                  className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors"
+                >
+                  اتصل الآن
+                </a>
                 <a
                   href={BUSINESS.phone.whatsappLink}
                   className="bg-white text-carpet-gold px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
                 >
                   تواصل معنا عبر الواتساب
                 </a>
-                <Link
-                  href="/"
-                  className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors"
-                >
-                  تصفح منتجاتنا
-                </Link>
               </div>
             </section>
           </div>
@@ -199,4 +158,4 @@ export default function AboutPage() {
       </div>
     </>
   );
-} 
+}
