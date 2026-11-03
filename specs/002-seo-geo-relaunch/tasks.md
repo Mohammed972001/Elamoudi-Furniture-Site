@@ -37,18 +37,18 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 
 **Purpose**: indexing, the entity and trust fixes that every later page relies on.
 
-- [ ] T007 Extend `src/constants/business.ts` with `id` (`https://www.elamoudifurniture.com/#business`), `sameAs` (Owner-confirmed; may be empty), `knowsAbout` (product names from `src/data/products.ts`) and `facts` (Owner-confirmed, each with a source note).
-- [ ] T008 Make every JSON-LD block in `src/components/seo/JsonLd.tsx` reference the business `@id` and read name, phone, address and hours only from `business.ts`. Remove any duplicate business node. Verify in the build output that `/` and `/products/parket` each emit exactly one business entity.
-- [ ] T009 [P] In `src/app/sitemap.ts`, replace the build-time `new Date()` with a real `lastModified` per page: a `updated` date in product data, and the article date later. Keep /kitchens and /curtains (308) out of the sitemap.
-- [ ] T010 [P] Remove or reword every claim the owner did not confirm (T005 item 1). Search all of `src/` for «تركيب مجاني», «توصيل مجاني», «التوصيل مجاني», «1-3 أيام», «أسعار جملة», «ضمان» and «مجاني», and list each hit and its fate in the commit message.
-- [ ] T011 [P] For the 3 rubber pages and /decor, read the URL Inspection result from T001. Fix the cause (thin content, canonical, or no internal links), or record the decision to leave them in `seo-log/elamoudi.md`.
-- [ ] T012 [P] Photo audit across `public/` and `src/data/products.ts`:
+- [x] T007 Extend `src/constants/business.ts` with `id` (`https://www.elamoudifurniture.com/#business`), `sameAs` (Owner-confirmed; may be empty), `knowsAbout` (product names from `src/data/products.ts`) and `facts` (Owner-confirmed, each with a source note).
+- [x] T008 Make every JSON-LD block in `src/components/seo/JsonLd.tsx` reference the business `@id` and read name, phone, address and hours only from `business.ts`. Remove any duplicate business node. Verify in the build output that `/` and `/products/parket` each emit exactly one business entity.
+- [x] T009 [P] In `src/app/sitemap.ts`, replace the build-time `new Date()` with a real `lastModified` per page: a `updated` date in product data, and the article date later. Keep /kitchens and /curtains (308) out of the sitemap.
+- [x] T010 [P] Remove or reword every claim the owner did not confirm (T005 item 1). Search all of `src/` for «تركيب مجاني», «توصيل مجاني», «التوصيل مجاني», «1-3 أيام», «أسعار جملة», «ضمان» and «مجاني», and list each hit and its fate in the commit message.
+- [x] T011 [P] For the 3 rubber pages and /decor, read the URL Inspection result from T001. Fix the cause (thin content, canonical, or no internal links), or record the decision to leave them in `seo-log/elamoudi.md`. *Done 3 Nov: all four were already linked from /products; the footer now links gym, bathroom and horse rubber and foam on every page. /decor is indexed. gym-rubber and horse-rubber stay on the manual indexing list.*
+- [x] T012 [P] Photo audit across `public/` and `src/data/products.ts`: *Done 3 Nov: 24 images compressed, photos with a person who might be a woman removed. Shared photos are listed in seo-log/elamoudi.md and wait for the user.*
   - flag any image identical to another client's site or ads by comparing hashes with the sister repos under `D:/work/`;
   - add descriptive Arabic alt text where it is missing;
   - compress images over 250 KB.
-- [ ] T013 Add `src/app/llms.txt/route.ts` as a static route that generates the format in `contracts/content-contract.md` from `business.ts` and `products.ts`. Check that `/llms.txt` returns 200 as `text/plain` after the build.
-- [ ] T014 [P] Add the IndexNow key file to `public/` and the script `C:/Users/mohammed/.claude/scripts/indexnow.mjs <site> <urls…>`. Prepare the Bing Webmaster Tools import-from-Search-Console steps in Arabic for the user. Bing needs the user's sign-in.
-- [ ] T015 Ship R1 with `quickstart.md` steps 3–10. Ping IndexNow with all sitemap URLs and log the release.
+- [x] T013 Add `src/app/llms.txt/route.ts` as a static route that generates the format in `contracts/content-contract.md` from `business.ts` and `products.ts`. Check that `/llms.txt` returns 200 as `text/plain` after the build.
+- [x] T014 [P] Add the IndexNow key file to `public/` and the script `C:/Users/mohammed/.claude/scripts/indexnow.mjs <site> <urls…>`. Prepare the Bing Webmaster Tools import-from-Search-Console steps in Arabic for the user. Bing needs the user's sign-in. *Bing steps are in gbp-and-directories.md; the import needs the user.*
+- [x] T015 Ship R1 with `quickstart.md` steps 3–10. Ping IndexNow with all sitemap URLs and log the release.
 
 **Checkpoint**: the entity is unified, claims are clean, llms.txt is live, the site is submitted to Bing, and every sitemap URL is indexed or has a decision.
 
@@ -70,7 +70,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
   - the FAQ through `src/components/seo/FAQ.tsx`, with FAQPage JSON-LD of the same text.
   Pages without the new fields must render as before.
 - [ ] T018 [US1] Change the parket title and description only if its lock (2026-11-07) has passed by R2. Set new `titleLockedUntil` dates 21 days out and mirror them in `seo-log/elamoudi.md`.
-- [ ] T019 [US1] Ship R2 (W3), checking that the parquet ads review of 3 Nov is done first. Run the rich-results test on the 3 pages and log the release, noting it as a landing-page change for the ads.
+- [ ] T019 [US1] Ship R2 (W3), Run the rich-results test on the 3 pages and log the release, noting it as a landing-page change for the ads.
 - [ ] T020 [US1] Build the articles section:
   - `src/data/articles/types.ts` and `src/data/articles/index.ts`, following data-model «Article»;
   - `src/app/articles/page.tsx` (index);
@@ -92,7 +92,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 **Independent test**: the monthly AI check (T004 questions) shows the shop named or cited correctly in 3 or more of the 10 questions by W12.
 
 - [ ] T025 [US2] Rewrite the entity part of `src/app/about/page.tsx` with Owner-confirmed facts only: who the shop is, the city, what it sells, how to order. Name it as «العمودي للمفروشات — الرياض». Include no statement about other businesses.
-- [ ] T026 [P] [US2] Prepare the exact Business Profile text in Arabic in `specs/002-seo-geo-relaunch/gbp-and-directories.md`: name, categories, description, products list, hours, phone and photo list. The user or owner applies it in W6.
+- [x] T026 [P] [US2] Prepare the exact Business Profile text in Arabic in `specs/002-seo-geo-relaunch/gbp-and-directories.md`: name, categories, description, products list, hours, phone and photo list. The user or owner applies it in W6. *Moved to R1 and done 3 Nov as a new profile, because the shop has no Maps link. Applying it needs the owner.*
 - [ ] T027 [P] [US2] In the same file, list 5–10 Saudi directories and Bing Places, with identical name, phone and address and the site URL. The user submits them; the file records each URL once it is live.
 - [ ] T028 [US2] Once the Business Profile URL exists, add it to `business.sameAs` in `src/constants/business.ts` (ships in the next release).
 - [ ] T029 [US2] Prepare a review-request message in Arabic, with the Business Profile review link, for the owner to send to recent customers (W7). Do not show or mark up any rating until real reviews exist (FR-018).
@@ -108,7 +108,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 **Independent test**: articles 2 and 6 gain impressions on queries no sister site ranks for, and every page stays under 30% in dupcheck.
 
 - [ ] T031 [US3] Write article 2, «أرضيات البيت غرفة غرفة…», in `src/data/articles/home-room-by-room.ts`, linking parket, vinyl-roll, turky-mshager and mokite. Ships in R4.
-- [ ] T032 [US3] Act on decision Q1 = C (moved to R1): 301 `/garden` and `/products/garden-flooring` to `/products/artificial-grass` in `next.config.ts`, drop both from `src/app/sitemap.ts`, and fix any internal links to them. Decide `/products/shlal` and `/products/planets` once the owner answers. The original options were:
+- [x] T032 [US3] Act on decision Q1 = C (moved to R1): 301 `/garden` and `/products/garden-flooring` to `/products/artificial-grass` in `next.config.ts`, drop both from `src/app/sitemap.ts`, and fix any internal links to them. Decide `/products/shlal` and `/products/planets` once the owner answers. The original options were:
   - **A**: rebuild it with real projects and photos (Owner).
   - **B**: re-angle it around supplied artificial grass, fountains and plants.
   - **C**: 301 to `/products/artificial-grass` in `next.config.ts` and remove it from the sitemap.

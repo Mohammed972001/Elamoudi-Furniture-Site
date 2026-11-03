@@ -3,7 +3,14 @@
 Written on 2026-10-27 for the user to forward to the owner. Answers go back into `business.ts`
 (`facts`), the product FAQ and the release log. The message below is in Arabic on purpose.
 
-Already answered through the user on 27 Oct: installation is **not** free; there **is** a warranty.
+Already answered through the user:
+- 27 Oct: installation is **not** free; there **is** a warranty.
+- 3 Nov: no free shipping (question 3); delivery in 1–3 days (question 5); no returns after 14 days
+  (question 2, conditions still open); no Google Maps link (question 8).
+
+Still open: questions 1, 2 (conditions), 4, 6, 7, 9, 10, 11, 12, the photos, the customer questions,
+and the optional prices. Question 21 matters more now: the merchant feed at /api/feed still carries
+13 prices nobody confirmed.
 
 ---
 

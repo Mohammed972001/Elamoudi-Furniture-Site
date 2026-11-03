@@ -100,7 +100,7 @@ public/<indexnow-key>.txt         # NEW: IndexNow key file
 | Week | Dates | Release | Content |
 |---|---|---|---|
 | W1 | 27 Oct–3 Nov | **R0: baseline only** | GSC and GA4 baseline, index report, mobile speed, AI-visibility baseline (10 questions × 4 assistants). Collect owner inputs. **No site change.** Started 27 Oct. |
-| W2 | 4–10 Nov | **R1: foundation** | Index fixes; sitemap with real dates; entity data (one `@id`, `sameAs`, about facts); llms.txt; claims clean-up (every «تركيب مجاني» goes: the owner denied it); /garden and /products/garden-flooring 301 to artificial grass (Q1 = C); photo and alt audit; Bing Webmaster and IndexNow. Off-site: Business Profile text handed to the owner (moved up from W6, see the GEO workstream). |
+| W2 | 3–10 Nov (started 3 Nov) | **R1: foundation** | Index fixes; sitemap with real dates; entity data (one `@id`, `sameAs`, about facts); llms.txt; claims clean-up (the word «مجاني» goes; «تركيب» stays, per the user on 3 Nov); /garden and /products/garden-flooring 301 to artificial grass (Q1 = C); photo and alt audit; Bing Webmaster and IndexNow. Off-site: Business Profile text handed to the owner (moved up from W6, see the GEO workstream). |
 | W3 | 11–17 Nov | **R2: closing lines A** | Parquet (lock ended 7 Nov), vinyl roll, hospital/medical. Each gets an answer-first opening, a room section, 4–6 FAQ with schema, and a photo-to-WhatsApp prompt. |
 | W4 | 18–24 Nov | **R3: closing lines B + articles base** | Turkish patterned carpet (snippet and content), water-resistant carpet, mokite rebuild or merge. Articles index and article 1. |
 | W5 | 25 Nov–1 Dec | R4 | Article 2. /decor fix. |
@@ -167,13 +167,14 @@ advance.
 
 ## Owner inputs (requested in W1, through the user)
 
-1. Confirm or deny: «التوصيل مجاني», «1-3 أيام عمل», «أسعار جملة», and the warranty terms (length;
-   product, installation or both). Answered on 27 Oct: installation is **not** free; a warranty
-   exists.
+1. Confirm or deny: «أسعار جملة», free inspection, and the warranty terms (length; product,
+   installation or both). Answered: installation is **not** free and a warranty exists (27 Oct); no free
+   shipping, delivery in 1–3 days, no returns after 14 days (3 Nov).
 2. Real photos: parquet and vinyl jobs in homes (bathrooms and kitchens if any), Turkish carpet in
    rooms, and decor.
 3. Answers for the FAQ drafts. The questions come from search terms and the owner answers them.
-4. The Business Profile link and access; any social profiles; the showroom address as on the profile.
+4. Any social profiles. The user said on 3 Nov that there is no Maps listing: the owner creates the
+   profile from gbp-and-directories.md.
 5. Optional: price ranges per square metre he is willing to publish.
 
 ## Out of scope
@@ -191,7 +192,7 @@ advance.
 |---|---|
 | Cannibalising a sister client on parquet and vinyl | Lane table, dupcheck gate, and a GSC check of both sites in the 2-week reports |
 | Owner inputs arrive late | R1 and R3 do not depend on them except the claims; articles can use no photo rather than a borrowed one |
-| Landing-page changes confuse the ads read | Parquet changes ship on 11 Nov, after the 3 Nov ads review, and are dated in the log |
+| Landing-page changes confuse the ads read | Changes are dated in the log. The 3 Nov ads review was dropped: the ads were stopped for payment |
 | AI answers are noisy | Fixed questions, same wording, logged monthly; judged as a trend |
 | Google update mid-plan | 2-week reports compare with the sister sites; if all drop together it is the market |
 
