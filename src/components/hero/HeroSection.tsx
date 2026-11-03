@@ -32,7 +32,7 @@ export default function HeroSection() {
 
           {/* Subtitle */}
           <p className="mb-8 max-w-2xl text-2xl sm:text-4xl text-gray-200 leading-relaxed">
-          موكيت، باركيه، فينيل، عشب صناعي، تنسيق حدائق
+          موكيت، باركيه، فينيل، عشب صناعي، ربل
             <br />
              تصميمات وخامات تحول بيتك لقطعة فنية.
           </p>

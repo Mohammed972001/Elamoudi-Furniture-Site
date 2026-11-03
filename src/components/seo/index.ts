@@ -4,6 +4,5 @@ export { default as FAQ } from './FAQ';
 export { 
   LocalBusinessSchema, 
   ProductSchema, 
-  OrganizationSchema, 
   WebSiteSchema 
 } from './JsonLd';

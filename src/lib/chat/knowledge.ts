@@ -38,13 +38,12 @@ lines.push(
   `- كل المنتجات: ${SITE_URL}/products`,
   `- الموكيت والسجاد: ${SITE_URL}/carpets`,
   `- الديكور والستائر: ${SITE_URL}/decor`,
-  `- تنسيق الحدائق: ${SITE_URL}/garden`,
   `- التواصل: ${SITE_URL}/contact`,
 );
 
 export const CHAT_SITE: ChatSite = {
   name: BUSINESS.name,
-  niche: "مفروشات منزلية في الرياض: موكيت وسجاد وأرضيات وديكور وتنسيق حدائق",
+  niche: "مفروشات منزلية في الرياض: موكيت وسجاد وأرضيات وديكور",
   phone: BUSINESS.phone.displayLocal,
   whatsappUrl: BUSINESS.phone.whatsappLink,
   knowledge: lines.join("\n"),

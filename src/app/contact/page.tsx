@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { BUSINESS } from '@/constants/business';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
 
 export const metadata: Metadata = {
   title: 'اتصل بنا — موكيت وسجاد الرياض',
@@ -15,31 +14,7 @@ export default function ContactPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    mainEntity: {
-      '@type': 'LocalBusiness',
-      '@id': `${BUSINESS.url}/#business`,
-      name: BUSINESS.name,
-      telephone: BUSINESS.phone.primary,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: BUSINESS.address.streetAddress,
-        addressLocality: BUSINESS.address.addressLocality,
-        addressRegion: BUSINESS.address.addressRegion,
-        addressCountry: BUSINESS.address.addressCountry,
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: BUSINESS.geo.latitude,
-        longitude: BUSINESS.geo.longitude,
-      },
-      openingHours: BUSINESS.hours.schemaOrg,
-      contactPoint: {
-        '@type': 'ContactPoint',
-        telephone: BUSINESS.phone.primary,
-        contactType: 'customer service',
-        availableLanguage: ['Arabic'],
-      },
-    },
+    mainEntity: { '@id': BUSINESS.id },
   };
 
   return (
@@ -57,7 +32,7 @@ export default function ContactPage() {
               اتصل بنا
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              نحن في خدمتك! تواصل معنا للاستفسار عن سجاد الرياض، موكيت الرياض، موكيت مساجد، سجاد مساجد في الرياض، موكيت ومفروشات في الرياض أو لطلب استشارة مجانية
+              نحن في خدمتك! تواصل معنا للاستفسار عن سجاد الرياض، موكيت الرياض، موكيت مساجد، سجاد مساجد في الرياض، موكيت ومفروشات في الرياض أو لطلب استشارة
             </p>
           </div>
 
@@ -203,19 +178,19 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-center">
                     <span className="text-carpet-gold text-xl ml-3">🚚</span>
-                    <span>توصيل مجاني لجميع أنحاء الرياض</span>
+                    <span>توصيل داخل الرياض خلال 1 إلى 3 أيام</span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-carpet-gold text-xl ml-3">👨‍🔧</span>
-                    <span>تركيب احترافي وضمان على الخدمة - متخصصون في موكيت مساجد وسجاد مساجد في الرياض</span>
+                    <span>تركيب احترافي مع ضمان - متخصصون في موكيت مساجد وسجاد مساجد في الرياض</span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-carpet-gold text-xl ml-3">💬</span>
-                    <span>استشارة مجانية من خبراء الديكور لموكيت ومفروشات في الرياض</span>
+                    <span>استشارة من خبراء الديكور لموكيت ومفروشات في الرياض</span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-carpet-gold text-xl ml-3">🔄</span>
-                    <span>إمكانية الاستبدال والإرجاع</span>
+                    <span>الإرجاع متاح خلال 14 يومًا</span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-carpet-gold text-xl ml-3">🕌</span>

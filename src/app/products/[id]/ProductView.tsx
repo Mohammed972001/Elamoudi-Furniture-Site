@@ -74,7 +74,7 @@ export default function ProductView({ product }: ProductViewProps) {
             </div>
 
             <div className="flex flex-wrap gap-x-4 gap-y-1.5 rounded-xl border border-green-200 bg-green-50 px-4 py-3">
-              {['معاينة وقياس مجاناً', 'توصيل مجاني داخل الرياض', 'عرض سعر على الواتساب'].map((item) => (
+              {['معاينة وقياس', 'تسليم داخل الرياض خلال 1 إلى 3 أيام', 'عرض سعر على الواتساب'].map((item) => (
                 <span key={item} className="flex items-center gap-1.5 text-sm text-gray-800">
                   <span className="text-green-600">✓</span>
                   {item}

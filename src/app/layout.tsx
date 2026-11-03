@@ -7,8 +7,7 @@ import Navbar from "@/components/navbar/Navbar";
 import type { RootLayoutProps } from "@/types";
 import Footer from "@/components/ui/Footer";
 import FloatingButtons from "@/components/ui/FloatingButtons";
-import { LocalBusinessSchema, OrganizationSchema, WebSiteSchema } from "@/components/seo/JsonLd";
-import { BUSINESS } from '@/constants/business';
+import { LocalBusinessSchema, WebSiteSchema } from "@/components/seo/JsonLd";
 import { ADS_ID } from '@/constants/conversions';
 import ContactTracker from '@/components/ui/ContactTracker';
 
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
     default: "العمودي للمفروشات | موكيت وأرضيات في الرياض",
     template: "%s | العمودي للمفروشات",
   },
-  description: "العمودي للمفروشات - متخصصون في موكيت وأرضيات وباركيه وفينيل في الرياض. موكيت مساجد، أرضيات عالية الجودة. توصيل وتركيب مجاني.",
+  description: "العمودي للمفروشات - متخصصون في موكيت وأرضيات وباركيه وفينيل في الرياض. موكيت مساجد، أرضيات عالية الجودة. توصيل وتركيب.",
   keywords: [
     // الكلمات الرئيسية
     "العمودي للمفروشات",
@@ -62,7 +61,7 @@ export const metadata: Metadata = {
   // OpenGraph for Social Sharing
   openGraph: {
     title: "العمودي للمفروشات | موكيت وأرضيات في الرياض",
-    description: "متخصصون في موكيت وأرضيات وباركيه في الرياض. موكيت مساجد، توصيل وتركيب مجاني.",
+    description: "متخصصون في موكيت وأرضيات وباركيه في الرياض. موكيت مساجد، توصيل وتركيب.",
     type: "website",
     locale: "ar_SA",
     url: siteUrl,
@@ -81,7 +80,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "العمودي للمفروشات | موكيت وأرضيات في الرياض",
-    description: "متخصصون في موكيت وأرضيات في الرياض. توصيل وتركيب مجاني.",
+    description: "متخصصون في موكيت وأرضيات في الرياض. توصيل وتركيب.",
     images: ['/og-image.jpg'],
   },
 
@@ -143,38 +142,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
       </head>
       <body className="antialiased">
         <WebSiteSchema />
-        <OrganizationSchema
-          name={BUSINESS.name}
-          description={BUSINESS.description}
-          url={BUSINESS.url}
-          logo={BUSINESS.logo}
-          telephone={BUSINESS.phone.primary}
-          address={{
-            addressLocality: BUSINESS.address.addressLocality,
-            addressCountry: BUSINESS.address.addressCountry,
-          }}
-          sameAs={[
-            `https://wa.me/${BUSINESS.phone.primary.replace('+', '')}`,
-            BUSINESS.social.tiktok,
-            BUSINESS.social.instagram,
-          ]}
-        />
-        <LocalBusinessSchema
-          name={BUSINESS.name}
-          description={BUSINESS.description}
-          telephone={BUSINESS.phone.primary}
-          address={{
-            streetAddress: BUSINESS.address.streetAddress,
-            addressLocality: BUSINESS.address.addressLocality,
-            addressRegion: BUSINESS.address.addressRegion,
-            addressCountry: BUSINESS.address.addressCountry,
-          }}
-          geo={{ latitude: BUSINESS.geo.latitude, longitude: BUSINESS.geo.longitude }}
-          openingHours={[...BUSINESS.hours.schemaOrg]}
-          priceRange={BUSINESS.priceRange}
-          image={BUSINESS.logo}
-          areaServed={[...BUSINESS.areaServed]}
-        />
+        <LocalBusinessSchema />
         <div className="min-h-screen bg-custom-background">
           <Navbar />
           <main className="relative">

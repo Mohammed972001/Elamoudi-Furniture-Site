@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import ReviewForm from '@/components/sections/ReviewForm';
 import { listReviews, aggregate, formatReviewDate } from '@/lib/reviews';
+import { BUSINESS } from '@/constants/business';
 
 export const dynamic = 'force-dynamic';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
 
 export const metadata: Metadata = {
   title: 'آراء العملاء وتقييماتهم',
@@ -28,9 +28,9 @@ export default async function ReviewsPage() {
     ? {
         '@context': 'https://schema.org',
         '@type': 'HomeAndConstructionBusiness',
-        '@id': `${siteUrl}/#business`,
-        name: 'العمودي للمفروشات',
-        url: siteUrl,
+        '@id': BUSINESS.id,
+        name: BUSINESS.name,
+        url: BUSINESS.url,
         aggregateRating: {
           '@type': 'AggregateRating',
           ratingValue: agg.ratingValue,

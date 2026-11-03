@@ -28,11 +28,6 @@ export async function GET() {
       <g:price>${product.price} SAR</g:price>
       <g:brand>العمودي للمفروشات</g:brand>
       <g:condition>new</g:condition>
-      <g:shipping>
-        <g:country>SA</g:country>
-        <g:service>Standard</g:service>
-        <g:price>0 SAR</g:price>
-      </g:shipping>
     </item>`;
       })
       .join('')}

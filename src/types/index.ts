@@ -59,6 +59,8 @@ export interface ContainerSection {
 
 export interface ProductDetails {
   id: string;
+  /** Date this page's content last really changed (YYYY-MM-DD); the sitemap's lastModified. */
+  updated: string;
   title: string;
   description: string;
   detailedDescription?: string;

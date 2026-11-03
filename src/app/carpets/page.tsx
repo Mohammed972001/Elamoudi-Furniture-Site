@@ -6,13 +6,13 @@ import ContainerSection from "@/components/ui/ContainerSection";
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
 
 export const metadata: Metadata = {
-  title: "موكيت وسجاد الرياض — تشكيلة فاخرة بتركيب مجاني",
-  description: "اكتشف أحدث تشكيلات الموكيت والسجاد الفاخر في الرياض من العمودي للمفروشات. توصيل وتركيب مجاني، ضمان الجودة.",
+  title: "موكيت وسجاد الرياض — تشكيلة فاخرة مع التركيب",
+  description: "اكتشف أحدث تشكيلات الموكيت والسجاد الفاخر في الرياض من العمودي للمفروشات. توصيل وتركيب.",
   keywords: ["موكيت", "سجاد", "موكيت الرياض", "سجاد الرياض", "موكيت مساجد", "موكيت تركي", "موكيت مشجر"],
   alternates: { canonical: "/carpets" },
   openGraph: {
     title: "موكيت وسجاد الرياض — تشكيلة فاخرة | العمودي للمفروشات",
-    description: "أحدث تشكيلات الموكيت والسجاد الفاخر بأفضل الأسعار في الرياض. توصيل وتركيب مجاني.",
+    description: "أحدث تشكيلات الموكيت والسجاد الفاخر بأفضل الأسعار في الرياض. توصيل وتركيب.",
     type: "website",
     url: `${baseUrl}/carpets`,
     locale: "ar_SA",

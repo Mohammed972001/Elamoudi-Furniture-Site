@@ -3,7 +3,7 @@ import type { NavigationItem } from '@/types';
 export const NAVIGATION_ITEMS: NavigationItem[] = [
   { name: 'الرئيسية', href: '/', ariaLabel: 'الرئيسية' },
   { name: 'المتجر', href: '/products/mokite', ariaLabel: 'المتجر والتسوق' },
-  { name: 'تنسيق الحدائق', href: '/garden', ariaLabel: 'منتجات الحديقة المنزلية' },
+  { name: 'العشب الصناعي', href: '/products/artificial-grass', ariaLabel: 'العشب الصناعي' },
   { name: 'تواصل معنا', href: '/contact', ariaLabel: 'تواصل معنا' },
   { name: 'عن الشركة', href: '/about', ariaLabel: 'عن الشركة' },
 ];

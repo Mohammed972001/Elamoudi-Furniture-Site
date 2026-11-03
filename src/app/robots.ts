@@ -21,7 +21,6 @@ export default function robots(): MetadataRoute.Robots {
           '/contact',
           '/carpets',
           '/decor',
-          '/garden',
         ],
         disallow: [
           '/api/',

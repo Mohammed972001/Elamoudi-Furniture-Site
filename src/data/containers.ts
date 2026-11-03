@@ -73,12 +73,6 @@ export const containerSections: ContainerSection[] = [
     title: "حول حديقتك الي واحة جميلة",
     items: [
       {
-        id: "garden-flooring",
-        name: "تنسيق حدائق بتركيب احترافي",
-        image: "/images/catg/garden.png",
-        href: "/products/garden-flooring",
-      },
-      {
         id: "shlal",
         name: "شلالات ونوافير تنبض بالحياة",
         image: "/images/catg/shlal.png",

@@ -78,12 +78,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
         description={product.metaDescription}
         image={product.images}
         sku={product.id}
-        brand="العمودي للمفروشات"
-        offers={product.price ? {
-          price: product.price,
-          priceCurrency: 'SAR',
-          availability: 'https://schema.org/InStock',
-        } : undefined}
       />
 
       {/* Breadcrumbs with Schema */}

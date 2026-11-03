@@ -36,6 +36,17 @@ const nextConfig: NextConfig = {
         destination: 'https://www.elamoudifurniture.com/:path*',
         permanent: true, // 301 redirect — transfers Link Equity
       },
+      // Landscaping is not sold any more; these pages move to the closest product.
+      {
+        source: '/garden',
+        destination: '/products/artificial-grass',
+        permanent: true,
+      },
+      {
+        source: '/products/garden-flooring',
+        destination: '/products/artificial-grass',
+        permanent: true,
+      },
       {
         source: '/products/sajad',
         destination: '/products',

@@ -4,37 +4,13 @@
  * These components generate structured data for Google rich results
  */
 
-interface LocalBusinessSchemaProps {
-    name: string;
-    description: string;
-    telephone: string;
-    address: {
-        streetAddress: string;
-        addressLocality: string;
-        addressRegion: string;
-        addressCountry: string;
-    };
-    geo: {
-        latitude: number;
-        longitude: number;
-    };
-    openingHours: string[];
-    priceRange?: string;
-    image?: string;
-    areaServed?: string[];
-}
+import { BUSINESS } from '@/constants/business';
 
 interface ProductSchemaProps {
     name: string;
     description: string;
     image: string[];
     sku: string;
-    brand?: string;
-    offers?: {
-        price?: number;
-        priceCurrency?: string;
-        availability?: string;
-    };
     /**
      * REAL aggregate rating only. Pass undefined unless populated from a verified
      * reviews source (Google Business Profile API, on-site review collection, etc.).
@@ -51,85 +27,66 @@ interface ProductSchemaProps {
     };
 }
 
-interface OrganizationSchemaProps {
-    name: string;
-    description: string;
-    url: string;
-    logo?: string;
-    telephone?: string;
-    address?: {
-        addressLocality: string;
-        addressCountry: string;
-    };
-    sameAs?: string[];
+const WEEK = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+const DAY_NAMES: Record<string, string> = {
+    Mo: 'Monday', Tu: 'Tuesday', We: 'Wednesday', Th: 'Thursday', Fr: 'Friday', Sa: 'Saturday', Su: 'Sunday',
+};
+
+/** 'Mo-Th' means every day from Monday to Thursday, not just those two. */
+function expandDays(range: string) {
+    const [from, to = from] = range.split('-');
+    return WEEK.slice(WEEK.indexOf(from), WEEK.indexOf(to) + 1).map(day => DAY_NAMES[day]);
 }
 
 /**
- * LocalBusiness Schema for local SEO
- * Helps appear in "near me" searches and Google Maps
+ * The shop's one entity, rendered once by the root layout from BUSINESS.
+ * Other JSON-LD blocks reference it through BUSINESS.id.
  */
-export function LocalBusinessSchema({
-    name,
-    description,
-    telephone,
-    address,
-    geo,
-    openingHours,
-    priceRange = '$$',
-    image,
-    areaServed,
-}: LocalBusinessSchemaProps) {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
-
+export function LocalBusinessSchema() {
     const schema = {
         '@context': 'https://schema.org',
         '@type': 'HomeAndConstructionBusiness',
-        '@id': `${baseUrl}/#business`,
-        name,
-        description,
-        url: baseUrl,
-        telephone,
-        image: image ? `${baseUrl}${image}` : undefined,
-        priceRange,
+        '@id': BUSINESS.id,
+        name: BUSINESS.name,
+        description: BUSINESS.description,
+        url: BUSINESS.url,
+        telephone: BUSINESS.phone.primary,
+        logo: {
+            '@type': 'ImageObject',
+            url: `${BUSINESS.url}${BUSINESS.logo}`,
+            width: '512',
+            height: '512',
+        },
+        image: `${BUSINESS.url}${BUSINESS.logo}`,
+        priceRange: BUSINESS.priceRange,
         address: {
             '@type': 'PostalAddress',
-            ...address,
+            streetAddress: BUSINESS.address.streetAddress,
+            addressLocality: BUSINESS.address.addressLocality,
+            addressRegion: BUSINESS.address.addressRegion,
+            addressCountry: BUSINESS.address.addressCountry,
         },
         geo: {
             '@type': 'GeoCoordinates',
-            latitude: geo.latitude,
-            longitude: geo.longitude,
+            latitude: BUSINESS.geo.latitude,
+            longitude: BUSINESS.geo.longitude,
         },
-        openingHoursSpecification: openingHours.map(hours => {
+        openingHoursSpecification: BUSINESS.hours.schemaOrg.map(hours => {
             const [days, time] = hours.split(' ');
-            const [open, close] = time.split('-');
-            return {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: days.split('-').map(day => {
-                    const dayMap: Record<string, string> = {
-                        'Mo': 'Monday', 'Tu': 'Tuesday', 'We': 'Wednesday',
-                        'Th': 'Thursday', 'Fr': 'Friday', 'Sa': 'Saturday', 'Su': 'Sunday'
-                    };
-                    return dayMap[day] || day;
-                }),
-                opens: open,
-                closes: close,
-            };
+            const [opens, closes] = time.split('-');
+            return { '@type': 'OpeningHoursSpecification', dayOfWeek: expandDays(days), opens, closes };
         }),
-        areaServed: areaServed?.map(area => ({
-            '@type': 'City',
+        areaServed: BUSINESS.areaServed.map(area => ({
+            '@type': area === BUSINESS.address.addressCountryName ? 'Country' : 'City',
             name: area,
         })),
-        hasOfferCatalog: {
-            '@type': 'OfferCatalog',
-            name: 'منتجات العمودي للمفروشات',
-            itemListElement: [
-                { '@type': 'OfferCatalog', name: 'موكيت' },
-                { '@type': 'OfferCatalog', name: 'أرضيات' },
-                { '@type': 'OfferCatalog', name: 'باركيه' },
-                { '@type': 'OfferCatalog', name: 'فينيل' },
-                { '@type': 'OfferCatalog', name: 'موكيت مساجد' },
-            ],
+        knowsAbout: BUSINESS.knowsAbout,
+        sameAs: BUSINESS.sameAs.length > 0 ? BUSINESS.sameAs : undefined,
+        contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: BUSINESS.phone.primary,
+            contactType: 'customer service',
+            availableLanguage: ['Arabic'],
         },
     };
 
@@ -150,8 +107,6 @@ export function ProductSchema({
     description,
     image,
     sku,
-    brand = 'العمودي للمفروشات',
-    offers,
     aggregateRating,
 }: ProductSchemaProps) {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
@@ -163,8 +118,9 @@ export function ProductSchema({
         description,
         sku,
         brand: {
-            '@type': 'Brand',
-            name: brand,
+            '@type': 'Organization',
+            '@id': BUSINESS.id,
+            name: BUSINESS.name,
         },
         image: image.length > 0 ? image.map((img, index) => ({
             '@type': 'ImageObject',
@@ -173,53 +129,6 @@ export function ProductSchema({
             contentUrl: `${baseUrl}${img}`,
             caption: `${name} - صورة ${index + 1}`,
         })) : undefined,
-        offers: offers ? {
-            '@type': 'Offer',
-            price: offers.price,
-            priceCurrency: offers.priceCurrency || 'SAR',
-            availability: offers.availability || 'https://schema.org/InStock',
-            priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
-            hasMerchantReturnPolicy: {
-                '@type': 'MerchantReturnPolicy',
-                applicableCountry: 'SA',
-                returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
-                merchantReturnDays: 14,
-                returnMethod: 'https://schema.org/ReturnInStore',
-                returnFees: 'https://schema.org/FreeReturn'
-            },
-            shippingDetails: {
-                '@type': 'OfferShippingDetails',
-                shippingRate: {
-                    '@type': 'MonetaryAmount',
-                    value: 0,
-                    currency: 'SAR'
-                },
-                shippingDestination: {
-                    '@type': 'DefinedRegion',
-                    addressCountry: 'SA',
-                    addressRegion: 'الرياض'
-                },
-                deliveryTime: {
-                    '@type': 'ShippingDeliveryTime',
-                    handlingTime: {
-                        '@type': 'QuantitativeValue',
-                        minValue: 0,
-                        maxValue: 1,
-                        unitCode: 'd'
-                    },
-                    transitTime: {
-                        '@type': 'QuantitativeValue',
-                        minValue: 1,
-                        maxValue: 3,
-                        unitCode: 'd'
-                    }
-                }
-            },
-            seller: {
-                '@type': 'Organization',
-                name: brand,
-            },
-        } : undefined,
         aggregateRating: aggregateRating ? {
             '@type': 'AggregateRating',
             ratingValue: aggregateRating.ratingValue,
@@ -227,55 +136,6 @@ export function ProductSchema({
             bestRating: aggregateRating.bestRating ?? 5,
             worstRating: aggregateRating.worstRating ?? 1,
         } : undefined,
-    };
-
-    return (
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-    );
-}
-
-/**
- * Organization Schema
- * Establishes brand identity
- */
-export function OrganizationSchema({
-    name,
-    description,
-    url,
-    logo,
-    telephone,
-    address,
-    sameAs,
-}: OrganizationSchemaProps) {
-    const schema = {
-        '@context': 'https://schema.org',
-        '@type': 'Organization',
-        '@id': `${url}/#organization`,
-        name,
-        description,
-        url,
-        logo: logo ? {
-            '@type': 'ImageObject',
-            url: `${url}${logo}`,
-            width: '512',
-            height: '512',
-        } : undefined,
-        telephone,
-        address: address ? {
-            '@type': 'PostalAddress',
-            addressLocality: address.addressLocality,
-            addressCountry: address.addressCountry,
-        } : undefined,
-        sameAs,
-        contactPoint: {
-            '@type': 'ContactPoint',
-            telephone,
-            contactType: 'customer service',
-            availableLanguage: ['Arabic'],
-        },
     };
 
     return (
@@ -301,10 +161,10 @@ export function WebSiteSchema() {
         '@type': 'WebSite',
         '@id': `${baseUrl}/#website`,
         url: baseUrl,
-        name: 'العمودي للمفروشات',
-        alternateName: ['مفروشات العمودي', 'العمودي للسجاد', 'Al-Amoudi Furniture'],
-        description: 'متجر العمودي للمفروشات — أفضل موكيت وأرضيات في الرياض',
-        publisher: { '@id': `${baseUrl}/#organization` },
+        name: BUSINESS.name,
+        alternateName: ['مفروشات العمودي', 'Al-Amoudi Furniture'],
+        description: 'موكيت وأرضيات وباركيه وفينيل في الرياض',
+        publisher: { '@id': BUSINESS.id },
         inLanguage: 'ar-SA',
     };
 

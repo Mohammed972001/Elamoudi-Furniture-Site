@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BUSINESS } from '@/constants/business';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
 
 export const metadata: Metadata = {
   title: 'من نحن — خبرتنا في موكيت وسجاد الرياض',
@@ -16,20 +15,7 @@ export default function AboutPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
-    mainEntity: {
-      '@type': 'Organization',
-      name: 'العمودي للمفروشات - للأرضيات والمفروشات',
-      description: 'شركة رائدة في مجال الأرضيات والمفروشات المنزلية تقدم تشكيلة متنوعة تلبي مختلف الأذواق',
-      telephone: BUSINESS.phone.primary,
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'SA',
-        addressLocality: 'الرياض',
-      },
-      foundingDate: '2020',
-      industry: 'أرضيات ومفروشات',
-      areaServed: 'المملكة العربية السعودية',
-    },
+    mainEntity: { '@id': BUSINESS.id },
   };
 
   return (

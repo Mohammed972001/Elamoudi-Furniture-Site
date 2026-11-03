@@ -5,10 +5,33 @@
  */
 export const BUSINESS = {
   name: 'العمودي للمفروشات',
-  legalName: 'العمودي للأرضيات والمفروشات',
   description:
-    'متجر متخصص في موكيت وأرضيات وباركيه وفينيل في الرياض. موكيت مساجد وأرضيات عالية الجودة بتوصيل وتركيب مجاني.',
+    'متجر متخصص في موكيت وأرضيات وباركيه وفينيل في الرياض. موكيت مساجد وأرضيات عالية الجودة مع التوصيل والتركيب.',
   url: 'https://www.elamoudifurniture.com',
+  /** The one business entity. Every JSON-LD block points at this @id instead of repeating the shop. */
+  id: 'https://www.elamoudifurniture.com/#business',
+  /** Profiles the owner confirmed. The shop has no Google Maps listing yet; add its link here once it exists. */
+  sameAs: [] as string[],
+  knowsAbout: [
+    'موكيت',
+    'موكيت تركي مشجر',
+    'موكيت مساجد',
+    'موكيت مكاتب',
+    'باركيه',
+    'أرضيات فينيل رول',
+    'فينيل طبي للمستشفيات',
+    'عشب صناعي',
+    'ربل جيم',
+    'ربل حمامات',
+    'أرضيات فوم بازل',
+  ],
+  /** Only what the owner confirmed, with where it came from. Unconfirmed offers do not belong here. */
+  facts: [
+    { text: 'التركيب متاح، وهو خدمة غير مجانية.', source: 'owner via the agency, 2026-10-27 and 2026-11-03' },
+    { text: 'يوجد ضمان، ومدته وتفاصيله توضَّح عند الطلب.', source: 'owner via the agency, 2026-10-27' },
+    { text: 'الإرجاع متاح خلال 14 يومًا، ولا يوجد إرجاع بعدها.', source: 'owner via the agency, 2026-11-03' },
+    { text: 'التوصيل غير مجاني، والتسليم خلال 1 إلى 3 أيام.', source: 'owner via the agency, 2026-11-03' },
+  ],
   /** Square PNG of the header mark (public/NavBar/NavbarIcone.svg), 512x512: the logo Google shows. */
   logo: '/images/logo.png',
 
