@@ -10,7 +10,7 @@ export const BUSINESS = {
   url: 'https://www.elamoudifurniture.com',
   /** The one business entity. Every JSON-LD block points at this @id instead of repeating the shop. */
   id: 'https://www.elamoudifurniture.com/#business',
-  /** Profiles the owner confirmed. The shop has no Google Maps listing yet; add its link here once it exists. */
+  /** Profiles the owner confirmed. Add the Google Maps link here once the right profile is settled. */
   sameAs: [
     'https://x.com/Khaled1985357',
     'https://www.tiktok.com/@khaled.el.fannan',
@@ -32,9 +32,11 @@ export const BUSINESS = {
   /** Only what the owner confirmed, with where it came from. Unconfirmed offers do not belong here. */
   facts: [
     { text: 'التركيب متاح ويُحسب بالمتر، وهو خدمة غير مجانية.', source: 'owner via the agency, 2026-10-27 and 2026-11-04' },
-    { text: 'يوجد ضمان، ومدته وتفاصيله توضَّح عند الطلب.', source: 'owner via the agency, 2026-10-27' },
+    { text: 'يوجد ضمان على التركيب.', source: 'owner via the agency, 2026-11-04' },
     { text: 'التوصيل غير مجاني، والتسليم خلال 1 إلى 3 أيام.', source: 'owner via the agency, 2026-11-03' },
     { text: 'نبيع بالجملة للمساجد والشركات.', source: 'owner via the agency, 2026-11-04' },
+    { text: 'المعاينة والقياس مجانًا داخل الرياض.', source: 'owner via the agency, 2026-11-04' },
+    { text: 'تركيب الشقة العادية يستغرق يومًا، ولا يوجد حد أدنى للمساحة.', source: 'owner via the agency, 2026-11-04' },
   ],
   /** Square PNG of the header mark (public/NavBar/NavbarIcone.svg), 512x512: the logo Google shows. */
   logo: '/images/logo.png',

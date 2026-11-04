@@ -3,20 +3,16 @@ import { productsDetails } from '@/data/products';
 
 export const dynamic = 'force-static';
 
-// Stay out until the owner confirms he still sells them (owner-request.md, question 11).
-const UNCONFIRMED = new Set(['shlal', 'planets']);
-
 const firstSentence = (text: string) => text.split(/[.!؟]/)[0].trim();
 
 export function GET() {
   const { phone, address, hours, facts, name, description, url } = BUSINESS;
 
-  const products = productsDetails
-    .filter((product) => !UNCONFIRMED.has(product.id))
-    .map((product) => {
-      const title = product.title.split('|')[0].trim();
-      return `- [${title}](${url}/products/${product.id}): ${firstSentence(product.description)}`;
-    });
+  const products = productsDetails.map((product) => {
+    const title = product.title.split('|')[0].trim();
+    const price = product.price !== undefined ? ` يبدأ من ${product.price} ريال للمتر المربع.` : '';
+    return `- [${title}](${url}/products/${product.id}): ${firstSentence(product.description)}.${price}`;
+  });
 
   const body = [
     `# ${name} — ${address.addressLocality}`,

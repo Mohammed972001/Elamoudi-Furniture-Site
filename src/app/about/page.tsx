@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph('/about', 'من نحن — محل موكيت وأرضيات في حي العزيزية بالرياض', 'العمودي للمفروشات محل موكيت وأرضيات في حي العزيزية بالرياض: موكيت وباركيه وفينيل وعشب صناعي وربل وفوم. تعرّف على العنوان والمواعيد وطريقة الطلب.'),
 };
 
-/** Fountains and plants wait for the owner's answer; curtains, decor and sofas return with his photos. */
+/** Curtains, decor and sofas return with the owner's photos. */
 const PRODUCT_GROUPS = [
   {
     label: 'للبيوت',
@@ -46,7 +46,11 @@ const PRODUCT_GROUPS = [
   },
   {
     label: 'للحدائق والأسطح',
-    items: [{ name: 'عشب صناعي', href: '/products/artificial-grass' }],
+    items: [
+      { name: 'عشب صناعي', href: '/products/artificial-grass' },
+      { name: 'شلالات ونوافير', href: '/products/shlal' },
+      { name: 'نباتات منسقة', href: '/products/planets' },
+    ],
   },
 ];
 
@@ -114,7 +118,9 @@ export default function AboutPage() {
               <ul className="list-disc pr-6 space-y-3 text-lg text-gray-700">
                 <li>التسليم خلال 1 إلى 3 أيام.</li>
                 <li>التوصيل والتركيب متاحان، والتركيب خدمة منفصلة تُحسب بالمتر. اسألنا عن التكلفة عند طلب عرض السعر.</li>
-                <li>يوجد ضمان، ومدته وتفاصيله نوضّحها عند الطلب.</li>
+                <li>يوجد ضمان على التركيب.</li>
+                <li>المعاينة والقياس مجانًا داخل الرياض.</li>
+                <li>تركيب الشقة العادية يستغرق يومًا، ولا يوجد حد أدنى للمساحة.</li>
                 <li>نبيع بالجملة أيضًا للمساجد والشركات.</li>
               </ul>
             </section>

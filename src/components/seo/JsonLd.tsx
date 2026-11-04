@@ -7,7 +7,10 @@
 import { BUSINESS } from '@/constants/business';
 
 interface ProductSchemaProps {
+    id: string;
     name: string;
+    /** Starting price per square metre, in SAR. */
+    price?: number;
     description: string;
     image: string[];
     /**
@@ -99,24 +102,40 @@ export function LocalBusinessSchema() {
 
 /**
  * Product page schema with ImageObject.
- * A Service, not a Product: Google marks a Product with no offer, review or rating as
- * invalid, and the owner has confirmed no prices. Go back to Product with an Offer only
- * when he gives real ones.
+ * With a price it is a Product with an Offer: Merchant Center builds this shop's free listings from
+ * that markup, and rejects a product with "price missing" without it. With no price it is a Service,
+ * because Google marks a Product with no offer, review or rating as invalid.
+ * The visible price on the page must match the Offer.
  */
 export function ProductSchema({
+    id,
     name,
     description,
     image,
+    price,
     aggregateRating,
 }: ProductSchemaProps) {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com';
 
     const schema = {
         '@context': 'https://schema.org',
-        '@type': 'Service',
+        '@type': price !== undefined ? 'Product' : 'Service',
         name,
         description,
-        provider: { '@id': BUSINESS.id },
+        ...(price !== undefined
+            ? {
+                  sku: id,
+                  brand: { '@type': 'Brand', name: BUSINESS.name },
+                  offers: {
+                      '@type': 'Offer',
+                      url: `${baseUrl}/products/${id}`,
+                      price,
+                      priceCurrency: 'SAR',
+                      availability: 'https://schema.org/InStock',
+                      seller: { '@id': BUSINESS.id },
+                  },
+              }
+            : { provider: { '@id': BUSINESS.id } }),
         image: image.length > 0 ? image.map((img, index) => ({
             '@type': 'ImageObject',
             '@id': `${baseUrl}${img}#image${index}`,

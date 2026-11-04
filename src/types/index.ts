@@ -71,6 +71,11 @@ export interface ProductDetails {
     name: string;
     value: string;
   }[];
+  /**
+   * Starting price per square metre, in SAR. The same figures as funun-aladiyat and mokeet-elsuarye
+   * (owner via the agency, 2026-11-04). A page with a price is a Product with an Offer, which is what
+   * Merchant Center reads; a page without one is a Service.
+   */
   price?: number;
   features?: string[];
 }

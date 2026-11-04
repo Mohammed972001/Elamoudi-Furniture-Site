@@ -78,6 +78,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
     <>
       {/* Product Schema with ImageObject for SEO */}
       <ProductSchema
+        id={product.id}
+        price={product.price}
         name={product.title}
         description={product.metaDescription}
         image={product.images}

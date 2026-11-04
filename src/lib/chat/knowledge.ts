@@ -21,6 +21,7 @@ for (const p of productsDetails) {
   lines.push(
     `### ${p.title} — ${SITE_URL}/products/${p.id}`,
     p.description,
+    ...(p.price !== undefined ? [`السعر: يبدأ من ${p.price} ريال للمتر المربع، والسعر النهائي في عرض السعر.`] : []),
     p.detailedDescription ?? "",
     ...(p.features ?? []).map((f) => `- ${f}`),
     "",
