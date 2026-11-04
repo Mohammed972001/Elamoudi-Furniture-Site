@@ -11,6 +11,7 @@ export async function GET() {
     <link>${baseUrl}</link>
     <description>متجر متخصص في موكيت وأرضيات وباركيه في الرياض.</description>
     ${productsDetails
+      .filter((product) => product.price !== undefined)
       .map((product) => {
         const productLink = `${baseUrl}/products/${product.id}`;
         const imageLink = product.images?.[0]
