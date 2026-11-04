@@ -10,8 +10,14 @@ Already answered through the user:
   none of the 4 listings is his (question 9); social profiles are in the footer (question 10); curtains,
   decor and sofas are sold, later on the site (question 12).
 
-Still open: question 1 (warranty), 4 (is inspection free), 11 (fountains and plants), the photos (coming
-later), the customer questions, and the optional prices. Question 21 matters more now: the merchant feed at /api/feed still carries
+- 4 Nov, second round (`r2-owner-review.md`): all parquet types are sold; SPC suits bathrooms; parquet goes
+  over ceramic, decided after inspection; wood-look vinyl yes; vinyl in kitchens only; medical vinyl works at
+  home, and its standards and antibacterial claims come off the page; the warranty covers installation;
+  inspection and measuring are free; fountains and plants are sold; a flat takes a day and there is no minimum
+  area. The feed's prices are wrong. Where prices are needed, use funun-aladiyat's and mokeet-elsuarye's, and
+  don't ask the owner for prices.
+
+Still open: the shop's exact address, which Maps listing is his, the delivery cost, and the photos (coming later). Question 21 matters more now: the merchant feed at /api/feed still carries
 12 prices nobody confirmed, and «undefined SAR» on the 4 rubber and foam items.
 
 ---

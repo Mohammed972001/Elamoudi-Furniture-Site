@@ -25,7 +25,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 - [x] T001 Create `C:/Users/mohammed/.claude/scripts/seo-report-elamoudi.mjs`. It pulls Search Console data for the last 28 days and the 28 days before: totals; clicks per page and per query with brand and non-brand split by the regex `العمودي|عمودي|العامودي`; and positions of parket, vinyl-roll and turky-mshager. It also pulls GA4 `contact_click` by session source and URL Inspection for every sitemap URL. Output is markdown, using the key from `google-sa.mjs`. Never put the script in the repo.
 - [x] T002 Run T001 and paste the baseline into `C:/Users/mohammed/.claude/scripts/seo-log/elamoudi.md` under «2026-10-28 R0 baseline», with the figures behind each spec success criterion (SC-001…SC-008).
 - [x] T003 [P] Record mobile PageSpeed (LCP, CLS, INP) for /, /products/parket, /products/vinyl-roll, /products/turky-mshager, /products/hospital-flooring and /carpets in `seo-log/elamoudi.md`.
-- [ ] T004 [P] Ask the 10 fixed questions (research.md R5) in ChatGPT, Gemini, Perplexity and a Google search with AI Overview. Log one row per answer (data-model «AI check») in `seo-log/elamoudi.md`. *Run on 4 Nov from the built-in browser without signing in: Google AI Mode 10 of 10, Perplexity 8 of 10 (then asked to sign up), Gemini 3 of 10 answered. ChatGPT still needs a signed-in browser. Rows are in seo-log/elamoudi.md.*
+- [ ] T004 [P] Ask the 10 fixed questions (research.md R5) in ChatGPT, Gemini, Perplexity and a Google search with AI Overview. Log one row per answer (data-model «AI check») in `seo-log/elamoudi.md`. *Run on 4 Nov from the built-in browser: Google AI Mode 10 of 10, Perplexity 8 of 10, Gemini 3 of 10, ChatGPT 5 of 10 (signed in, temporary chats). Rows are in seo-log/elamoudi.md. The shop's real address is still being settled, so the «wrong address» notes there are provisional.*
 - [x] T005 [P] Write the owner request in Egyptian Arabic for the user to forward (plan.md, «Owner inputs», items 1–5) to `specs/002-seo-geo-relaunch/owner-request.md`.
 - [x] T006 Record the user's answers to Q1 (garden) and Q2 (lane) in spec.md under «Decisions». Update article 6 in plan.md's content map to match. *Q1 = C, Q2 = A, 27 Oct.*
 
@@ -42,7 +42,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 - [x] T009 [P] In `src/app/sitemap.ts`, replace the build-time `new Date()` with a real `lastModified` per page: a `updated` date in product data, and the article date later. Keep /kitchens and /curtains (308) out of the sitemap.
 - [x] T010 [P] Remove or reword every claim the owner did not confirm (T005 item 1). Search all of `src/` for «تركيب مجاني», «توصيل مجاني», «التوصيل مجاني», «1-3 أيام», «أسعار جملة», «ضمان» and «مجاني», and list each hit and its fate in the commit message.
 - [x] T011 [P] For the 3 rubber pages and /decor, read the URL Inspection result from T001. Fix the cause (thin content, canonical, or no internal links), or record the decision to leave them in `seo-log/elamoudi.md`. *Done 3 Nov: all four were already linked from /products; the footer now links gym, bathroom and horse rubber and foam on every page. /decor is indexed. gym-rubber and horse-rubber stay on the manual indexing list.*
-- [x] T012 [P] Photo audit across `public/` and `src/data/products.ts`: *Done 3 Nov: 24 images compressed, photos with a person who might be a woman removed. Shared photos are listed in seo-log/elamoudi.md and wait for the user.*
+- [x] T012 [P] Photo audit across `public/` and `src/data/products.ts`: *Done 3 Nov: 24 images compressed, photos with a person who might be a woman removed. Closed 4 Nov: the user decided shared photos stay as they are, and not to raise them again.*
   - flag any image identical to another client's site or ads by comparing hashes with the sister repos under `D:/work/`;
   - add descriptive Arabic alt text where it is missing;
   - compress images over 250 KB.
@@ -59,7 +59,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 **Goal**: the closing-line pages answer room questions and convert to calls.
 **Independent test**: after R2 and R3, the positions of parquet, vinyl and medical vinyl in Search Console improve over 4 weeks, and the rich-results test is valid.
 
-- [ ] T016 [US1] *Drafted on branch `002-r2-prep`; answers wait for `r2-owner-review.md`.* Add `answer`, `rooms`, `faq` and `titleLockedUntil` to the product type and to the parket, vinyl-roll and hospital-flooring entries in `src/data/products.ts`:
+- [ ] T016 [US1] *Drafted on branch `002-r2-prep` with the owner's answers of 4 Nov; the user reads the final sentences before it ships.* Add `answer`, `rooms`, `faq` and `titleLockedUntil` to the product type and to the parket, vinyl-roll and hospital-flooring entries in `src/data/products.ts`:
   - FAQ questions come from GSC and Ads search terms («باركيه حمامات», «باركيه خشب ضد الماء», «افضل انواع الفينيل», «فينيل بديل الباركيه», «ارضية مستشفيات»);
   - answers are Owner-confirmed;
   - there are no numbers without a source.
@@ -69,7 +69,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
   - the «حسب الغرفة» section;
   - the FAQ through `src/components/seo/FAQ.tsx`, with FAQPage JSON-LD of the same text.
   Pages without the new fields must render as before.
-- [ ] T018 [US1] *The guard denies a new parket title because the page brings contacts, so the draft only drops «مجاناً» from its description.* Change the parket title and description only if its lock (2026-11-07) has passed by R2. Set new `titleLockedUntil` dates 21 days out and mirror them in `seo-log/elamoudi.md`.
+- [ ] T018 [US1] *The guard denies a new parket title because the page brings contacts. «معاينة وقياس مجاناً» in its description stays: the owner confirmed free inspection on 4 Nov.* Change the parket title and description only if its lock (2026-11-07) has passed by R2. Set new `titleLockedUntil` dates 21 days out and mirror them in `seo-log/elamoudi.md`.
 - [ ] T019 [US1] Ship R2 (W3), Run the rich-results test on the 3 pages and log the release, noting it as a landing-page change for the ads.
 - [ ] T020 [US1] Build the articles section:
   - `src/data/articles/types.ts` and `src/data/articles/index.ts`, following data-model «Article»;
@@ -92,7 +92,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 **Independent test**: the monthly AI check (T004 questions) shows the shop named or cited correctly in 3 or more of the 10 questions by W12.
 
 - [x] T025 [US2] Rewrite the entity part of `src/app/about/page.tsx` with Owner-confirmed facts only: who the shop is, the city, what it sells, how to order. Name it as «العمودي للمفروشات — الرياض». Include no statement about other businesses. *Done 4 Nov with the facts in business.ts. Fountains and plants wait for the owner; curtains, decor and sofas return with his photos. Title locked until 2026-11-25.*
-- [x] T026 [P] [US2] Prepare the exact Business Profile text in Arabic in `specs/002-seo-geo-relaunch/gbp-and-directories.md`: name, categories, description, products list, hours, phone and photo list. The user or owner applies it in W6. *Moved to R1 and done 3 Nov as a new profile, because the shop has no Maps link. Applying it needs the owner.*
+- [x] T026 [P] [US2] Prepare the exact Business Profile text in Arabic in `specs/002-seo-geo-relaunch/gbp-and-directories.md`: name, categories, description, products list, hours, phone and photo list. The user or owner applies it in W6. *Written 3 Nov as a new profile. On 4 Nov the user's Business Profile account turned out to hold 4 profiles, none verified, one being «مفروشات وموكيت العمودي», marked duplicate. The file waits for the user to say which listing and address are this shop's.*
 - [x] T027 [P] [US2] *List written 4 Nov; signing up needs the user, and live URLs get recorded as they appear.* In the same file, list 5–10 Saudi directories and Bing Places, with identical name, phone and address and the site URL. The user submits them; the file records each URL once it is live.
 - [ ] T028 [US2] Once the Business Profile URL exists, add it to `business.sameAs` in `src/constants/business.ts` (ships in the next release).
 - [x] T029 [US2] *Written 4 Nov in gbp-and-directories.md; it goes out once the profile exists.* Prepare a review-request message in Arabic, with the Business Profile review link, for the owner to send to recent customers (W7). Do not show or mark up any rating until real reviews exist (FR-018).

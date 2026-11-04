@@ -14,8 +14,10 @@ the build output and again on the live page.
 4. **FAQ.** A visible section of 4–6 questions plus a FAQPage JSON-LD block with the same text.
 5. **JSON-LD.** Service, BreadcrumbList and FAQPage, all referencing the business `@id`.
    - No `aggregateRating` unless there are real reviews.
-   - Product with an Offer only once the owner gives prices. Google marks a Product with no offer,
-     review or rating as invalid (rich-results test, 3 Nov).
+   - A page with a price is a Product with an Offer, and shows the same price. Merchant Center has no
+     feed and builds its products from this markup, so removing it gets products rejected (4 Nov).
+   - A page with no price is a Service. Google marks a Product with no offer, review or rating as
+     invalid (rich-results test, 3 Nov).
 6. **Links.** In-text links to at least one article once articles exist.
 7. **Metadata.** A unique title and description, a canonical URL, and Arabic alt text on every image.
 
