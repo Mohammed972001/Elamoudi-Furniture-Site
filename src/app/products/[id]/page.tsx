@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getProductById, productsDetails } from "@/data/products";
 import { getContainerById } from "@/data/containers";
 import { Metadata } from "next";
+import { pageOpenGraph } from "@/constants/openGraph";
 import ProductView from "./ProductView";
 import { ProductSchema } from "@/components/seo/JsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
@@ -40,16 +41,19 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
       canonical: `/products/${id}`,
     },
     // A product without photos keeps the site-wide share image.
-    ...(product.images.length > 0 && {
-      openGraph: {
-        images: product.images.slice(0, 4).map((img, index) => ({
-          url: img,
-          width: 800,
-          height: 600,
-          alt: `${product.title} - صورة ${index + 1}`,
-        })),
-      },
-    }),
+    openGraph: pageOpenGraph(
+      `/products/${id}`,
+      product.title,
+      product.metaDescription,
+      product.images.length > 0
+        ? product.images.slice(0, 4).map((img, index) => ({
+            url: img,
+            width: 800,
+            height: 600,
+            alt: `${product.title} - صورة ${index + 1}`,
+          }))
+        : undefined,
+    ),
   };
 }
 

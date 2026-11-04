@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BUSINESS } from '@/constants/business';
+import { pageOpenGraph } from '@/constants/openGraph';
 
 
 export const metadata: Metadata = {
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/about',
   },
+  openGraph: pageOpenGraph('/about', 'من نحن — محل موكيت وأرضيات في حي العزيزية بالرياض', 'العمودي للمفروشات محل موكيت وأرضيات في حي العزيزية بالرياض: موكيت وباركيه وفينيل وعشب صناعي وربل وفوم. تعرّف على العنوان والمواعيد وطريقة الطلب.'),
 };
 
 /** Fountains and plants wait for the owner's answer; curtains, decor and sofas return with his photos. */

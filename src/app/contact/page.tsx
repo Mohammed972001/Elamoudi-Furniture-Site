@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { BUSINESS } from '@/constants/business';
+import { pageOpenGraph } from '@/constants/openGraph';
 
 
 export const metadata: Metadata = {
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/contact',
   },
+  openGraph: pageOpenGraph('/contact', 'اتصل بنا — موكيت وسجاد الرياض'),
 };
 
 export default function ContactPage() {

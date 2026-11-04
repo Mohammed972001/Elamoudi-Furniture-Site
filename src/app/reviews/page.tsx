@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageOpenGraph } from '@/constants/openGraph';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import ReviewForm from '@/components/sections/ReviewForm';
 import { listReviews, aggregate, formatReviewDate } from '@/lib/reviews';
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
   description:
     'تجارب عملاء العمودي للمفروشات مع الموكيت والسجاد والأرضيات في الرياض. شارك تقييمك لتساعد غيرك على الاختيار.',
   alternates: { canonical: '/reviews' },
+  openGraph: pageOpenGraph('/reviews', 'آراء العملاء وتقييماتهم', 'تجارب عملاء العمودي للمفروشات مع الموكيت والسجاد والأرضيات في الرياض. شارك تقييمك لتساعد غيرك على الاختيار.'),
 };
 
 const stars = (n: number) => '★'.repeat(n) + '☆'.repeat(5 - n);
