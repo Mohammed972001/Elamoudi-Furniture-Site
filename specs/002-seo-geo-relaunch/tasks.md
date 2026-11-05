@@ -139,7 +139,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 **Goal**: one report every 2 weeks against the baseline.
 **Independent test**: the W1 report exists, and every later report shows each success criterion with baseline → current.
 
-- [ ] T039 [US5] Extend T001's script to print the SC table (SC-001…SC-008) with baseline, current and target. SC-005 comes from the AI-check rows.
+- [x] T039 [US5] Extend T001's script to print the SC table (SC-001…SC-008) with baseline, current and target. SC-005 comes from the AI-check rows. *Done 5 Nov: the script prints the table first. SC-005 counts a question when any assistant's latest answer cites the shop; accuracy stays a manual call in the log.*
 - [ ] T040 [US5] Produce the 2-weekly reports in W3, W5, W7, W9 and W11, and summarise each to the user in Egyptian Arabic.
 - [ ] T041 [US5] Run the W8 checkpoint: re-plan W9–W12 in plan.md from the data, for example dropping or adding an article or merging a page. Get the user's go before shipping any change.
 
