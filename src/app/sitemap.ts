@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/carpets`,
-      lastModified: '2026-11-03',
+      lastModified: '2026-11-09',
       changeFrequency: 'weekly',
       priority: 0.9,
     },
