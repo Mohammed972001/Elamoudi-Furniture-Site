@@ -78,6 +78,18 @@ export interface ProductDetails {
    */
   price?: number;
   features?: string[];
+  /** Answer-first paragraph shown under the H1 in place of `description`. Owner-confirmed. */
+  answer?: string;
+  /** The «حسب الغرفة والاستخدام» section. */
+  rooms?: ProductRoom[];
+  /** Visible FAQ plus FAQPage JSON-LD of the same text. Owner-confirmed. */
+  faq?: { question: string; answer: string }[];
+}
+
+export interface ProductRoom {
+  name: string;
+  text: string;
+  link?: { href: string; label: string };
 }
 
 // Future types can be added here

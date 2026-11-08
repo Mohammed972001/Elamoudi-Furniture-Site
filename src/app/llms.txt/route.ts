@@ -11,7 +11,7 @@ export function GET() {
   const products = productsDetails.map((product) => {
     const title = product.title.split('|')[0].trim();
     const price = product.price !== undefined ? ` يبدأ من ${product.price} ريال للمتر المربع.` : '';
-    return `- [${title}](${url}/products/${product.id}): ${firstSentence(product.description)}.${price}`;
+    return `- [${title}](${url}/products/${product.id}): ${firstSentence(product.answer ?? product.description)}.${price}`;
   });
 
   const body = [

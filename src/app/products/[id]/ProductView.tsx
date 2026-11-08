@@ -1,10 +1,12 @@
 'use client';
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { FaWhatsapp, FaPhone, FaChevronLeft, FaChevronRight, FaMapMarkerAlt } from 'react-icons/fa';
 import { ProductDetails } from "@/types";
 import SEOContent from "@/components/seo/SEOContent";
+import FAQ from "@/components/seo/FAQ";
 import { BUSINESS } from "@/constants/business";
 import { reportContact } from "@/constants/conversions";
 import { withAdSource } from "@/constants/adSource";
@@ -69,7 +71,7 @@ export default function ProductView({ product }: ProductViewProps) {
                 {product.title}
               </h1>
               <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                {product.description}
+                {product.answer ?? product.description}
               </p>
               {product.price !== undefined && (
                 <p className="mt-3 text-gray-900">
@@ -109,6 +111,12 @@ export default function ProductView({ product }: ProductViewProps) {
                 <FaWhatsapp className="w-5 h-5" />
                 اطلب عرض سعر على الواتساب
               </button>
+
+              {product.answer && (
+                <p className="text-center text-sm text-gray-700">
+                  أرسل صورة المكان على الواتساب، ونرد عليك بعرض السعر.
+                </p>
+              )}
 
               {/* Where the shop is: an ad visitor sees a real showroom
                   before deciding to call. */}
@@ -227,6 +235,31 @@ export default function ProductView({ product }: ProductViewProps) {
             <SEOContent content={product.detailedDescription} title="الوصف التفصيلي" />
           </div>
         </div>
+
+        {product.rooms && (
+          <section className="mt-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">حسب الغرفة والاستخدام</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {product.rooms.map((room) => (
+                <div key={room.name} className="rounded-lg border border-gray-100 bg-white p-5 shadow-sm">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{room.name}</h3>
+                  <p className="text-gray-700 leading-relaxed">{room.text}</p>
+                  {room.link && (
+                    <Link href={room.link.href} className="mt-2 inline-block font-semibold text-primary hover:underline">
+                      {room.link.label}
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {product.faq && (
+          <div className="mt-10">
+            <FAQ items={product.faq} />
+          </div>
+        )}
       </div>
 
       {/* Add Custom CSS for animations */}
