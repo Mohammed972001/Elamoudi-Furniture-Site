@@ -28,12 +28,15 @@ export const BUSINESS = {
     'ربل جيم',
     'ربل حمامات',
     'أرضيات فوم بازل',
+    'كنب ومجالس',
+    'غرف نوم',
+    'ستائر',
   ],
   /** Only what the owner confirmed, with where it came from. Unconfirmed offers do not belong here. */
   facts: [
     { text: 'التركيب متاح ويُحسب بالمتر، وهو خدمة غير مجانية.', source: 'owner via the agency, 2026-10-27 and 2026-11-04' },
     { text: 'يوجد ضمان على التركيب.', source: 'owner via the agency, 2026-11-04' },
-    { text: 'التوصيل غير مجاني، والتسليم خلال 1 إلى 3 أيام.', source: 'owner via the agency, 2026-11-03' },
+    { text: 'التوصيل غير مجاني وتكلفته حسب المكان، والتسليم خلال 1 إلى 3 أيام.', source: 'owner via the agency, 2026-11-03 and 2026-11-09' },
     { text: 'نبيع بالجملة للمساجد والشركات.', source: 'owner via the agency, 2026-11-04' },
     { text: 'المعاينة والقياس مجانًا داخل الرياض.', source: 'owner via the agency, 2026-11-04' },
     { text: 'تركيب الشقة العادية يستغرق يومًا، ولا يوجد حد أدنى للمساحة.', source: 'owner via the agency, 2026-11-04' },
@@ -60,12 +63,12 @@ export const BUSINESS = {
   },
 
   address: {
-    streetAddress: 'حي العزيزية، شارع عبدالله بن صالح',
+    streetAddress: 'حراج بن قاسم، سوق العرب الدولي، حي المنفوحة',
     addressLocality: 'الرياض',
     addressRegion: 'منطقة الرياض',
     addressCountry: 'SA',
     addressCountryName: 'المملكة العربية السعودية',
-    full: 'حي العزيزية، شارع عبدالله بن صالح، الرياض، المملكة العربية السعودية',
+    full: 'حراج بن قاسم، سوق العرب الدولي، حي المنفوحة، الرياض، المملكة العربية السعودية',
   },
 
   geo: {
