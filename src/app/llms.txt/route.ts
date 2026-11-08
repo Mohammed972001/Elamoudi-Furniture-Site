@@ -1,5 +1,6 @@
 import { BUSINESS } from '@/constants/business';
 import { productsDetails } from '@/data/products';
+import { articles } from '@/data/articles';
 
 export const dynamic = 'force-static';
 
@@ -32,6 +33,9 @@ export function GET() {
     `- [موكيت وسجاد الرياض](${url}/carpets): أنواع الموكيت عندنا وأسعار المتر وطريقة الطلب.`,
     `- [كنب وغرف نوم وستائر](${url}/furniture): نبيع الكنب والمجالس وغرف النوم والستائر إلى جانب الأرضيات.`,
     '',
+    ...(articles.length
+      ? ['## مقالات', ...articles.map((article) => `- [${article.title}](${url}/articles/${article.slug}): ${article.answer}`), '']
+      : []),
   ].join('\n');
 
   return new Response(body, {
