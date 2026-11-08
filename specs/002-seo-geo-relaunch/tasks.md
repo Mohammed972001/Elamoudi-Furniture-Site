@@ -71,7 +71,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
   Pages without the new fields must render as before.
 - [ ] T018 [US1] *The guard denies a new parket title because the page brings contacts. «معاينة وقياس مجاناً» in its description stays: the owner confirmed free inspection on 4 Nov.* Change the parket title and description only if its lock (2026-11-07) has passed by R2. Set new `titleLockedUntil` dates 21 days out and mirror them in `seo-log/elamoudi.md`.
 - [ ] T019 [US1] Ship R2 (W3), Run the rich-results test on the 3 pages and log the release, noting it as a landing-page change for the ads.
-- [ ] T020 [US1] Build the articles section:
+- [ ] T020 [US1] Build the articles section: *Built on branch `relaunch/R3-articles` on 8 Nov, with no article yet: while the list is empty, /articles is a 404 and the sitemap, llms.txt and nav leave it out. Ships in R3 with T021.*
   - `src/data/articles/types.ts` and `src/data/articles/index.ts`, following data-model «Article»;
   - `src/app/articles/page.tsx` (index);
   - `src/app/articles/[slug]/page.tsx` with `generateStaticParams`, `dynamicParams = false`, Article and Breadcrumb JSON-LD and a table of contents for more than 4 sections;

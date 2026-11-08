@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { productsDetails } from '@/data/products'
+import { articles } from '@/data/articles'
 
 /**
  * Dynamic Sitemap Generator for Al-Amoudi Furniture
@@ -75,5 +76,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // Combine all pages
-  return [...staticPages, ...productPages]
+  return [...staticPages, ...productPages, ...articlePages()]
+}
+
+/** Articles, and their index only once one is live. */
+function articlePages(): MetadataRoute.Sitemap {
+  if (articles.length === 0) return []
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elamoudifurniture.com'
+  const newest = articles.map((article) => article.updated).sort().at(-1)
+  return [
+    { url: `${baseUrl}/articles`, lastModified: newest, changeFrequency: 'weekly', priority: 0.7 },
+    ...articles.map((article) => ({
+      url: `${baseUrl}/articles/${article.slug}`,
+      lastModified: article.updated,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+  ]
 }

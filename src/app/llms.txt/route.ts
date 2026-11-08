@@ -1,5 +1,6 @@
 import { BUSINESS } from '@/constants/business';
 import { productsDetails } from '@/data/products';
+import { articles } from '@/data/articles';
 
 export const dynamic = 'force-static';
 
@@ -30,6 +31,9 @@ export function GET() {
     '## المنتجات',
     ...products,
     '',
+    ...(articles.length
+      ? ['## مقالات', ...articles.map((article) => `- [${article.title}](${url}/articles/${article.slug}): ${article.answer}`), '']
+      : []),
   ].join('\n');
 
   return new Response(body, {

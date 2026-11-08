@@ -1,9 +1,11 @@
 import type { NavigationItem } from '@/types';
+import { hasArticles } from '@/data/articles';
 
 export const NAVIGATION_ITEMS: NavigationItem[] = [
   { name: 'الرئيسية', href: '/', ariaLabel: 'الرئيسية' },
   { name: 'المتجر', href: '/products/mokite', ariaLabel: 'المتجر والتسوق' },
   { name: 'العشب الصناعي', href: '/products/artificial-grass', ariaLabel: 'العشب الصناعي' },
+  ...(hasArticles ? [{ name: 'مقالات', href: '/articles', ariaLabel: 'مقالات' }] : []),
   { name: 'تواصل معنا', href: '/contact', ariaLabel: 'تواصل معنا' },
   { name: 'عن الشركة', href: '/about', ariaLabel: 'عن الشركة' },
 ];
