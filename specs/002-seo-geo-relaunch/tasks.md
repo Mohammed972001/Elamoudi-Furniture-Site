@@ -59,11 +59,11 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 **Goal**: the closing-line pages answer room questions and convert to calls.
 **Independent test**: after R2 and R3, the positions of parquet, vinyl and medical vinyl in Search Console improve over 4 weeks, and the rich-results test is valid.
 
-- [ ] T016 [US1] *Drafted on branch `002-r2-prep` with the owner's answers of 4 Nov; the user reads the final sentences before it ships.* Add `answer`, `rooms`, `faq` and `titleLockedUntil` to the product type and to the parket, vinyl-roll and hospital-flooring entries in `src/data/products.ts`:
+- [x] T016 [US1] *Shipped 9 Nov (commit 04be5e6) after the user read the sentences and had no changes.* Add `answer`, `rooms`, `faq` and `titleLockedUntil` to the product type and to the parket, vinyl-roll and hospital-flooring entries in `src/data/products.ts`:
   - FAQ questions come from GSC and Ads search terms («باركيه حمامات», «باركيه خشب ضد الماء», «افضل انواع الفينيل», «فينيل بديل الباركيه», «ارضية مستشفيات»);
   - answers are Owner-confirmed;
   - there are no numbers without a source.
-- [ ] T017 [US1] *Built on branch `002-r2-prep`; the prompt reads «أرسل صورة المكان على الواتساب» to match the site's Arabic.* In `src/app/products/[id]/ProductView.tsx`, render:
+- [x] T017 [US1] *Shipped 9 Nov with T016; the prompt reads «أرسل صورة المكان على الواتساب» to match the site's Arabic.* In `src/app/products/[id]/ProductView.tsx`, render:
   - the answer-first paragraph under the H1;
   - the call button first and WhatsApp second, then the prompt «ابعت صورة المكان على واتساب», keeping `adSource.ts` behaviour;
   - the «حسب الغرفة» section;
@@ -115,7 +115,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
   Ships in R1.
 - [ ] T033 [US3] Write article 6, majlis decor (Q1 = C), in `src/data/articles/majlis-decor.ts`, only if the owner confirms a decor range. Ships in R8.
 - [ ] T034 [US3] Fix `/decor` (`src/app/decor/`). Either add real decor content from the owner's range, with links to carpets and articles, or remove it from the sitemap if the owner has no decor range. Ships in R4.
-- [ ] T035 [US3] Decide /products/mokite using W1 and W3 data. Either rebuild it around home carpet by room, or 301 it into `/carpets` and update the links in `src/data/products.ts`. Ships in R3.
+- [ ] T035 [US3] *Decided 9 Nov: rebuild, no 301. The page brought 7 contacts in 28 days, and the sister site's copy now wins it (553 impressions at 16.8 against 359 at 26.7). Done through T048.* Decide /products/mokite using W1 and W3 data. Either rebuild it around home carpet by room, or 301 it into `/carpets` and update the links in `src/data/products.ts`. Ships in R3.
 
 **Checkpoint**: the home-project angle is live, with 2 articles plus the garden or decor page.
 
@@ -131,6 +131,21 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 - [ ] T038 [US4] Write article 3, «الموكيت التركي المشجر: تختار اللون والنقشة إزاي لكل غرفة», in `src/data/articles/turkish-carpet-colours.ts`. Check it against alsurye «اختيار-سجاد-المجلس» with dupcheck. Ships in R5.
 
 **Checkpoint**: the Turkish carpet page and its article are live and linked.
+
+---
+
+## Phase 6b: carpet searches back to page one (user, 9 Nov)
+
+**Why**: the user asked on 9 Nov to bring the site back to the top on the carpet and furnishing searches. Carpet head terms («موكيت الرياض», «موكيت وسجاد», «مفروشات موكيت», «موكيت ارضيات») averaged position 11–13 in March and 32–43 since September. /carpets fell from 7.5 to 18.8, /products/mokite from 8.0 to 26.7, /products/mosque-carpets from 4.7 in August to 12.4. The fall follows the rise of mafrushat-alsurye, built from the same template and still 73% identical on mokite; it now wins mokite and mosque-carpets.
+**Independent test**: the carpet query group (`an3.cjs` in the 9 Nov log) back under position 15 within 6 weeks, and every carpet page under 30% in dupcheck.
+**Order**: one page a day inside the daily cap. Facts only from `BUSINESS.facts` and the product price.
+
+- [x] T047 [US4] Rewrite `/carpets` as the carpet hub: answer first with prices per metre, the 5 carpet types with photos, carpet by place, how to order, 7 FAQs with FAQPage. Title untouched (locked to 24 Nov). *Shipped 9 Nov, commit eb98b73.*
+- [ ] T048 [US4] Add `answer`, `rooms` and `faq` to mokite (additions only, it brings contacts). Prepared on branch `relaunch/carpets-next`. Ship 10 Nov, then run dupcheck; if mokite is still over 30% against mafrushat-alsurye, rewrite its `detailedDescription` from the same facts on 17 Nov.
+- [ ] T049 [US4] Add `answer`, `rooms` and `faq` to mosque-carpets. Prepared on branch `relaunch/carpets-next`. Ship 11 Nov.
+- [ ] T050 [US4] T036 for turky-mshager once its content lock ends on 18 Nov.
+- [ ] T051 [US4] Add `answer`, `rooms` and `faq` to office-flooring (additions only). After 18 Nov.
+- [ ] T052 [US4] After the title locks end (24 Nov), read 2 weeks of data and retarget the /carpets and mokite titles if «محلات موكيت في الرياض» or «موكيت الرياض» still sit below page one. Fix the home H1 «تبدأمن» typo when its content lock ends on 18 Nov.
 
 ---
 
