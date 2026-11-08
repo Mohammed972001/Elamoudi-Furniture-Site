@@ -24,13 +24,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: '2026-11-04',
+      lastModified: '2026-11-09',
       changeFrequency: 'daily',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/products`,
-      lastModified: '2026-11-04',
+      lastModified: '2026-11-09',
       changeFrequency: 'weekly',
       priority: 0.9,
     },
@@ -41,20 +41,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/furniture`,
+      lastModified: '2026-11-09',
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/decor`,
-      lastModified: '2026-11-04',
+      lastModified: '2026-11-09',
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: '2026-11-04',
+      lastModified: '2026-11-09',
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: '2026-11-04',
+      lastModified: '2026-11-09',
       changeFrequency: 'monthly',
       priority: 0.8,
     },

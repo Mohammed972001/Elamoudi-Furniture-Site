@@ -120,12 +120,33 @@ export const containerSections: ContainerSection[] = [
         id: "curtains",
         name: "ستائر للبيوت والمكاتب",
         image: "/home/staar.png",
-        href: "/contact",
+        href: "/furniture#curtains",
         description: "تواصل معنا لمعرفة أنواع الستائر وألوانها المتاحة، وأرسل مقاسات النوافذ على الواتساب."
       }
     ]
   }
-
+,
+  {
+    id: "home-furniture",
+    title: "كنب وستائر",
+    items: [
+      {
+        // The owner's own photo (2026-11-09). Bedrooms get a card once their photos arrive.
+        id: "sofas",
+        name: "كنب ومجالس",
+        image: "/furniture/sofa-curved-grey.jpg",
+        href: "/furniture#sofas",
+        description: "أطقم كنب للمجالس وصالات المعيشة، بالصور والفيديو."
+      },
+      {
+        id: "curtains-home",
+        name: "ستائر",
+        image: "/home/staar.png",
+        href: "/furniture#curtains",
+        description: "ستائر للمجالس وغرف النوم، والقياس مجانًا داخل الرياض."
+      }
+    ]
+  }
 ];
 
 export const getContainerById = (id: string): ContainerSection | undefined => {

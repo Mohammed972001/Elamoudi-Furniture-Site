@@ -79,7 +79,7 @@ export default function Home() {
           textColor="text-black"
         />
 
-        {containerSections.filter((s) => s.id === "garden-services" || s.id === "rubber-flooring").map((section) => (
+        {containerSections.filter((s) => s.id === "garden-services" || s.id === "rubber-flooring" || s.id === "home-furniture").map((section) => (
           <ContainerSection
             key={section.id}
             section={section}

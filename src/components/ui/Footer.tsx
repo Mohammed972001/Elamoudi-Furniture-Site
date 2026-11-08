@@ -27,6 +27,7 @@ const Footer = () => {
       links: [
         { name: "الموكيت والسجاد", href: "/carpets" },
         { name: "الديكور والإكسسوارات", href: "/decor" },
+        { name: "كنب وغرف نوم وستائر", href: "/furniture" },
         { name: "العشب الصناعي", href: "/products/artificial-grass" },
         { name: "ربل جيم", href: "/products/gym-rubber" },
         { name: "ربل حمامات", href: "/products/bathroom-rubber" },
