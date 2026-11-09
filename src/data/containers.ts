@@ -119,8 +119,8 @@ export const containerSections: ContainerSection[] = [
         // One real photo for the whole range: the shop has no photo per curtain type yet.
         id: "curtains",
         name: "ستائر للبيوت والمكاتب",
-        image: "/home/staar.png",
-        href: "/furniture#curtains",
+        image: "/furniture/curtains-a.jpg",
+        href: "/products/curtains",
         description: "تواصل معنا لمعرفة أنواع الستائر وألوانها المتاحة، وأرسل مقاسات النوافذ على الواتساب."
       }
     ]
@@ -128,21 +128,28 @@ export const containerSections: ContainerSection[] = [
 ,
   {
     id: "home-furniture",
-    title: "كنب وستائر",
+    title: "كنب ومجالس وستائر",
     items: [
       {
-        // The owner's own photo (2026-11-09). Bedrooms get a card once their photos arrive.
-        id: "sofas",
-        name: "كنب ومجالس",
-        image: "/furniture/sofa-curved-grey.jpg",
-        href: "/furniture#sofas",
-        description: "أطقم كنب للمجالس وصالات المعيشة، بالصور والفيديو."
+        // The owner's own photos and videos (2026-11-09). Bedrooms get a card once their photos arrive.
+        id: "modern-sofas",
+        name: "كنب مودرن وزاوية",
+        image: "/furniture/sofa-set-grey-a.jpg",
+        href: "/products/modern-sofas",
+        description: "أطقم كنب مودرن وكنب زاوية للصالات والمجالس."
+      },
+      {
+        id: "classic-majlis",
+        name: "مجالس كلاسيك",
+        image: "/furniture/majlis-classic-grey-b.jpg",
+        href: "/products/classic-majlis",
+        description: "كنب وكراسي بإطارات خشب، ومجالس بيج."
       },
       {
         id: "curtains-home",
         name: "ستائر",
-        image: "/home/staar.png",
-        href: "/furniture#curtains",
+        image: "/furniture/curtains-a.jpg",
+        href: "/products/curtains",
         description: "ستائر للمجالس وغرف النوم، والقياس مجانًا داخل الرياض."
       }
     ]

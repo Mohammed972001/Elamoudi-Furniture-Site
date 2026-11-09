@@ -72,7 +72,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     { name: product.title },
   ];
 
-  const categorysMain = getContainerById("categorys-main");
+  const categorysMain = getContainerById(product.related ?? "categorys-main");
 
   return (
     <>

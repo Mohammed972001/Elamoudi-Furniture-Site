@@ -78,7 +78,8 @@ export default function ProductsPage() {
           <h1 className="text-4xl font-bold text-gray-900 mb-4">جميع المنتجات</h1>
           <p className="text-xl text-gray-600">تصفح تشكيلتنا الواسعة من المفروشات والديكورات</p>
         </div>
-        {containerSections.map((section) => (
+        {/* Curtains already have a card in the furniture row. */}
+        {containerSections.filter((section) => section.id !== "curtains-collection").map((section) => (
           <ContainerSection
             key={section.id}
             section={section}

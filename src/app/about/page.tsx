@@ -47,9 +47,10 @@ const PRODUCT_GROUPS = [
   {
     label: 'كنب وغرف نوم وستائر',
     items: [
-      { name: 'كنب ومجالس', href: '/furniture#sofas' },
+      { name: 'كنب مودرن وزاوية', href: '/products/modern-sofas' },
+      { name: 'مجالس كلاسيك', href: '/products/classic-majlis' },
       { name: 'غرف نوم', href: '/furniture#bedrooms' },
-      { name: 'ستائر', href: '/furniture#curtains' },
+      { name: 'ستائر', href: '/products/curtains' },
     ],
   },
   {

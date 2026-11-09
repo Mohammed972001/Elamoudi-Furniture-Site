@@ -1,42 +1,60 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaBed, FaWhatsapp } from 'react-icons/fa';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import FAQ from '@/components/seo/FAQ';
+import VideoCard from '@/components/ui/VideoCard';
 import { BUSINESS } from '@/constants/business';
 import { pageOpenGraph } from '@/constants/openGraph';
+import { getProductById } from '@/data/products';
 
 /**
- * Sofas, bedrooms and curtains: lines the owner sells beside the flooring (owner via the agency,
- * 2026-11-04 and 2026-11-09). The photo and videos are the ones the owner sent on 2026-11-09.
- * Two videos he sent stay out: one carries another seller's phone number, and one shows people
- * who cannot be told apart. Bedrooms have no photos yet.
+ * The furniture category: sofas, majlis sets and curtains, each with its own product page built from
+ * the owner's photos and videos (2026-11-09), plus bedrooms, which have no photos yet and so only
+ * ask for the models on WhatsApp.
  */
 
-const TITLE = 'كنب وغرف نوم وستائر في الرياض';
+const TITLE = 'كنب ومجالس وستائر في الرياض';
 const DESCRIPTION =
-  'كنب ومجالس وغرف نوم وستائر من العمودي للمفروشات في حراج بن قاسم بالرياض. شاهد نماذج الكنب بالصور والفيديو، وأرسل مقاس المكان على الواتساب ليصلك عرض السعر.';
-const UPLOADED = '2026-11-09T12:00:00+03:00';
+  'كنب مودرن وكنب زاوية ومجالس كلاسيك وستائر وغرف نوم من العمودي للمفروشات في حراج بن قاسم بالرياض. شاهد الموديلات بالصور والفيديو واطلب عرض السعر على الواتساب.';
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: '/furniture' },
+  openGraph: pageOpenGraph('/furniture', TITLE, DESCRIPTION, [
+    { url: '/furniture/sofa-set-grey-a.jpg', width: 464, height: 464, alt: 'طقم كنب رمادي' },
+  ]),
+};
+
+const PRODUCTS = [
+  { id: 'modern-sofas', name: 'كنب مودرن وكنب زاوية' },
+  { id: 'classic-majlis', name: 'مجالس كلاسيك' },
+  { id: 'curtains', name: 'ستائر' },
+];
 
 const VIDEOS = [
-  { file: 'sofa-set-grey', title: 'طقم كنب رمادي مع كرسي مفرد وطاولات', seconds: 50 },
-  { file: 'majlis-beige', title: 'مجلس كنب بيج بزاوية', seconds: 9 },
-  { file: 'corner-sofa-mint', title: 'كنب زاوية بلون أخضر فاتح', seconds: 15 },
-  { file: 'living-room-modern', title: 'كنب مودرن في صالة معيشة', seconds: 17 },
-  { file: 'majlis-classic-teal', title: 'مجلس كلاسيك بكنب وكراسي', seconds: 12 },
-  { file: 'majlis-classic-grey', title: 'مجلس كلاسيك رمادي', seconds: 9 },
-  { file: 'sofa-set-beige', title: 'طقم كنب بيج', seconds: 28 },
-  { file: 'armchairs-patterned', title: 'كراسي مفردة بقماش منقوش', seconds: 30 },
+  { file: 'sofa-set-grey', title: 'طقم كنب رمادي مع كراسي وطاولات' },
+  { file: 'corner-sofa-mint', title: 'كنب زاوية أخضر فاتح' },
+  { file: 'majlis-classic-teal', title: 'مجالس كلاسيك تركوازي وبيج' },
+  { file: 'majlis-classic-grey', title: 'مجلس كلاسيك رمادي' },
+];
+
+const STEPS = [
+  'أرسل مقاس المكان وصورته على الواتساب، أو اتصل بنا.',
+  'نرسل لك الموديلات المتوفرة بالصور، أو زرنا في المعرض.',
+  'يصلك عرض السعر، وتكلفة التوصيل حسب المكان.',
 ];
 
 const FAQ_ITEMS = [
   {
-    question: 'هل تبيعون الكنب وغرف النوم والستائر؟',
-    answer: 'نعم، نبيع الكنب والمجالس وغرف النوم والستائر إلى جانب الأرضيات والموكيت. أرسل صورة المكان ومقاسه على الواتساب لتصلك الموديلات المتوفرة وعرض السعر.',
+    question: 'ماذا تبيعون من الأثاث؟',
+    answer: 'نبيع الكنب المودرن والكنب الزاوية والمجالس الكلاسيك والستائر وغرف النوم، إلى جانب الموكيت والأرضيات.',
   },
   {
-    question: 'هل المعاينة والقياس مجانًا؟',
-    answer: 'نعم، المعاينة والقياس مجانًا داخل الرياض.',
+    question: 'كيف أعرف الموديلات المتوفرة وأسعارها؟',
+    answer: 'أرسل مقاس المكان وصورته على الواتساب، ونرسل لك الموديلات المتوفرة بالصور وعرض السعر.',
   },
   {
     question: 'كم تكلفة التوصيل؟',
@@ -48,146 +66,126 @@ const FAQ_ITEMS = [
   },
 ];
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: '/furniture' },
-  openGraph: pageOpenGraph('/furniture', TITLE, DESCRIPTION, [
-    { url: '/furniture/sofa-curved-grey.jpg', width: 736, height: 981, alt: 'كنب رمادي منحني' },
-  ]),
-};
-
 const waLink = (text: string) =>
   `https://wa.me/${BUSINESS.phone.primary.replace('+', '')}?text=${encodeURIComponent(text)}`;
 
-function Actions({ topic }: { topic: string }) {
-  return (
-    <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-      <a
-        href={BUSINESS.phone.telLink}
-        className="flex-1 rounded-lg bg-blue-600 px-6 py-3 text-center font-semibold text-white hover:bg-blue-700"
-      >
-        اتصال الآن
-      </a>
-      <a
-        href={waLink(`مرحباً، أريد الاستفسار عن ${topic}`)}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 rounded-lg bg-green-600 px-6 py-3 text-center font-semibold text-white hover:bg-green-700"
-      >
-        اطلب الموديلات والسعر على الواتساب
-      </a>
-    </div>
-  );
-}
-
 export default function FurniturePage() {
-  const base = BUSINESS.url;
-  const videoSchema = {
-    '@context': 'https://schema.org',
-    '@graph': VIDEOS.map((v) => ({
-      '@type': 'VideoObject',
-      name: v.title,
-      description: `${v.title} من العمودي للمفروشات بالرياض.`,
-      thumbnailUrl: `${base}/furniture/${v.file}.jpg`,
-      contentUrl: `${base}/furniture/${v.file}.mp4`,
-      uploadDate: UPLOADED,
-      duration: `PT${v.seconds}S`,
-      publisher: { '@id': BUSINESS.id },
-    })),
-  };
-
   return (
     <div className="pt-2 md:pt-20 pb-12 px-4 max-w-7xl mx-auto">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }} />
-      <Breadcrumbs items={[{ name: 'الرئيسية', href: '/' }, { name: 'كنب وغرف نوم وستائر' }]} />
+      <Breadcrumbs items={[{ name: 'الرئيسية', href: '/' }, { name: 'كنب ومجالس وستائر' }]} />
 
-      <header className="mt-6 max-w-3xl">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{TITLE}</h1>
-        <p className="text-lg text-gray-700 leading-relaxed">
-          إلى جانب الأرضيات والموكيت، نبيع في العمودي للمفروشات الكنب والمجالس وغرف النوم والستائر. أرسل صورة
-          المكان ومقاسه على الواتساب، ونرسل لك الموديلات المتوفرة وعرض السعر. المعاينة والقياس مجانًا داخل
-          الرياض، وتكلفة التوصيل حسب المكان.
+      <header className="mt-6 mb-10 text-center">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{TITLE}</h1>
+        <p className="mx-auto max-w-2xl text-lg text-gray-600 leading-relaxed">
+          أطقم كنب ومجالس وستائر وغرف نوم من معرضنا في حراج بن قاسم. شاهد الموديلات، واطلب عرض السعر على الواتساب.
         </p>
-        <nav className="mt-4 flex flex-wrap gap-3 text-sm font-semibold" aria-label="أقسام الصفحة">
-          <a href="#sofas" className="rounded-full bg-gray-100 px-4 py-2 text-gray-800 hover:bg-gray-200">الكنب والمجالس</a>
-          <a href="#bedrooms" className="rounded-full bg-gray-100 px-4 py-2 text-gray-800 hover:bg-gray-200">غرف النوم</a>
-          <a href="#curtains" className="rounded-full bg-gray-100 px-4 py-2 text-gray-800 hover:bg-gray-200">الستائر</a>
-        </nav>
+        <div className="mx-auto mt-4 h-1 w-20 rounded bg-blue-600" />
       </header>
 
-      <section id="sofas" className="mt-12 scroll-mt-24">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">الكنب والمجالس</h2>
-        <p className="max-w-3xl text-gray-700 leading-relaxed">
-          أطقم كنب للمجالس وصالات المعيشة، كلاسيك ومودرن، وكنب زاوية وكراسي مفردة. الصور والفيديوهات دي نماذج
-          من الموديلات. أرسل مقاس المجلس على الواتساب لنرشّح لك الطقم المناسب.
-        </p>
-        <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-          <figure className="overflow-hidden rounded-lg bg-white shadow-sm">
-            <div className="relative aspect-[3/4]">
-              <Image
-                src="/furniture/sofa-curved-grey.jpg"
-                alt="كنب رمادي منحني بثلاث مخدات"
-                fill
-                sizes="(max-width: 768px) 50vw, 25vw"
-                className="object-cover"
-              />
-            </div>
-            <figcaption className="p-3 text-sm text-gray-700">كنب رمادي منحني</figcaption>
-          </figure>
+      <section aria-label="المنتجات" className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {PRODUCTS.map(({ id, name }) => {
+          const product = getProductById(id);
+          if (!product) return null;
+          return (
+            <Link
+              key={id}
+              href={`/products/${id}`}
+              className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            >
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src={product.images[0]}
+                  alt={name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                {product.videos && (
+                  <span className="absolute top-3 right-3 rounded-full bg-black/70 px-3 py-1 text-xs font-semibold text-white">
+                    {product.videos.length} فيديو
+                  </span>
+                )}
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <h2 className="text-xl font-bold text-gray-900 group-hover:text-blue-700">{name}</h2>
+                <p className="mt-2 flex-1 text-gray-600 leading-relaxed">{product.description}</p>
+                <span className="mt-4 inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2.5 font-semibold text-white transition-colors group-hover:bg-blue-700">
+                  شاهد الموديلات
+                </span>
+              </div>
+            </Link>
+          );
+        })}
+
+        <div id="bedrooms" className="flex scroll-mt-24 flex-col overflow-hidden rounded-xl bg-white shadow-md">
+          <div className="flex aspect-square flex-col items-center justify-center gap-3 bg-gradient-to-br from-slate-100 to-slate-200 text-slate-600">
+            <FaBed className="h-16 w-16" aria-hidden />
+            <span className="text-sm font-medium">نرسل صور الموديلات على الواتساب</span>
+          </div>
+          <div className="flex flex-1 flex-col p-5">
+            <h2 className="text-xl font-bold text-gray-900">غرف نوم</h2>
+            <p className="mt-2 flex-1 text-gray-600 leading-relaxed">
+              غرف نوم كاملة. أرسل مقاس الغرفة لتصلك الموديلات المتوفرة بالصور وعرض السعر.
+            </p>
+            <a
+              href={waLink('مرحباً، أريد صور موديلات غرف النوم المتوفرة')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center justify-center gap-2 rounded-lg bg-green-600 px-4 py-2.5 font-semibold text-white hover:bg-green-700"
+            >
+              <FaWhatsapp className="h-5 w-5" aria-hidden />
+              اطلب صور الموديلات
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-16">
+        <div className="mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">شاهد الموديلات بالفيديو</h2>
+          <div className="mx-auto h-1 w-20 rounded bg-blue-600" />
+        </div>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {VIDEOS.map((v) => (
-            <figure key={v.file} className="overflow-hidden rounded-lg bg-white shadow-sm">
-              <video
-                className="aspect-[3/4] w-full bg-black object-cover"
-                src={`/furniture/${v.file}.mp4`}
-                poster={`/furniture/${v.file}.jpg`}
-                controls
-                muted
-                playsInline
-                preload="none"
-                aria-label={v.title}
-              />
-              <figcaption className="p-3 text-sm text-gray-700">{v.title}</figcaption>
-            </figure>
+            <VideoCard key={v.file} file={v.file} title={v.title} />
           ))}
         </div>
-        <Actions topic="الكنب والمجالس" />
       </section>
 
-      <section id="bedrooms" className="mt-14 scroll-mt-24">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">غرف النوم</h2>
-        <p className="max-w-3xl text-gray-700 leading-relaxed">
-          نبيع غرف النوم أيضًا. أرسل مقاس الغرفة على الواتساب لتصلك الموديلات المتوفرة بالصور وعرض السعر، وإذا
-          كنت تجهّز الغرفة كاملة فاسأل عن{' '}
-          <Link href="/products/mokite" className="font-semibold text-primary hover:underline">موكيت غرف النوم</Link>{' '}
-          و<Link href="/products/parket" className="font-semibold text-primary hover:underline">الباركيه</Link>.
-        </p>
-        <Actions topic="غرف النوم" />
-      </section>
-
-      <section id="curtains" className="mt-14 scroll-mt-24">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">الستائر</h2>
-        <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-2">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-white shadow-sm">
-            <Image
-              src="/home/staar.png"
-              alt="ستائر من العمودي للمفروشات"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <p className="text-gray-700 leading-relaxed">
-              ستائر للمجالس وغرف النوم والمعيشة والمكاتب. نقيس النوافذ مجانًا داخل الرياض، ونرسل لك الألوان
-              المتوفرة وعرض السعر على الواتساب.
-            </p>
-            <Actions topic="الستائر" />
-          </div>
+      <section className="mt-16">
+        <div className="mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">كيف تطلب؟</h2>
+          <div className="mx-auto h-1 w-20 rounded bg-blue-600" />
+        </div>
+        <ol className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {STEPS.map((step, i) => (
+            <li key={step} className="flex items-start gap-4 rounded-xl bg-white p-5 shadow-sm">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-600 text-lg font-bold text-white">
+                {i + 1}
+              </span>
+              <span className="pt-1.5 text-gray-700 leading-relaxed">{step}</span>
+            </li>
+          ))}
+        </ol>
+        <div className="mx-auto mt-8 flex max-w-xl flex-col gap-3 sm:flex-row">
+          <a
+            href={BUSINESS.phone.telLink}
+            className="flex-1 rounded-lg bg-blue-600 px-6 py-3 text-center font-semibold text-white hover:bg-blue-700"
+          >
+            اتصال الآن
+          </a>
+          <a
+            href={waLink('مرحباً، أريد الاستفسار عن الكنب والمجالس والستائر')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 rounded-lg bg-green-600 px-6 py-3 text-center font-semibold text-white hover:bg-green-700"
+          >
+            اطلب عرض سعر على الواتساب
+          </a>
         </div>
       </section>
 
-      <div className="mt-14">
+      <div className="mt-16">
         <FAQ items={FAQ_ITEMS} title="أسئلة شائعة" />
       </div>
     </div>

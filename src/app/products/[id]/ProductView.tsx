@@ -7,6 +7,7 @@ import { FaWhatsapp, FaPhone, FaChevronLeft, FaChevronRight, FaMapMarkerAlt } fr
 import { ProductDetails } from "@/types";
 import SEOContent from "@/components/seo/SEOContent";
 import FAQ from "@/components/seo/FAQ";
+import VideoCard from "@/components/ui/VideoCard";
 import { BUSINESS } from "@/constants/business";
 import { reportContact } from "@/constants/conversions";
 import { withAdSource } from "@/constants/adSource";
@@ -83,7 +84,7 @@ export default function ProductView({ product }: ProductViewProps) {
             </div>
 
             <div className="flex flex-wrap gap-x-4 gap-y-1.5 rounded-xl border border-green-200 bg-green-50 px-4 py-3">
-              {['معاينة وقياس مجانًا', 'تسليم داخل الرياض خلال 1 إلى 3 أيام', 'عرض سعر على الواتساب'].map((item) => (
+              {(product.highlights ?? ['معاينة وقياس مجانًا', 'تسليم داخل الرياض خلال 1 إلى 3 أيام', 'عرض سعر على الواتساب']).map((item) => (
                 <span key={item} className="flex items-center gap-1.5 text-sm text-gray-800">
                   <span className="text-green-600">✓</span>
                   {item}
@@ -235,6 +236,35 @@ export default function ProductView({ product }: ProductViewProps) {
             <SEOContent content={product.detailedDescription} title="الوصف التفصيلي" />
           </div>
         </div>
+
+        {product.videos && (
+          <section className="mt-10">
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  '@context': 'https://schema.org',
+                  '@graph': product.videos.map((v) => ({
+                    '@type': 'VideoObject',
+                    name: v.title,
+                    description: `${v.title} من العمودي للمفروشات بالرياض.`,
+                    thumbnailUrl: `${BUSINESS.url}/furniture/${v.file}.jpg`,
+                    contentUrl: `${BUSINESS.url}/furniture/${v.file}.mp4`,
+                    uploadDate: '2026-11-09T12:00:00+03:00',
+                    duration: `PT${v.seconds}S`,
+                    publisher: { '@id': BUSINESS.id },
+                  })),
+                }),
+              }}
+            />
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">شاهد الموديلات بالفيديو</h2>
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+              {product.videos.map((v) => (
+                <VideoCard key={v.file} file={v.file} title={v.title} />
+              ))}
+            </div>
+          </section>
+        )}
 
         {product.rooms && (
           <section className="mt-10">

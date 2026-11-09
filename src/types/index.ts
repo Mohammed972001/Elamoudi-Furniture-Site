@@ -84,6 +84,18 @@ export interface ProductDetails {
   rooms?: ProductRoom[];
   /** Visible FAQ plus FAQPage JSON-LD of the same text. Owner-confirmed. */
   faq?: { question: string; answer: string }[];
+  /** Points in the green strip under the summary. Defaults to the flooring points. */
+  highlights?: string[];
+  /** The owner's videos: public/furniture/<file>.mp4 with the poster <file>.jpg. */
+  videos?: ProductVideo[];
+  /** Container id of the card row under the page. Defaults to the flooring categories. */
+  related?: string;
+}
+
+export interface ProductVideo {
+  file: string;
+  title: string;
+  seconds: number;
 }
 
 export interface ProductRoom {
