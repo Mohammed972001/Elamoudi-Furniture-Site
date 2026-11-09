@@ -148,14 +148,14 @@ export default function CarpetsPage() {
     <div className="pt-2 md:pt-20 pb-12 px-4 max-w-7xl mx-auto">
       <Breadcrumbs items={[{ name: "الرئيسية", href: "/" }, { name: "السجاد والموكيت" }]} />
 
-      <header className="mt-6 max-w-3xl">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">موكيت وسجاد في الرياض</h1>
-        <p className="text-lg text-gray-700 leading-relaxed">
-          العمودي للمفروشات محل موكيت في {streetAddress} بالرياض. نورّد الموكيت ونركّبه للبيوت والمجالس
-          والمكاتب والمساجد: {prices}. المعاينة والقياس مجانًا داخل الرياض، والتركيب يُحسب بالمتر، وتركيب
-          الشقة العادية يستغرق يومًا.
+      <header className="mt-6 mb-10 text-center">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">موكيت وسجاد في الرياض</h1>
+        <p className="mx-auto max-w-2xl text-lg text-gray-600 leading-relaxed">
+          محل موكيت في حراج بن قاسم. نورّد الموكيت ونركّبه للبيوت والمجالس والمكاتب والمساجد، والأسعار تبدأ من{" "}
+          {home} ريال للمتر المربع. المعاينة والقياس مجانًا داخل الرياض.
         </p>
-        <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+        <div className="mx-auto mt-4 h-1 w-20 rounded bg-blue-600" />
+        <div className="mx-auto mt-6 flex max-w-xl flex-col gap-3 sm:flex-row">
           <a
             href={BUSINESS.phone.telLink}
             className="flex-1 rounded-lg bg-blue-600 px-6 py-3 text-center font-semibold text-white hover:bg-blue-700"
@@ -173,26 +173,40 @@ export default function CarpetsPage() {
         </div>
       </header>
 
-      <section className="mt-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">أنواع الموكيت عندنا</h2>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+      <section className="mt-14">
+        <div className="mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">أنواع الموكيت عندنا</h2>
+          <div className="mx-auto h-1 w-20 rounded bg-blue-600" />
+        </div>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {TYPES.map((t) => {
             const price = priceOf(t.id);
             return (
               <Link
                 key={t.id}
                 href={`/products/${t.id}`}
-                className="group overflow-hidden rounded-lg bg-white shadow-sm hover:shadow-md"
+                className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="relative aspect-[4/3]">
-                  <Image src={t.image} alt={t.name} fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover" />
-                </div>
-                <div className="p-3">
-                  <h3 className="font-semibold text-gray-900 group-hover:text-primary">{t.name}</h3>
-                  <p className="mt-1 text-sm text-gray-700 leading-relaxed">{t.text}</p>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={t.image}
+                    alt={t.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   {price && (
-                    <p className="mt-2 text-sm font-semibold text-gray-900">يبدأ من {price} ريال للمتر المربع</p>
+                    <span className="absolute top-3 right-3 rounded-full bg-white/95 px-3 py-1 text-sm font-semibold text-gray-900 shadow">
+                      يبدأ من {price} ريال/م²
+                    </span>
                   )}
+                </div>
+                <div className="flex flex-1 flex-col p-5">
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-700">{t.name}</h3>
+                  <p className="mt-2 flex-1 text-gray-600 leading-relaxed">{t.text}</p>
+                  <span className="mt-4 inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2.5 font-semibold text-white transition-colors group-hover:bg-blue-700">
+                    التفاصيل والصور
+                  </span>
                 </div>
               </Link>
             );
@@ -200,8 +214,11 @@ export default function CarpetsPage() {
         </div>
       </section>
 
-      <section className="mt-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">أي موكيت يناسب مكانك؟</h2>
+      <section className="mt-16">
+        <div className="mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">أي موكيت يناسب مكانك؟</h2>
+          <div className="mx-auto h-1 w-20 rounded bg-blue-600" />
+        </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {PLACES.map((p) => (
             <div key={p.name} className="rounded-lg border border-gray-100 bg-white p-5 shadow-sm">
@@ -215,15 +232,27 @@ export default function CarpetsPage() {
         </div>
       </section>
 
-      <section className="mt-12 max-w-3xl">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">كيف تطلب الموكيت؟</h2>
-        <ol className="list-decimal space-y-2 pr-6 text-gray-700 leading-relaxed">
-          <li>أرسل صورة المكان ومساحته التقريبية على الواتساب، أو اتصل بنا.</li>
-          <li>نحدد موعد المعاينة والقياس، وهي مجانًا داخل الرياض.</li>
-          <li>يصلك عرض السعر: سعر المتر، والتركيب بالمتر، وتكلفة التوصيل حسب المكان.</li>
-          <li>التسليم خلال 1 إلى 3 أيام، وتركيب الشقة العادية في يوم، ولا يوجد حد أدنى للمساحة.</li>
+      <section className="mt-16">
+        <div className="mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">كيف تطلب الموكيت؟</h2>
+          <div className="mx-auto h-1 w-20 rounded bg-blue-600" />
+        </div>
+        <ol className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            "أرسل صورة المكان ومساحته التقريبية على الواتساب، أو اتصل بنا.",
+            "نحدد موعد المعاينة والقياس، وهي مجانًا داخل الرياض.",
+            "يصلك عرض السعر: سعر المتر، والتركيب بالمتر، وتكلفة التوصيل حسب المكان.",
+            "التسليم خلال 1 إلى 3 أيام، وتركيب الشقة العادية في يوم.",
+          ].map((step, i) => (
+            <li key={step} className="flex items-start gap-4 rounded-xl bg-white p-5 shadow-sm">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-600 text-lg font-bold text-white">
+                {i + 1}
+              </span>
+              <span className="pt-1.5 text-gray-700 leading-relaxed">{step}</span>
+            </li>
+          ))}
         </ol>
-        <p className="mt-4 text-gray-700 leading-relaxed">
+        <p className="mt-8 text-center text-gray-700 leading-relaxed">
           نوفّر أيضًا{" "}
           <Link href="/products/parket" className="font-semibold text-primary hover:underline">الباركيه</Link>،
           و<Link href="/products/vinyl-roll" className="font-semibold text-primary hover:underline">الفينيل رول</Link>،
