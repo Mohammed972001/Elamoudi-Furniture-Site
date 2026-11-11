@@ -14,6 +14,9 @@ interface ProductPageProps {
   }>;
 }
 
+const CARPET_IDS = new Set(["mokite", "turky-mshager", "mosque-carpets", "office-flooring", "vinyl-mosque"]);
+const FURNITURE_IDS = new Set(["modern-sofas", "classic-majlis", "curtains"]);
+
 // Generate static params for all products (for SSG optimization)
 export async function generateStaticParams() {
   return productsDetails.map((product) => ({
@@ -65,11 +68,18 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
 
-  // Breadcrumb items
+  // Carpet and furniture products sit under their hub pages, so the trail (and its
+  // BreadcrumbList) points Google at /carpets and /furniture. The last item is the short name:
+  // titles carry an SEO tail after " | ".
+  const parent = CARPET_IDS.has(product.id)
+    ? { name: "السجاد والموكيت", href: "/carpets" }
+    : FURNITURE_IDS.has(product.id)
+      ? { name: "كنب ومجالس وستائر", href: "/furniture" }
+      : { name: "المنتجات", href: "/products" };
   const breadcrumbItems = [
     { name: "الرئيسية", href: "/" },
-    { name: "المنتجات", href: "/products" },
-    { name: product.title },
+    parent,
+    { name: product.title.split("|")[0].trim() },
   ];
 
   const categorysMain = getContainerById(product.related ?? "categorys-main");
