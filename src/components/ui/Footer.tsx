@@ -230,7 +230,7 @@ const Footer = () => {
             </p>
             {/* Agency credit. data-credit keeps the contact tracker off it: this chat is not a lead. */}
             <a
-              href="https://wa.me/201003736539"
+              href="https://www.digitalizing-tech.com"
               target="_blank"
               rel="nofollow noopener"
               dir="ltr"
