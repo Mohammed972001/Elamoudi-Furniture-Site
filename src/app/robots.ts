@@ -22,10 +22,11 @@ export default function robots(): MetadataRoute.Robots {
           '/carpets',
           '/decor',
         ],
+        // /_next/ stays open: it serves the CSS, JS and next/image product photos
+        // that Google and Bing need to render the pages and index the images.
         disallow: [
           '/api/',
           '/admin/',
-          '/_next/',
         ],
       },
     ],
