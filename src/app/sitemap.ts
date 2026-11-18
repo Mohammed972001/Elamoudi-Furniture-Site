@@ -93,7 +93,8 @@ function articlePages(): MetadataRoute.Sitemap {
   return [
     { url: `${baseUrl}/articles`, lastModified: newest, changeFrequency: 'weekly', priority: 0.7 },
     ...articles.map((article) => ({
-      url: `${baseUrl}/articles/${article.slug}`,
+      // Percent-encoded, as the page canonical is (Arabic slug).
+      url: `${baseUrl}/articles/${encodeURIComponent(article.slug)}`,
       lastModified: article.updated,
       changeFrequency: 'monthly' as const,
       priority: 0.7,

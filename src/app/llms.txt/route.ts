@@ -34,7 +34,7 @@ export function GET() {
     `- [كنب وغرف نوم وستائر](${url}/furniture): نبيع الكنب والمجالس وغرف النوم والستائر إلى جانب الأرضيات.`,
     '',
     ...(articles.length
-      ? ['## مقالات', ...articles.map((article) => `- [${article.title}](${url}/articles/${article.slug}): ${article.answer}`), '']
+      ? ['## مقالات', ...articles.map((article) => `- [${article.title}](${url}/articles/${encodeURIComponent(article.slug)}): ${article.answer}`), '']
       : []),
   ].join('\n');
 
