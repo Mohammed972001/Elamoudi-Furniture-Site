@@ -1,7 +1,9 @@
 import { Search } from 'lucide-react';
 
+// Hidden from 1024 to 1279px: the eight-item menu fills that width, and the box pushed the
+// favourites button off screen. Phones and wide screens keep it.
 const SearchBar = () => (
-  <div className="flex-1 max-w-xs lg:max-w-md mx-4 lg:mx-8">
+  <div className="flex-1 min-w-0 max-w-xs lg:hidden xl:block xl:max-w-md mx-4 xl:mx-8">
     <div className="relative">
       <label htmlFor="search" className="sr-only text-black ">البحث عن المنتجات</label>
       <input

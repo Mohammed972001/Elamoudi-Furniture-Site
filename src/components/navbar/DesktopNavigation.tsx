@@ -2,14 +2,15 @@ import Link from 'next/link';
 import { NAVIGATION_ITEMS } from '@/constants/navigation';
 
 const DesktopNavigation = () => (
-  <div className="hidden lg:flex items-center space-x-10 mr-5 ">
-    <ul className="flex items-center gap-5 xl:gap-7" role="menubar">
-      {/* The logo already links home, so the desktop bar leaves «الرئيسية» out to fit on one line. */}
+  <div className="hidden lg:flex items-center mr-3 xl:mr-5">
+    <ul className="flex items-center gap-3 xl:gap-7" role="menubar">
+      {/* The logo already links home, so the desktop bar leaves «الرئيسية» out to fit on one line.
+          From 1024 to 1279px the gaps and text are smaller, and the search box hides (SearchBar). */}
       {NAVIGATION_ITEMS.filter((item) => item.href !== "/").map((item, index) => (
         <li key={index} role="none">
           <Link
             href={item.href}
-            className="whitespace-nowrap text-black hover:text-amber-800 font-medium transition-colors duration-200 relative group py-2"
+            className="whitespace-nowrap text-[15px] xl:text-base text-black hover:text-amber-800 font-medium transition-colors duration-200 relative group py-2"
             role="menuitem"
             aria-label={item.ariaLabel}
           >
