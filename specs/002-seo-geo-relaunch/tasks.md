@@ -128,7 +128,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 
 - [ ] T036 [US4] Add `answer`, `rooms` (majlis, bedroom, guest room) and `faq` (5 questions from «موكيت تركي», «موكيت مشجر», «الوان موكيت مشجر») to turky-mshager and water-resistant-carpet in `src/data/products.ts`.
 - [ ] T037 [US4] Write a new title and description for turky-mshager that names «موكيت تركي مشجر بالرياض» and the colours and patterns, and set `titleLockedUntil` 21 days out. Ships in R3.
-- [ ] T038 [US4] Write article 3, «الموكيت التركي المشجر: تختار اللون والنقشة إزاي لكل غرفة», in `src/data/articles/turkish-carpet-colours.ts`. Check it against alsurye «اختيار-سجاد-المجلس» with dupcheck. Ships in R5.
+- [ ] T038 [US4] Write article 3, «الموكيت التركي المشجر: تختار اللون والنقشة إزاي لكل غرفة», in `src/data/articles/turkish-carpet-colours.ts`. Check it against alsurye «اختيار-سجاد-المجلس» with dupcheck. Drafted early as `turkish-carpet-with-sofas.ts` (how to match the patterned carpet with the sofa or majlis, so it does not repeat the sister sites' colour article), commit f57a7fd on `relaunch/R3-articles`; not yet in the `articles` list. Ships when that branch is rebased on main and passes dupcheck.
 
 **Checkpoint**: the Turkish carpet page and its article are live and linked.
 
@@ -145,7 +145,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 - [x] T049 [US4] *Shipped 11 Nov, commit 18d1c5c.* Add `answer`, `rooms` and `faq` to mosque-carpets. Prepared on branch `relaunch/carpets-next`. Ship 11 Nov.
 - [x] T047b [US4] *Shipped 11 Nov, commit be26ed5:* the main menu lists /carpets, parquet, vinyl, /furniture, grass and contact on every page (it had «المتجر» to mokite, grass, contact and about). Desktop leaves «الرئيسية» out to fit one line.
 - [x] T050 [US4] T036 for turky-mshager once its content lock ends on 18 Nov. Done 2026-11-18 (f48d0fb).
-- [ ] T051 [US4] Add `answer`, `rooms` and `faq` to office-flooring (additions only). After 18 Nov.
+- [x] T051 [US4] Add `answer`, `rooms` and `faq` to office-flooring (additions only). Shipped 19 Nov (5156ee9), with carpet and furniture products now under /carpets and /furniture in the breadcrumb (281616c).
 - [ ] T052 [US4] After the title locks end (24 Nov), read 2 weeks of data and retarget the /carpets and mokite titles if «محلات موكيت في الرياض» or «موكيت الرياض» still sit below page one. Fix the home H1 «تبدأمن» typo when its content lock ends on 18 Nov. H1 typo fixed 2026-11-18 (ccfd9da); title part still open.
 
 ---
