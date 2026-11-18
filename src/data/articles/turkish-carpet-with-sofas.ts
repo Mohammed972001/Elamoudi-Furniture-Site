@@ -73,6 +73,6 @@ export const turkishCarpetWithSofas: Article = {
     },
   ],
   queries: ['موكيت تركي', 'موكيت مشجر', 'موكيت تركي مشجر', 'الوان موكيت مشجر', 'موكيت مجالس'],
-  published: '2026-11-18',
-  updated: '2026-11-18',
+  published: '2026-11-19',
+  updated: '2026-11-19',
 };

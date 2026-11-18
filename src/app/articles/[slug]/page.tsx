@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { articles, getArticle } from '@/data/articles';
+import { getProductById } from '@/data/products';
 import { BUSINESS } from '@/constants/business';
 import { pageOpenGraph } from '@/constants/openGraph';
 import { Breadcrumbs } from '@/components/seo';
@@ -30,6 +32,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/**
+ * The products an article links to, once each, each with a photo the others do not use. On a phone the article
+ * should end in product cards like the rest of the site, not in a wall of text.
+ */
+function linkedProducts(sections: { productLinks?: { id: string; label: string }[] }[]) {
+  const seen = new Set<string>();
+  const usedImages = new Set<string>();
+  const cards: { id: string; label: string; image: string }[] = [];
+  for (const link of sections.flatMap((section) => section.productLinks ?? [])) {
+    if (seen.has(link.id)) continue;
+    // Two products can share a first photo (home and Turkish carpet do); take the next one.
+    const images = getProductById(link.id)?.images ?? [];
+    const image = images.find((img) => !usedImages.has(img)) ?? images[0];
+    if (!image) continue;
+    seen.add(link.id);
+    usedImages.add(image);
+    cards.push({ ...link, image });
+  }
+  return cards;
+}
+
 /** A table of contents only helps once an article has more than 4 sections. */
 const TOC_MIN_SECTIONS = 5;
 
@@ -38,6 +61,7 @@ export default async function ArticlePage({ params }: Props) {
   if (!article) notFound();
 
   const path = `/articles/${article.slug}`;
+  const products = linkedProducts(article.sections);
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -55,8 +79,8 @@ export default async function ArticlePage({ params }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <div className="min-h-screen bg-custom-background pt-20">
-        <article className="max-w-3xl mx-auto px-4 py-12 text-right" dir="rtl">
+      <div className="min-h-screen bg-custom-background pt-2 md:pt-20">
+        <article className="max-w-3xl mx-auto px-4 py-6 md:py-12 text-right" dir="rtl">
           <Breadcrumbs
             items={[
               { name: 'الرئيسية', href: '/' },
@@ -106,6 +130,35 @@ export default async function ArticlePage({ params }: Props) {
               )}
             </section>
           ))}
+
+          {products.length > 0 && (
+            <section className="mb-10">
+              <h2 className="text-2xl font-bold text-primary mb-4">منتجات ذكرناها في المقال</h2>
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+                {products.map((product) => (
+                  <Link
+                    key={product.id}
+                    href={`/products/${product.id}`}
+                    className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-md transition-shadow hover:shadow-xl"
+                  >
+                    <div className="relative aspect-square overflow-hidden">
+                      <Image
+                        src={product.image}
+                        alt={product.label}
+                        fill
+                        sizes="(max-width: 768px) 50vw, 250px"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="flex flex-1 flex-col p-3">
+                      <h3 className="font-bold text-gray-900">{product.label}</h3>
+                      <span className="mt-2 text-sm font-semibold text-blue-700">التفاصيل والصور</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
 
           <div className="text-center bg-carpet-gold p-8 rounded-lg">
             <h2 className="text-2xl font-bold text-white mb-6">تواصل مع المحل</h2>
