@@ -144,9 +144,9 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 - [x] T048 [US4] Add `answer`, `rooms` and `faq` to mokite (additions only, it brings contacts). Prepared on branch `relaunch/carpets-next`. Ship 10 Nov, then run dupcheck; if mokite is still over 30% against mafrushat-alsurye, rewrite its `detailedDescription` from the same facts on 17 Nov. *Shipped 10 Nov (e557ef0); dupcheck 47% (was 73%), so the 17 Nov rewrite stands.*
 - [x] T049 [US4] *Shipped 11 Nov, commit 18d1c5c.* Add `answer`, `rooms` and `faq` to mosque-carpets. Prepared on branch `relaunch/carpets-next`. Ship 11 Nov.
 - [x] T047b [US4] *Shipped 11 Nov, commit be26ed5:* the main menu lists /carpets, parquet, vinyl, /furniture, grass and contact on every page (it had «المتجر» to mokite, grass, contact and about). Desktop leaves «الرئيسية» out to fit one line.
-- [ ] T050 [US4] T036 for turky-mshager once its content lock ends on 18 Nov.
+- [x] T050 [US4] T036 for turky-mshager once its content lock ends on 18 Nov. Done 2026-11-18 (f48d0fb).
 - [ ] T051 [US4] Add `answer`, `rooms` and `faq` to office-flooring (additions only). After 18 Nov.
-- [ ] T052 [US4] After the title locks end (24 Nov), read 2 weeks of data and retarget the /carpets and mokite titles if «محلات موكيت في الرياض» or «موكيت الرياض» still sit below page one. Fix the home H1 «تبدأمن» typo when its content lock ends on 18 Nov.
+- [ ] T052 [US4] After the title locks end (24 Nov), read 2 weeks of data and retarget the /carpets and mokite titles if «محلات موكيت في الرياض» or «موكيت الرياض» still sit below page one. Fix the home H1 «تبدأمن» typo when its content lock ends on 18 Nov. H1 typo fixed 2026-11-18 (ccfd9da); title part still open.
 
 ---
 
