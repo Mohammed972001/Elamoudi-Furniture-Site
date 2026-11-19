@@ -71,7 +71,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
   Pages without the new fields must render as before.
 - [ ] T018 [US1] *The guard denies a new parket title because the page brings contacts. «معاينة وقياس مجاناً» in its description stays: the owner confirmed free inspection on 4 Nov.* Change the parket title and description only if its lock (2026-11-07) has passed by R2. Set new `titleLockedUntil` dates 21 days out and mirror them in `seo-log/elamoudi.md`.
 - [ ] T019 [US1] Ship R2 (W3), Run the rich-results test on the 3 pages and log the release, noting it as a landing-page change for the ads.
-- [ ] T020 [US1] Build the articles section: *Built on branch `relaunch/R3-articles` on 8 Nov, with no article yet: while the list is empty, /articles is a 404 and the sitemap, llms.txt and nav leave it out. Ships in R3 with T021.*
+- [x] T020 [US1] Build the articles section: *Shipped 19 Nov (360d89d, b13c915) with article 3 first, since the carpet push came before parquet; the article page ends in product cards and «مقالات» joined the menu (5d9807f).* *Built on branch `relaunch/R3-articles` on 8 Nov, with no article yet: while the list is empty, /articles is a 404 and the sitemap, llms.txt and nav leave it out. Ships in R3 with T021.*
   - `src/data/articles/types.ts` and `src/data/articles/index.ts`, following data-model «Article»;
   - `src/app/articles/page.tsx` (index);
   - `src/app/articles/[slug]/page.tsx` with `generateStaticParams`, `dynamicParams = false`, Article and Breadcrumb JSON-LD and a table of contents for more than 4 sections;
@@ -128,7 +128,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 
 - [ ] T036 [US4] Add `answer`, `rooms` (majlis, bedroom, guest room) and `faq` (5 questions from «موكيت تركي», «موكيت مشجر», «الوان موكيت مشجر») to turky-mshager and water-resistant-carpet in `src/data/products.ts`.
 - [ ] T037 [US4] Write a new title and description for turky-mshager that names «موكيت تركي مشجر بالرياض» and the colours and patterns, and set `titleLockedUntil` 21 days out. Ships in R3.
-- [ ] T038 [US4] Write article 3, «الموكيت التركي المشجر: تختار اللون والنقشة إزاي لكل غرفة», in `src/data/articles/turkish-carpet-colours.ts`. Check it against alsurye «اختيار-سجاد-المجلس» with dupcheck. Drafted early as `turkish-carpet-with-sofas.ts` (how to match the patterned carpet with the sofa or majlis, so it does not repeat the sister sites' colour article), commit f57a7fd on `relaunch/R3-articles`; not yet in the `articles` list. Ships when that branch is rebased on main and passes dupcheck.
+- [x] T038 [US4] Write article 3, «الموكيت التركي المشجر: تختار اللون والنقشة إزاي لكل غرفة», in `src/data/articles/turkish-carpet-colours.ts`. Check it against alsurye «اختيار-سجاد-المجلس» with dupcheck. Shipped 19 Nov as `turkish-carpet-with-sofas.ts` (how to match the patterned carpet with the sofa or majlis, so it does not repeat the sister sites' colour article), b13c915. Pre-publish dupcheck against every sister-site page: 0%. geo-check 88 → 93.
 
 **Checkpoint**: the Turkish carpet page and its article are live and linked.
 
