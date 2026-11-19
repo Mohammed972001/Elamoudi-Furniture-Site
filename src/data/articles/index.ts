@@ -1,12 +1,13 @@
 import type { Article } from './types';
 import { turkishCarpetWithSofas } from './turkish-carpet-with-sofas';
+import { carpetInstallationRiyadh } from './carpet-installation-riyadh';
 
 /**
  * Every live article, newest first. An article is added here only in the release
  * that ships it (specs/002-seo-geo-relaunch/plan.md, «Release calendar»).
  * While this list is empty, /articles returns 404 and nothing links to it.
  */
-export const articles: Article[] = [turkishCarpetWithSofas];
+export const articles: Article[] = [carpetInstallationRiyadh, turkishCarpetWithSofas];
 
 export const hasArticles = articles.length > 0;
 
