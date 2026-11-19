@@ -5,6 +5,7 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import FAQ from "@/components/seo/FAQ";
 import { BUSINESS } from "@/constants/business";
 import { productsDetails } from "@/data/products";
+import { articles } from "@/data/articles";
 
 /**
  * The carpet hub. It ranked around position 7 in February to April 2026 and about 19 by
@@ -97,6 +98,11 @@ const PLACES = [
 const waLink = `https://wa.me/${BUSINESS.phone.primary.replace("+", "")}?text=${encodeURIComponent(
   "مرحباً، أريد الاستفسار عن الموكيت"
 )}`;
+
+/** Articles that link to at least one of the carpet products above. */
+const carpetArticles = articles.filter((article) =>
+  article.sections.some((section) => section.productLinks?.some((link) => TYPES.some((t) => t.id === link.id))),
+);
 
 export default function CarpetsPage() {
   const home = priceOf("mokite");
@@ -261,6 +267,28 @@ export default function CarpetsPage() {
           <Link href="/products" className="font-semibold text-primary hover:underline">صفحة المنتجات</Link>.
         </p>
       </section>
+
+      {carpetArticles.length > 0 && (
+        <section className="mt-16">
+          <div className="mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">مقالات عن الموكيت</h2>
+            <div className="mx-auto h-1 w-20 rounded bg-blue-600" />
+          </div>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {carpetArticles.map((article) => (
+              <Link
+                key={article.slug}
+                href={`/articles/${article.slug}`}
+                className="group flex flex-col rounded-xl bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
+              >
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-700">{article.title}</h3>
+                <p className="flex-1 text-gray-700 leading-relaxed">{article.description}</p>
+                <span className="mt-3 font-semibold text-blue-700">اقرأ المقال</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <div className="mt-12">
         <FAQ items={faq} title="أسئلة عن الموكيت" />
