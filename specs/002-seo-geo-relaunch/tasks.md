@@ -126,7 +126,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 **Goal**: turn page-1 impressions on «موكيت تركي / مشجر» into clicks.
 **Independent test**: compare CTR on these queries for the 4 weeks before and after R3.
 
-- [ ] T036 [US4] Add `answer`, `rooms` (majlis, bedroom, guest room) and `faq` (5 questions from «موكيت تركي», «موكيت مشجر», «الوان موكيت مشجر») to turky-mshager and water-resistant-carpet in `src/data/products.ts`.
+- [x] T036 [US4] Add `answer`, `rooms` (majlis, bedroom, guest room) and `faq` (5 questions from «موكيت تركي», «موكيت مشجر», «الوان موكيت مشجر») to turky-mshager and water-resistant-carpet in `src/data/products.ts`. *turky-mshager via T050 (18 Nov). water-resistant-carpet 19 Nov (2cf6223): it is waterproof SPC parquet, so its spaces are bathroom, kitchen and dry rooms (→ parket), 5 FAQs, and the unverified anti-slip claim removed.*
 - [ ] T037 [US4] Write a new title and description for turky-mshager that names «موكيت تركي مشجر بالرياض» and the colours and patterns, and set `titleLockedUntil` 21 days out. Ships in R3.
 - [x] T038 [US4] Write article 3, «الموكيت التركي المشجر: تختار اللون والنقشة إزاي لكل غرفة», in `src/data/articles/turkish-carpet-colours.ts`. Check it against alsurye «اختيار-سجاد-المجلس» with dupcheck. Shipped 19 Nov as `turkish-carpet-with-sofas.ts` (how to match the patterned carpet with the sofa or majlis, so it does not repeat the sister sites' colour article), b13c915. Pre-publish dupcheck against every sister-site page: 0%. geo-check 88 → 93.
 
@@ -179,6 +179,7 @@ Nothing ships outside its release. Titles stay locked for 21 days.
 - **US3** needs T020 and T006 (Q1). **US4** needs T016–T017, because it reuses the product fields
   and rendering.
 - **US5** needs T001 and runs all through the 12 weeks.
+- **Unplanned, 19 Nov:** article «تركيب الموكيت في الرياض» (456199e) for installation queries with no page («فني تركيب موكيت بالرياض», «سعر تركيب موكيت غرف النوم الرياض»).
 - **Release order:** R1 = Phase 2 + T032; R2 = T016–T019; R3 = T020, T021, T035, T036, T037;
   R4 = T031, T034; R5 = T038; R6 = T022; R7 = T023; R8 = T033; R9–R10 = Phase 8.
 
